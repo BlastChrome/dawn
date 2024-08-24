@@ -1,0 +1,28 @@
+@use 'mx';
+// Heading
+
+:root{
+    --font-family-1: 'Jost', sans-serif; 
+// Body
+    --font-family-2: 'Montserrat', sans-serif; 
+
+    // Desktop Font size
+  --theme-font0-2: em-convert(200px, 16px);
+  --theme-font0-3: em-convert(40px, 16px);
+  --theme-font1-l: em-convert(150px, 16px);
+
+    // Mobile font size
+  --theme-mob-font0: em-convert(75px, 16px);
+  --theme-mob-font01: em-convert(60px, 16px);
+  --theme-mob-font01-1: em-convert(50px, 16px); 
+
+  // Colors 
+    --clr-red: #B52F2B; 
+    --clr-smoke: #333332;
+    --clr-yellow: #D8B658; 
+    --clr-black: #000000; 
+    --clr-grey: #F2F2F2;
+    --clr-white: #FFFFFF;
+}
+
+

@@ -1,0 +1,16 @@
+// theme.scss
+
+// Base styles
+@import 'base/resets';
+@import 'base/typography';
+// Utilities
+@import 'utilities/variables';
+@import 'utilities/mx';
+@import 'utilities/bootstrap';
+
+
+//Global styles
+@import 'globals/global';
+
+// Sections
+@import 'sections/featured-section';
