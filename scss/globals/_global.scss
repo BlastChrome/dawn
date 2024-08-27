@@ -1,8 +1,10 @@
 body{
     font-family: var(--font-family-2);
 }
-
 h1, h2, h3, h4, h5, h6{
     font-family: var(--font-family-1);
     text-transform: uppercase;
+}
+h1{
+    font-size: 70px;
 }

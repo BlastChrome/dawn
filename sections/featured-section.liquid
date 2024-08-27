@@ -4,10 +4,7 @@
       <div class="col-12 col-sm-6">
         <div class="textbox">
           <h1>{{ section.settings.title }}</h1>
-          <p>
-            Get the best sports apparel with the best offer that you can afford. Available for worldwide shipping and
-            free delivery order.
-          </p>
+          <p>{{ section.settings.featured_text }}</p>
           <a href="#" class="btn btn-primary">Shop Now</a>
         </div>
       </div>
@@ -23,6 +20,11 @@
       "type": "text",
       "id": "title",
       "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "featured_text",
+      "label": "Text"
     }
   ]
 }

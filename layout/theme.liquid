@@ -1,11 +1,10 @@
-<!doctype html>
 <html>
-  <head>
+<head>
     {{ content_for_header }}
-    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css">
-  </head>
-
-  <body>
-    {{ content_for_layout }}
-  </body>
+</head>
+<body>
+    <main id="main" role="main">
+        {{ content_for_layout }}
+    </main>
+</body>
 </html>

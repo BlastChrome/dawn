@@ -1,378 +1,316 @@
 @font-face {
-    font-family: 'Montserrat-BlackItalic';
-    src: url('{{ "Montserrat-BlackItalic.eot" | asset_url }}');
-    src: url('{{ "Montserrat-BlackItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-BlackItalic.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-BlackItalic.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-BlackItalic.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-BlackItalic.svg#Montserrat-BlackItalic" | asset_url }}') format('svg');
+    font-family: 'MontserratBlackItalic';
+    src: url('{{ "MontserratBlackItalic.eot" | asset_url }}');
+    src: url('{{ "MontserratBlackItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratBlackItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratBlackItalic.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratBlackItalic.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratBlackItalic.svg#MontserratBlackItalic" | asset_url }}') format('svg');
     font-weight: 900;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-Black';
-    src: url('{{ "Montserrat-Black.eot" | asset_url }}');
-    src: url('{{ "Montserrat-Black.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-Black.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-Black.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-Black.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-Black.svg#Montserrat-Black" | asset_url }}') format('svg');
+    font-family: 'MontserratBlack';
+    src: url('{{ "MontserratBlack.eot" | asset_url }}');
+    src: url('{{ "MontserratBlack.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratBlack.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratBlack.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratBlack.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratBlack.svg#MontserratBlack" | asset_url }}') format('svg');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-Bold';
-    src: url('{{ "Montserrat-Bold.eot" | asset_url }}');
-    src: url('{{ "Montserrat-Bold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-Bold.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-Bold.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-Bold.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-Bold.svg#Montserrat-Bold" | asset_url }}') format('svg');
+    font-family: 'MontserratBold';
+    src: url('{{ "MontserratBold.eot" | asset_url }}');
+    src: url('{{ "MontserratBold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratBold.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratBold.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratBold.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratBold.svg#MontserratBold" | asset_url }}') format('svg');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-ExtraBold';
-    src: url('{{ "Montserrat-ExtraBold.eot" | asset_url }}');
-    src: url('{{ "Montserrat-ExtraBold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-ExtraBold.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-ExtraBold.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-ExtraBold.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-ExtraBold.svg#Montserrat-ExtraBold" | asset_url }}') format('svg');
+    font-family: 'MontserratExtraBold';
+    src: url('{{ "MontserratExtraBold.eot" | asset_url }}');
+    src: url('{{ "MontserratExtraBold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratExtraBold.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratExtraBold.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratExtraBold.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratExtraBold.svg#MontserratExtraBold" | asset_url }}') format('svg');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-ExtraBoldItalic';
-    src: url('{{ "Montserrat-ExtraBoldItalic.eot" | asset_url }}');
-    src: url('{{ "Montserrat-ExtraBoldItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-ExtraBoldItalic.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-ExtraBoldItalic.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-ExtraBoldItalic.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-ExtraBoldItalic.svg#Montserrat-ExtraBoldItalic" | asset_url }}') format('svg');
+    font-family: 'MontserratExtraBoldItalic';
+    src: url('{{ "MontserratExtraBoldItalic.eot" | asset_url }}');
+    src: url('{{ "MontserratExtraBoldItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratExtraBoldItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratExtraBoldItalic.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratExtraBoldItalic.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratExtraBoldItalic.svg#MontserratExtraBoldItalic" | asset_url }}') format('svg');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-BoldItalic';
-    src: url('{{ "Montserrat-BoldItalic.eot" | asset_url }}');
-    src: url('{{ "Montserrat-BoldItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-BoldItalic.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-BoldItalic.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-BoldItalic.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-BoldItalic.svg#Montserrat-BoldItalic" | asset_url }}') format('svg');
+    font-family: 'MontserratBoldItalic';
+    src: url('{{ "MontserratBoldItalic.eot" | asset_url }}');
+    src: url('{{ "MontserratBoldItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratBoldItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratBoldItalic.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratBoldItalic.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratBoldItalic.svg#MontserratBoldItalic" | asset_url }}') format('svg');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-ExtraLight';
-    src: url('{{ "Montserrat-ExtraLight.eot" | asset_url }}');
-    src: url('{{ "Montserrat-ExtraLight.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-ExtraLight.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-ExtraLight.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-ExtraLight.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-ExtraLight.svg#Montserrat-ExtraLight" | asset_url }}') format('svg');
+    font-family: 'MontserratExtraLight';
+    src: url('{{ "MontserratExtraLight.eot" | asset_url }}');
+    src: url('{{ "MontserratExtraLight.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratExtraLight.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratExtraLight.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratExtraLight.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratExtraLight.svg#MontserratExtraLight" | asset_url }}') format('svg');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-ExtraLightItalic';
-    src: url('{{ "Montserrat-ExtraLightItalic.eot" | asset_url }}');
-    src: url('{{ "Montserrat-ExtraLightItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-ExtraLightItalic.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-ExtraLightItalic.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-ExtraLightItalic.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-ExtraLightItalic.svg#Montserrat-ExtraLightItalic" | asset_url }}') format('svg');
+    font-family: 'MontserratExtraLightItalic';
+    src: url('{{ "MontserratExtraLightItalic.eot" | asset_url }}');
+    src: url('{{ "MontserratExtraLightItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratExtraLightItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratExtraLightItalic.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratExtraLightItalic.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratExtraLightItalic.svg#MontserratExtraLightItalic" | asset_url }}') format('svg');
     font-weight: 200;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-Italic';
-    src: url('{{ "Montserrat-Italic.eot" | asset_url }}');
-    src: url('{{ "Montserrat-Italic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-Italic.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-Italic.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-Italic.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-Italic.svg#Montserrat-Italic" | asset_url }}') format('svg');
+    font-family: 'MontserratItalic';
+    src: url('{{ "MontserratItalic.eot" | asset_url }}');
+    src: url('{{ "MontserratItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratItalic.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratItalic.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratItalic.svg#MontserratItalic" | asset_url }}') format('svg');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-Light';
-    src: url('{{ "Montserrat-Light.eot" | asset_url }}');
-    src: url('{{ "Montserrat-Light.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-Light.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-Light.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-Light.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-Light.svg#Montserrat-Light" | asset_url }}') format('svg');
+    font-family: 'MontserratLight';
+    src: url('{{ "MontserratLight.eot" | asset_url }}');
+    src: url('{{ "MontserratLight.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratLight.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratLight.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratLight.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratLight.svg#MontserratLight" | asset_url }}') format('svg');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Montserrat-LightItalic';
-    src: url('{{ "Montserrat-LightItalic.eot" | asset_url }}');
-    src: url('{{ "Montserrat-LightItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
-        url('{{ "Montserrat-LightItalic.woff2" | asset_url }}') format('woff2'),
-        url('{{ "Montserrat-LightItalic.woff" | asset_url }}') format('woff'),
-        url('{{ "Montserrat-LightItalic.ttf" | asset_url }}') format('truetype'),
-        url('{{ "Montserrat-LightItalic.svg#Montserrat-LightItalic" | asset_url }}') format('svg');
+    font-family: 'MontserratLightItalic';
+    src: url('{{ "MontserratLightItalic.eot" | asset_url }}');
+    src: url('{{ "MontserratLightItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratLightItalic.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratLightItalic.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratLightItalic.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratLightItalic.svg#MontserratLightItalic" | asset_url }}') format('svg');
     font-weight: 300;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('Jost-Black.eot');
-    src: url('Jost-Black.eot?#iefix') format('embedded-opentype'),
-        url('Jost-Black.woff2') format('woff2'),
-        url('Jost-Black.woff') format('woff'),
-        url('Jost-Black.ttf') format('truetype'),
-        url('Jost-Black.svg#Jost-Black') format('svg');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-BlackItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-BlackItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-BlackItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-BlackItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-BlackItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-BlackItalic.svg#Jost-BlackItalic" | asset_url}}') format('svg');
-    font-weight: 900;
+    font-family: 'MontserratRegular';
+    src: url('{{ "MontserratRegular.eot" | asset_url }}');
+    src: url('{{ "MontserratRegular.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "MontserratRegular.woff2" | asset_url }}') format('woff2'),
+        url('{{ "MontserratRegular.woff" | asset_url }}') format('woff'),
+        url('{{ "MontserratRegular.ttf" | asset_url }}') format('truetype'),
+        url('{{ "MontserratRegular.svg#MontserratRegular" | asset_url }}') format('svg');
+    font-weight: 300;
     font-style: italic;
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-ExtraBold.eot" | asset_url}}');
-    src: url('{{ "Jost-ExtraBold.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-ExtraBold.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-ExtraBold.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-ExtraBold.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-ExtraBold.svg#Jost-ExtraBold" | asset_url}}') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
 
+// Jost
 @font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-Bold.eot" | asset_url}}');
-    src: url('{{ "Jost-Bold.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-Bold.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-Bold.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-Bold.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-Bold.svg#Jost-Bold" | asset_url}}') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-BoldItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-BoldItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-BoldItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-BoldItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-BoldItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-BoldItalic.svg#Jost-BoldItalic" | asset_url}}') format('svg');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-ExtraLightItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-ExtraLightItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-ExtraLightItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-ExtraLightItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-ExtraLightItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-ExtraLightItalic.svg#Jost-ExtraLightItalic" | asset_url}}') format('svg');
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-ExtraLight.eot" | asset_url}}');
-    src: url('{{ "Jost-ExtraLight.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-ExtraLight.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-ExtraLight.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-ExtraLight.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-ExtraLight.svg#Jost-ExtraLight" | asset_url}}') format('svg');
+    font-family: 'JostExtraLight';
+    src: url('{{ "JostExtraLight.eot" | asset_url }}');
+    src: url('{{ "JostExtraLight.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostExtraLight.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostExtraLight.woff" | asset_url }}') format('woff'),
+         url('{{ "JostExtraLight.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostExtraLight.svg#JostExtraLight" | asset_url }}') format('svg');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-ExtraBoldItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-ExtraBoldItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-ExtraBoldItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-ExtraBoldItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-ExtraBoldItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-ExtraBoldItalic.svg#Jost-ExtraBoldItalic" | asset_url}}') format('svg');
+    font-family: 'JostBlackItalic';
+    src: url('{{ "JostBlackItalic.eot" | asset_url }}');
+    src: url('{{ "JostBlackItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostBlackItalic.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostBlackItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "JostBlackItalic.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostBlackItalic.svg#JostBlackItalic" | asset_url }}') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JostExtraBold';
+    src: url('{{ "JostExtraBold.eot" | asset_url }}');
+    src: url('{{ "JostExtraBold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostExtraBold.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostExtraBold.woff" | asset_url }}') format('woff'),
+         url('{{ "JostExtraBold.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostExtraBold.svg#JostExtraBold" | asset_url }}') format('svg');
     font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-LightItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-LightItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-LightItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-LightItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-LightItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-LightItalic.svg#Jost-LightItalic" | asset_url}}') format('svg');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-Italic.eot" | asset_url}}');
-    src: url('{{ "Jost-Italic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-Italic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-Italic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-Italic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-Italic.svg#Jost-Italic" | asset_url}}') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-Light.eot" | asset_url}}');
-    src: url('{{ "Jost-Light.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-Light.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-Light.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-Light.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-Light.svg#Jost-Light" | asset_url}}') format('svg');
-    font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-Medium.eot" | asset_url}}');
-    src: url('{{ "Jost-Medium.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-Medium.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-Medium.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-Medium.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-Medium.svg#Jost-Medium" | asset_url}}') format('svg');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-Regular.eot" | asset_url}}');
-    src: url('{{ "Jost-Regular.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-Regular.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-Regular.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-Regular.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-Regular.svg#Jost-Regular" | asset_url}}') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-MediumItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-MediumItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-MediumItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-MediumItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-MediumItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-MediumItalic.svg#Jost-MediumItalic" | asset_url}}') format('svg');
+    font-family: 'JostMediumItalic';
+    src: url('{{ "JostMediumItalic.eot" | asset_url }}');
+    src: url('{{ "JostMediumItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostMediumItalic.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostMediumItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "JostMediumItalic.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostMediumItalic.svg#JostMediumItalic" | asset_url }}') format('svg');
     font-weight: 500;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-SemiBold.eot" | asset_url}}');
-    src: url('{{ "Jost-SemiBold.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-SemiBold.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-SemiBold.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-SemiBold.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-SemiBold.svg#Jost-SemiBold" | asset_url}}') format('svg');
-    font-weight: 600;
-    font-style: normal;
+    font-family: 'JostLightItalic';
+    src: url('{{ "JostLightItalic.eot" | asset_url }}');
+    src: url('{{ "JostLightItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostLightItalic.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostLightItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "JostLightItalic.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostLightItalic.svg#JostLightItalic" | asset_url }}') format('svg');
+    font-weight: 300;
+    font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-Thin.eot" | asset_url}}');
-    src: url('{{ "Jost-Thin.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-Thin.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-Thin.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-Thin.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-Thin.svg#Jost-Thin" | asset_url}}') format('svg');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-ThinItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-ThinItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-ThinItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-ThinItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-ThinItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-ThinItalic.svg#Jost-ThinItalic" | asset_url}}') format('svg');
+    font-family: 'JostThinItalic';
+    src: url('{{ "JostThinItalic.eot" | asset_url }}');
+    src: url('{{ "JostThinItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostThinItalic.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostThinItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "JostThinItalic.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostThinItalic.svg#JostThinItalic" | asset_url }}') format('svg');
     font-weight: 100;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Jost';
-    src: url('{{ "Jost-SemiBoldItalic.eot" | asset_url}}');
-    src: url('{{ "Jost-SemiBoldItalic.eot?#iefix" | asset_url}}') format('embedded-opentype'),
-        url('{{ "Jost-SemiBoldItalic.woff2" | asset_url}}') format('woff2'),
-        url('{{ "Jost-SemiBoldItalic.woff" | asset_url}}') format('woff'),
-        url('{{ "Jost-SemiBoldItalic.ttf" | asset_url}}') format('truetype'),
-        url('{{ "Jost-SemiBoldItalic.svg#Jost-SemiBoldItalic" | asset_url}}') format('svg');
+    font-family: 'JostMedium';
+    src: url('{{ "JostMedium.eot" | asset_url }}');
+    src: url('{{ "JostMedium.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostMedium.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostMedium.woff" | asset_url }}') format('woff'),
+         url('{{ "JostMedium.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostMedium.svg#JostMedium" | asset_url }}') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JostThin';
+    src: url('{{ "JostThin.eot" | asset_url }}');
+    src: url('{{ "JostThin.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostThin.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostThin.woff" | asset_url }}') format('woff'),
+         url('{{ "JostThin.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostThin.svg#JostThin" | asset_url }}') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JostRegular';
+    src: url('{{ "JostRegular.eot" | asset_url }}');
+    src: url('{{ "JostRegular.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostRegular.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostRegular.woff" | asset_url }}') format('woff'),
+         url('{{ "JostRegular.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostRegular.svg#JostRegular" | asset_url }}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JostSemiBold';
+    src: url('{{ "JostSemiBold.eot" | asset_url }}');
+    src: url('{{ "JostSemiBold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostSemiBold.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostSemiBold.woff" | asset_url }}') format('woff'),
+         url('{{ "JostSemiBold.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostSemiBold.svg#JostSemiBold" | asset_url }}') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JostSemiBoldItalic';
+    src: url('{{ "JostSemiBoldItalic.eot" | asset_url }}');
+    src: url('{{ "JostSemiBoldItalic.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostSemiBoldItalic.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostSemiBoldItalic.woff" | asset_url }}') format('woff'),
+         url('{{ "JostSemiBoldItalic.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostSemiBoldItalic.svg#JostSemiBoldItalic" | asset_url }}') format('svg');
     font-weight: 600;
     font-style: italic;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'JostBold';
+    src: url('{{ "JostBold.eot" | asset_url }}');
+    src: url('{{ "JostBold.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+         url('{{ "JostBold.woff2" | asset_url }}') format('woff2'),
+         url('{{ "JostBold.woff" | asset_url }}') format('woff'),
+         url('{{ "JostBold.ttf" | asset_url }}') format('truetype'),
+         url('{{ "JostBold.svg#JostBold" | asset_url }}') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 
