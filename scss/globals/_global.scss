@@ -1,10 +1,14 @@
+@use '../utilities/mx' as mx;
 body{
     font-family: var(--font-family-2);
+    color: var(--clr-smoke-2);
 }
 h1, h2, h3, h4, h5, h6{
     font-family: var(--font-family-1);
+    color: var(--clr-smoke-2);
     text-transform: uppercase;
+    margin-bottom: 20px;
 }
 h1{
-    font-size: 70px;
+    @include mx.font-source-sans(--font-family-1,--theme-font-1,--clr-smoke-2,false,80px);
 }

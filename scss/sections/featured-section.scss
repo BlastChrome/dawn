@@ -1,6 +1,14 @@
-.featured-section {
-  padding-top: 273px;
-}
+@use '../utilities/mx' as mx;
 
-.featured-section h1 {
+.featured-section {
+  padding: 150px 0;
+  background-color: var(--clr-grey);
+
+  @include mx.mq('tablet-wide',min){
+    padding: 100px;
+    padding-top: 200px;
+  }
+  a.button{
+    margin-top: 40px;
+  }
 }

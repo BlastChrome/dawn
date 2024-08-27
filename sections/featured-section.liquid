@@ -1,11 +1,11 @@
 <section class="featured-section" id="1-block">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-lg-6">
         <div class="textbox">
-          <h1>{{ section.settings.title }}</h1>
+          <h1>{{ section.settings.featured_title }}</h1>
           <p>{{ section.settings.featured_text }}</p>
-          <a href="#" class="btn btn-primary">Shop Now</a>
+          {% render 'button', button_text: 'Shop Now', button_link: '#', button_class: 'button--primary' %}
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "title",
+      "id": "featured_title",
       "label": "Title"
     },
     {
