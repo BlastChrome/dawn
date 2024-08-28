@@ -7,17 +7,36 @@
 // Body
     --font-family-2: 'MontserratRegular', sans-serif; 
     --font-family-2-1: 'MontserratBold', sans-serif; 
+  // Heading font sizes 
+  --theme-font-h1-mob-1: em-convert(45px, 16px); 
+  --theme-font-h1-mob-2: em-convert(50px, 16px); 
+  --theme-font-h1-mob-3: em-convert(55px, 16px);
+  --theme-font-h1-tab-1: em-convert(60px, 16px);
+  --theme-font-h1-tab-2: em-convert(65px, 16px); 
+  --theme-font-h1-tab-3: em-convert(70px, 16px); 
 
-    // Desktop Font size
-  --theme-font-1: em-convert(70px, 16px);
-  --theme-font-0-3: em-convert(40px, 16px);
-  --theme-font-1-l: em-convert(150px, 16px);
-  --theme-font-2: em-convert(16px, 16px);
 
-    // Mobile font size
-  --theme-mob-font0: em-convert(75px, 16px);
-  --theme-mob-font01: em-convert(60px, 16px);
-  --theme-mob-font01-1: em-convert(50px, 16px); 
+  --theme-font-h2-mob-1: em-convert(20px, 16px);
+  --theme-font-h2-mob-2: em-convert(30px, 16px);
+  --theme-font-h2-mob-3: em-convert(40px, 16px);
+  --theme-font-h2-tab-1: em-convert(45px, 16px);
+  --theme-font-h2-tab-2: em-convert(50px, 16px);
+  --theme-font-h2-tab-3: em-convert(60px, 16px);  
+
+
+  --theme-font-h3-mob-1: em-convert(20px, 16px);
+  --theme-font-h3-mob-2: em-convert(30px, 16px);
+  --theme-font-h3-mob-3: em-convert(40px, 16px);
+  --theme-font-h3-tab-1: em-convert(40px, 16px);
+  --theme-font-h3-tab-2: em-convert(50px, 16px);
+  --theme-font-h3-tab-3: em-convert(60px, 16px); 
+
+
+  --theme-font-p-mob-1: em-convert(16px, 16px); 
+  --theme-font-p-mob-2: em-convert(18px, 16px);
+  --theme-font-p-mob-3: em-convert(20px, 16px);
+
+
 
   // Colors 
     --clr-red: #B52F2B; 

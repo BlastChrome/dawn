@@ -4,11 +4,47 @@
   padding: 150px 0;
   background-color: var(--clr-grey);
 
-  @include mx.mq('tablet-wide',min){
-    padding: 100px;
+  @include mx.mq('desktop-medium'){
     padding-top: 200px;
   }
+
+  @include mx.mq('desktop-medium'){
+    padding-top: 516px; //placeholder value
+  }
+
+  .textbox{
+    text-align: center;
+    @include mx.mq('tablet-wide'){
+      text-align: left;
+    }
+  }
+
+  h1{
+    max-width: 500px; 
+    margin: 0 auto 20px;
+
+    @include mx.mq('tablet-wide'){
+      margin: 0 0 20px;
+    } 
+
+    @include mx.mq('desktop-medium'){
+      max-width: none;
+    }
+  }
+
+  p{
+    margin-bottom: 20px;
+    @include mx.mq('tablet-wide'){
+      max-width: 461px;
+      margin-bottom: 64px;
+    }
+  }
+
   a.button{
-    margin-top: 40px;
+    margin: 0 auto 20px; 
+    @include mx.mq('tablet-wide'){
+      margin-top: 64px;
+      margin-left: 0;
+    }
   }
 }
