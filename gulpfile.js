@@ -15,7 +15,7 @@ const paths = {
 gulp.task('styles', function () {
   return gulp
     .src(paths.scss) // Source SCSS files
-    .pipe(sourcemaps.init()) // Initialize sourcemaps
+    .pipe(sourcemaps.init()) // Initialize sourcemaps before transformations
     .pipe(sass().on('error', sass.logError)) // Compile SCSS and handle errors
     .pipe(
       postcss([
@@ -27,8 +27,8 @@ gulp.task('styles', function () {
         cascade: false, // Disable the cascade of prefixes
       })
     )
-    .pipe(sourcemaps.write('.')) // Write sourcemaps
     .pipe(concat('theme.css.liquid')) // Concatenate all CSS into theme.css
+    .pipe(sourcemaps.write('.')) // Write sourcemaps after all transformations
     .pipe(gulp.dest(paths.css)); // Output to ./assets/
 });
 
