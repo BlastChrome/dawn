@@ -68,198 +68,6 @@ h6 {
 }
 
 /* Add this to theme.css or styles.css */
-@font-face {
-  font-family: "MontserratBlackItalic";
-  src: url('{{ "MontserratBlackItalic.eot" | asset_url }}');
-  src: url('{{ "MontserratBlackItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratBlackItalic.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratBlackItalic.woff" | asset_url }}') format("woff"), url('{{ "MontserratBlackItalic.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratBlackItalic.svg#MontserratBlackItalic" | asset_url }}') format("svg");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratBlack";
-  src: url('{{ "MontserratBlack.eot" | asset_url }}');
-  src: url('{{ "MontserratBlack.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratBlack.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratBlack.woff" | asset_url }}') format("woff"), url('{{ "MontserratBlack.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratBlack.svg#MontserratBlack" | asset_url }}') format("svg");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratBold";
-  src: url('{{ "MontserratBold.eot" | asset_url }}');
-  src: url('{{ "MontserratBold.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratBold.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratBold.woff" | asset_url }}') format("woff"), url('{{ "MontserratBold.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratBold.svg#MontserratBold" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratExtraBold";
-  src: url('{{ "MontserratExtraBold.eot" | asset_url }}');
-  src: url('{{ "MontserratExtraBold.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratExtraBold.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratExtraBold.woff" | asset_url }}') format("woff"), url('{{ "MontserratExtraBold.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratExtraBold.svg#MontserratExtraBold" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratExtraBoldItalic";
-  src: url('{{ "MontserratExtraBoldItalic.eot" | asset_url }}');
-  src: url('{{ "MontserratExtraBoldItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratExtraBoldItalic.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratExtraBoldItalic.woff" | asset_url }}') format("woff"), url('{{ "MontserratExtraBoldItalic.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratExtraBoldItalic.svg#MontserratExtraBoldItalic" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratBoldItalic";
-  src: url('{{ "MontserratBoldItalic.eot" | asset_url }}');
-  src: url('{{ "MontserratBoldItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratBoldItalic.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratBoldItalic.woff" | asset_url }}') format("woff"), url('{{ "MontserratBoldItalic.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratBoldItalic.svg#MontserratBoldItalic" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratExtraLight";
-  src: url('{{ "MontserratExtraLight.eot" | asset_url }}');
-  src: url('{{ "MontserratExtraLight.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratExtraLight.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratExtraLight.woff" | asset_url }}') format("woff"), url('{{ "MontserratExtraLight.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratExtraLight.svg#MontserratExtraLight" | asset_url }}') format("svg");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratExtraLightItalic";
-  src: url('{{ "MontserratExtraLightItalic.eot" | asset_url }}');
-  src: url('{{ "MontserratExtraLightItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratExtraLightItalic.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratExtraLightItalic.woff" | asset_url }}') format("woff"), url('{{ "MontserratExtraLightItalic.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratExtraLightItalic.svg#MontserratExtraLightItalic" | asset_url }}') format("svg");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratItalic";
-  src: url('{{ "MontserratItalic.eot" | asset_url }}');
-  src: url('{{ "MontserratItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratItalic.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratItalic.woff" | asset_url }}') format("woff"), url('{{ "MontserratItalic.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratItalic.svg#MontserratItalic" | asset_url }}') format("svg");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratLight";
-  src: url('{{ "MontserratLight.eot" | asset_url }}');
-  src: url('{{ "MontserratLight.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratLight.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratLight.woff" | asset_url }}') format("woff"), url('{{ "MontserratLight.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratLight.svg#MontserratLight" | asset_url }}') format("svg");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratLightItalic";
-  src: url('{{ "MontserratLightItalic.eot" | asset_url }}');
-  src: url('{{ "MontserratLightItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratLightItalic.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratLightItalic.woff" | asset_url }}') format("woff"), url('{{ "MontserratLightItalic.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratLightItalic.svg#MontserratLightItalic" | asset_url }}') format("svg");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "MontserratRegular";
-  src: url('{{ "MontserratRegular.eot" | asset_url }}');
-  src: url('{{ "MontserratRegular.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "MontserratRegular.woff2" | asset_url }}') format("woff2"), url('{{ "MontserratRegular.woff" | asset_url }}') format("woff"), url('{{ "MontserratRegular.ttf" | asset_url }}') format("truetype"), url('{{ "MontserratRegular.svg#MontserratRegular" | asset_url }}') format("svg");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostExtraLight";
-  src: url('{{ "JostExtraLight.eot" | asset_url }}');
-  src: url('{{ "JostExtraLight.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostExtraLight.woff2" | asset_url }}') format("woff2"), url('{{ "JostExtraLight.woff" | asset_url }}') format("woff"), url('{{ "JostExtraLight.ttf" | asset_url }}') format("truetype"), url('{{ "JostExtraLight.svg#JostExtraLight" | asset_url }}') format("svg");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostBlackItalic";
-  src: url('{{ "JostBlackItalic.eot" | asset_url }}');
-  src: url('{{ "JostBlackItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostBlackItalic.woff2" | asset_url }}') format("woff2"), url('{{ "JostBlackItalic.woff" | asset_url }}') format("woff"), url('{{ "JostBlackItalic.ttf" | asset_url }}') format("truetype"), url('{{ "JostBlackItalic.svg#JostBlackItalic" | asset_url }}') format("svg");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostExtraBold";
-  src: url('{{ "JostExtraBold.eot" | asset_url }}');
-  src: url('{{ "JostExtraBold.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostExtraBold.woff2" | asset_url }}') format("woff2"), url('{{ "JostExtraBold.woff" | asset_url }}') format("woff"), url('{{ "JostExtraBold.ttf" | asset_url }}') format("truetype"), url('{{ "JostExtraBold.svg#JostExtraBold" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostMediumItalic";
-  src: url('{{ "JostMediumItalic.eot" | asset_url }}');
-  src: url('{{ "JostMediumItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostMediumItalic.woff2" | asset_url }}') format("woff2"), url('{{ "JostMediumItalic.woff" | asset_url }}') format("woff"), url('{{ "JostMediumItalic.ttf" | asset_url }}') format("truetype"), url('{{ "JostMediumItalic.svg#JostMediumItalic" | asset_url }}') format("svg");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostLightItalic";
-  src: url('{{ "JostLightItalic.eot" | asset_url }}');
-  src: url('{{ "JostLightItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostLightItalic.woff2" | asset_url }}') format("woff2"), url('{{ "JostLightItalic.woff" | asset_url }}') format("woff"), url('{{ "JostLightItalic.ttf" | asset_url }}') format("truetype"), url('{{ "JostLightItalic.svg#JostLightItalic" | asset_url }}') format("svg");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostThinItalic";
-  src: url('{{ "JostThinItalic.eot" | asset_url }}');
-  src: url('{{ "JostThinItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostThinItalic.woff2" | asset_url }}') format("woff2"), url('{{ "JostThinItalic.woff" | asset_url }}') format("woff"), url('{{ "JostThinItalic.ttf" | asset_url }}') format("truetype"), url('{{ "JostThinItalic.svg#JostThinItalic" | asset_url }}') format("svg");
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostMedium";
-  src: url('{{ "JostMedium.eot" | asset_url }}');
-  src: url('{{ "JostMedium.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostMedium.woff2" | asset_url }}') format("woff2"), url('{{ "JostMedium.woff" | asset_url }}') format("woff"), url('{{ "JostMedium.ttf" | asset_url }}') format("truetype"), url('{{ "JostMedium.svg#JostMedium" | asset_url }}') format("svg");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostThin";
-  src: url('{{ "JostThin.eot" | asset_url }}');
-  src: url('{{ "JostThin.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostThin.woff2" | asset_url }}') format("woff2"), url('{{ "JostThin.woff" | asset_url }}') format("woff"), url('{{ "JostThin.ttf" | asset_url }}') format("truetype"), url('{{ "JostThin.svg#JostThin" | asset_url }}') format("svg");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostRegular";
-  src: url('{{ "JostRegular.eot" | asset_url }}');
-  src: url('{{ "JostRegular.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostRegular.woff2" | asset_url }}') format("woff2"), url('{{ "JostRegular.woff" | asset_url }}') format("woff"), url('{{ "JostRegular.ttf" | asset_url }}') format("truetype"), url('{{ "JostRegular.svg#JostRegular" | asset_url }}') format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostSemiBold";
-  src: url('{{ "JostSemiBold.eot" | asset_url }}');
-  src: url('{{ "JostSemiBold.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostSemiBold.woff2" | asset_url }}') format("woff2"), url('{{ "JostSemiBold.woff" | asset_url }}') format("woff"), url('{{ "JostSemiBold.ttf" | asset_url }}') format("truetype"), url('{{ "JostSemiBold.svg#JostSemiBold" | asset_url }}') format("svg");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostSemiBoldItalic";
-  src: url('{{ "JostSemiBoldItalic.eot" | asset_url }}');
-  src: url('{{ "JostSemiBoldItalic.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostSemiBoldItalic.woff2" | asset_url }}') format("woff2"), url('{{ "JostSemiBoldItalic.woff" | asset_url }}') format("woff"), url('{{ "JostSemiBoldItalic.ttf" | asset_url }}') format("truetype"), url('{{ "JostSemiBoldItalic.svg#JostSemiBoldItalic" | asset_url }}') format("svg");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JostBold";
-  src: url('{{ "JostBold.eot" | asset_url }}');
-  src: url('{{ "JostBold.eot?#iefix" | asset_url }}') format("embedded-opentype"), url('{{ "JostBold.woff2" | asset_url }}') format("woff2"), url('{{ "JostBold.woff" | asset_url }}') format("woff"), url('{{ "JostBold.ttf" | asset_url }}') format("truetype"), url('{{ "JostBold.svg#JostBold" | asset_url }}') format("svg");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
 /**
 * Convert PX to EM
 *
@@ -4420,6 +4228,57 @@ h6 {
   }
 }
 
+.animation--rotate360 {
+  animation-name: rotate360;
+  animation-duration: 45s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.animation--shinkGrow {
+  animation-name: shrinkGrow;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.animation--growShrink {
+  animation-name: growShrink;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes shrinkGrow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes growShrink {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}
 /**
 * Convert PX to EM
 *
@@ -4603,11 +4462,11 @@ a.button--secondary:hover {
 @media only screen and (min-width: 992px) {
   .featured-section p {
     max-width: 461px;
-    margin-bottom: 64px;
+    margin-bottom: 65px;
   }
 }
 .featured-section a.button {
-  margin: 0 auto 20px;
+  margin: 0 auto 50px;
 }
 @media only screen and (min-width: 992px) {
   .featured-section a.button {
@@ -4618,26 +4477,29 @@ a.button--secondary:hover {
 .featured-section__slider-wrapper {
   position: relative;
 }
-.featured-section__circle {
+.featured-section__circle-wrapper {
+  display: flex;
+  width: 100%;
   position: absolute;
-  cursor: pointer;
-  z-index: 0;
+  left: 0;
+  transform-origin: center;
+  margin: 0 auto;
+  top: 30%;
 }
 @media only screen and (min-width: 992px) {
-  .featured-section__circle--big {
-    width: 529px;
-    height: auto;
-    bottom: 160px;
-    left: 26px;
+  .featured-section__circle-wrapper {
+    top: 10%;
   }
 }
-@media only screen and (min-width: 992px) {
-  .featured-section__circle--small {
-    width: 330px;
-    height: auto;
-    bottom: 93px;
-    right: 68px;
-  }
+.featured-section__circle {
+  width: 50%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  transform-origin: center;
+}
+.featured-section__circle--small {
+  transform: scale(0.5);
 }
 .featured-section__slider {
   margin-top: 40px;
@@ -4653,6 +4515,18 @@ a.button--secondary:hover {
 .featured-section__slider .slide img {
   width: 100%;
   height: auto;
+  max-width: 550px;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 992px) {
+  .featured-section__slider .slide img {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .featured-section__slider .slide img {
+    max-width: none;
+  }
 }
 /**
 * Convert PX to EM
@@ -4774,11 +4648,11 @@ a.button--secondary:hover {
 @media only screen and (min-width: 992px) {
   .featured-section p {
     max-width: 461px;
-    margin-bottom: 64px;
+    margin-bottom: 65px;
   }
 }
 .featured-section a.button {
-  margin: 0 auto 20px;
+  margin: 0 auto 50px;
 }
 @media only screen and (min-width: 992px) {
   .featured-section a.button {
@@ -4789,26 +4663,29 @@ a.button--secondary:hover {
 .featured-section__slider-wrapper {
   position: relative;
 }
-.featured-section__circle {
+.featured-section__circle-wrapper {
+  display: flex;
+  width: 100%;
   position: absolute;
-  cursor: pointer;
-  z-index: 0;
+  left: 0;
+  transform-origin: center;
+  margin: 0 auto;
+  top: 30%;
 }
 @media only screen and (min-width: 992px) {
-  .featured-section__circle--big {
-    width: 529px;
-    height: auto;
-    bottom: 160px;
-    left: 26px;
+  .featured-section__circle-wrapper {
+    top: 10%;
   }
 }
-@media only screen and (min-width: 992px) {
-  .featured-section__circle--small {
-    width: 330px;
-    height: auto;
-    bottom: 93px;
-    right: 68px;
-  }
+.featured-section__circle {
+  width: 50%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  transform-origin: center;
+}
+.featured-section__circle--small {
+  transform: scale(0.5);
 }
 .featured-section__slider {
   margin-top: 40px;
@@ -4824,6 +4701,18 @@ a.button--secondary:hover {
 .featured-section__slider .slide img {
   width: 100%;
   height: auto;
+  max-width: 550px;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 992px) {
+  .featured-section__slider .slide img {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .featured-section__slider .slide img {
+    max-width: none;
+  }
 }
 /**
 * Convert PX to EM
@@ -4842,3 +4731,4 @@ a.button--secondary:hover {
     max-width: 1544px;
   }
 }
+/*# sourceMappingURL=theme.css.map */

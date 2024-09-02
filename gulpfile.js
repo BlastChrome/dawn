@@ -27,7 +27,7 @@ gulp.task('styles', function () {
         cascade: false, // Disable the cascade of prefixes
       })
     )
-    .pipe(concat('theme.css.liquid')) // Concatenate all CSS into theme.css
+    .pipe(concat('theme.css')) // Concatenate all CSS into theme.css
     .pipe(sourcemaps.write('.')) // Write sourcemaps after all transformations
     .pipe(gulp.dest(paths.css)); // Output to ./assets/
 });
