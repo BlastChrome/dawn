@@ -4,11 +4,15 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify'); // Minifies JS files
 
 // File paths
 const paths = {
-  scss: './scss/**/*.scss', // Path to your SCSS files
+  scss: './src/scss/**/*.scss', // Path to your SCSS files
   css: './assets/', // Output directory for CSS
+  js: './src/js/**/*.js', // Path to your JS files
+  jsOutput: './assets/', // Output directory for JS
+  slickJs: './node_modules/slick-carousel/slick/slick.min.js', // Path to Slick Slider JS
 };
 
 // Compile SCSS, add prefixes, create sourcemaps
@@ -32,10 +36,22 @@ gulp.task('styles', function () {
     .pipe(gulp.dest(paths.css)); // Output to ./assets/
 });
 
-// Watch SCSS files for changes and run styles task
-gulp.task('watch', function () {
-  gulp.watch(paths.scss, gulp.series('styles'));
+// Concatenate and minify JavaScript files
+gulp.task('scripts', function () {
+  return gulp
+    .src([paths.slickJs, paths.js]) // Include Slick Slider JS before your custom JS
+    .pipe(sourcemaps.init()) // Initialize sourcemaps before transformations
+    .pipe(concat('theme.js')) // Concatenate all JS into theme.js
+    .pipe(uglify()) // Minify the JavaScript files
+    .pipe(sourcemaps.write('.')) // Write sourcemaps after all transformations
+    .pipe(gulp.dest(paths.jsOutput)); // Output to ./assets/
 });
 
-// Default task: compile styles and watch for changes
-gulp.task('default', gulp.series('styles', 'watch'));
+// Watch SCSS and JS files for changes and run respective tasks
+gulp.task('watch', function () {
+  gulp.watch(paths.scss, gulp.series('styles'));
+  gulp.watch(paths.js, gulp.series('scripts'));
+});
+
+// Default task: compile styles, scripts and watch for changes
+gulp.task('default', gulp.series('styles', 'scripts', 'watch'));

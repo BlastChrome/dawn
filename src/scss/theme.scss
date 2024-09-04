@@ -3,6 +3,7 @@
 // Base styles
 @import 'base/resets';
 // @import 'base/typography';
+
 // Utilities
 @import 'utilities/variables';
 @import 'utilities/mx';
@@ -10,11 +11,13 @@
 @import 'utilities/container'; // override bootstrap container
 @import 'utilities/animations'; // animations added here
 
-//Global styles
+// Global styles
 @import 'globals/global';
 
 // Components
 @import 'components/button';
+
+// Third-party libraries
 
 // Sections
 @import 'sections/featured-section';

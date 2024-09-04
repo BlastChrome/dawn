@@ -11,6 +11,7 @@
 
   @include mx.mq('desktop-medium'){
     padding-top: 436px;  //placeholder value
+    padding-bottom: 115px;
   }
 
   .textbox{
@@ -87,7 +88,7 @@
       margin-top: 0;
     }
 
-    .slide{
+    .swiper-slide{
       position: relative;
       img{
         width: 100%;
@@ -104,5 +105,22 @@
         }
       }
     }
+  }
+  .swiper-pagination{
+    position: initial ;
+    margin: 0 auto;
+    max-width: fit-content;
+    @include mx.mq('tablet-wide'){
+      margin: 18px 8px 0px auto;
+    }
+    
+  }
+  .swiper-pagination-bullet{
+    width: 40px ;
+    height: 8px ;
+    border-radius: 25px ;
+  }
+  .swiper-pagination-bullet-active{
+  background: var(--clr-red);
   }
 }

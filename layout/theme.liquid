@@ -1,7 +1,6 @@
 <html>
   <head>
     {{ content_for_header }}
-    <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
     <style>
         @font-face {
           font-family: 'MontserratBlackItalic';
@@ -317,6 +316,10 @@
           font-display: swap;
       }
     </style>
+    <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
   </head>
   <body>
     <main id="main" role="main">

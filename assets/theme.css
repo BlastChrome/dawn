@@ -4431,6 +4431,7 @@ a.button--secondary:hover {
 @media only screen and (min-width: 1440px) {
   .featured-section {
     padding-top: 436px;
+    padding-bottom: 115px;
   }
 }
 .featured-section .textbox {
@@ -4509,24 +4510,43 @@ a.button--secondary:hover {
     margin-top: 0;
   }
 }
-.featured-section__slider .slide {
+.featured-section__slider .swiper-slide {
   position: relative;
 }
-.featured-section__slider .slide img {
+.featured-section__slider .swiper-slide img {
   width: 100%;
   height: auto;
   max-width: 550px;
   margin: 0 auto;
 }
 @media only screen and (min-width: 992px) {
-  .featured-section__slider .slide img {
+  .featured-section__slider .swiper-slide img {
     margin: 0;
   }
 }
 @media only screen and (min-width: 1200px) {
-  .featured-section__slider .slide img {
+  .featured-section__slider .swiper-slide img {
     max-width: none;
   }
+}
+.featured-section .swiper-pagination {
+  position: initial;
+  margin: 0 auto;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+@media only screen and (min-width: 992px) {
+  .featured-section .swiper-pagination {
+    margin: 18px 8px 0px auto;
+  }
+}
+.featured-section .swiper-pagination-bullet {
+  width: 40px;
+  height: 8px;
+  border-radius: 25px;
+}
+.featured-section .swiper-pagination-bullet-active {
+  background: var(--clr-red);
 }
 /**
 * Convert PX to EM
@@ -4617,6 +4637,7 @@ a.button--secondary:hover {
 @media only screen and (min-width: 1440px) {
   .featured-section {
     padding-top: 436px;
+    padding-bottom: 115px;
   }
 }
 .featured-section .textbox {
@@ -4695,24 +4716,43 @@ a.button--secondary:hover {
     margin-top: 0;
   }
 }
-.featured-section__slider .slide {
+.featured-section__slider .swiper-slide {
   position: relative;
 }
-.featured-section__slider .slide img {
+.featured-section__slider .swiper-slide img {
   width: 100%;
   height: auto;
   max-width: 550px;
   margin: 0 auto;
 }
 @media only screen and (min-width: 992px) {
-  .featured-section__slider .slide img {
+  .featured-section__slider .swiper-slide img {
     margin: 0;
   }
 }
 @media only screen and (min-width: 1200px) {
-  .featured-section__slider .slide img {
+  .featured-section__slider .swiper-slide img {
     max-width: none;
   }
+}
+.featured-section .swiper-pagination {
+  position: initial;
+  margin: 0 auto;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+@media only screen and (min-width: 992px) {
+  .featured-section .swiper-pagination {
+    margin: 18px 8px 0px auto;
+  }
+}
+.featured-section .swiper-pagination-bullet {
+  width: 40px;
+  height: 8px;
+  border-radius: 25px;
+}
+.featured-section .swiper-pagination-bullet-active {
+  background: var(--clr-red);
 }
 /**
 * Convert PX to EM
