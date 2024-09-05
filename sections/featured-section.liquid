@@ -30,12 +30,17 @@
             <div class="swiper-wrapper">
               {% for block in section.blocks %}
                 <div class="swiper-slide">
-                  <img
-                    src="{{ block.settings.slider_image | img_url: 'master' }}"
-                    alt="{{ block.settings.slider_image_title }}"
-                    width="748"
-                    height="610"
+                  <a
+                    href="{{ block.settings.slider_image_link }}"
+                    class="featured-section__slider-link"
                   >
+                    <img
+                      src="{{ block.settings.slider_image | img_url: 'master' }}"
+                      alt="{{ block.settings.slider_image_title }}"
+                      width="748"
+                      height="610"
+                    >
+                  </a>
                 </div>
               {% endfor %}
             </div>
@@ -77,6 +82,13 @@
           "type": "text",
           "id": "slider_image_title",
           "label": "Image Title"
+        },
+        {
+          "type": "text",
+          "id": "slider_image_link",
+          "label": "Image Link",
+          "info": "Link to the product or collection",
+          "default": "#"
         }
       ]
     }
