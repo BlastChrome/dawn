@@ -12,7 +12,6 @@ const paths = {
   css: './assets/', // Output directory for CSS
   js: './src/js/**/*.js', // Path to your JS files
   jsOutput: './assets/', // Output directory for JS
-  slickJs: './node_modules/slick-carousel/slick/slick.min.js', // Path to Slick Slider JS
 };
 
 // Compile SCSS, add prefixes, create sourcemaps
@@ -39,7 +38,7 @@ gulp.task('styles', function () {
 // Concatenate and minify JavaScript files
 gulp.task('scripts', function () {
   return gulp
-    .src([paths.slickJs, paths.js]) // Include Slick Slider JS before your custom JS
+    .src([paths.js])
     .pipe(sourcemaps.init()) // Initialize sourcemaps before transformations
     .pipe(concat('theme.js')) // Concatenate all JS into theme.js
     .pipe(uglify()) // Minify the JavaScript files
