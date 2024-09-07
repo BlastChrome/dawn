@@ -1,5 +1,5 @@
 <!-- banner-card.liquid -->
-<div class="banner-card {{ banner_card_varient_class }}">
+<div class="banner-card {{ banner_card_varient_class }} {{ banner_card_width_class }}">
   <div class="banner-card__wrapper banner-card__wrapper-info">
     <h3 class="banner-card__subtitle">{{ banner_card_subtitle }}</h3>
     <h2 class="banner-card__title">{{ banner_card_title }}</h2>
@@ -26,7 +26,7 @@
     </div>
     {% if banner_card_image %}
       <img
-        src="{{ banner_card_image | image_url: 'master' }}"
+        src="{{ banner_card_image | img_url: 'master' }}"
         alt="{{ banner_card_image_title }}"
         width="450"
         height="360"

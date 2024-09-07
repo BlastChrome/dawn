@@ -1,30 +1,24 @@
 <section class="half-banner-card-section" id="1-block">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-xl-6">
-        {% render 'banner-card',
-          banner_card_varient_class: 'banner-card--half',
-          banner_card_subtitle: 'NEW UP!',
-          banner_card_title: 'UNLEASH YOUR POTENTIAL',
-          banner_card_text: 'Explore our wide range of high-quality sportswear.',
-          banner_card_button_link: '#',
-          banner_card_button_varient_class: 'banner-card__button--primary',
-          banner_card_button_varient_text: 'Shop Now',
-          banner_card_image: section.blocks[0].settings.card_image
-        %}
-      </div>
-      <div class="col-12 col-xl-6">
-        {% render 'banner-card',
-          banner_card_varient_class: 'banner-card--half banner-card--secondary',
-          banner_card_subtitle: 'Our Best!',
-          banner_card_title: 'Stay ahead of the game',
-          banner_card_text: 'Upgrade your workout with our collection.',
-          banner_card_button_link: '#',
-          banner_card_button_varient_class: 'banner-card__button--secondary',
-          banner_card_button_varient_text: 'Explore More',
-          banner_card_image: section.blocks[1].settings.card_image
-        %}
-      </div>
+      {% for block in section.blocks %}
+        <div class="col-12 col{% if block.settings.card_width == 'half' %}-xl-6{% elsif block.settings.card_width == 'full' %}-xl-12{% endif %}">
+          {% assign card_width = 'banner-card--' | append: block.settings.card_width %}
+          {% assign card_type = 'banner-card--' | append: block.settings.card_type %}
+
+          {% render 'banner-card',
+            banner_card_varient_class: card_width,
+            banner_card_width_class: card_type,
+            banner_card_subtitle: block.settings.card_subtitle,
+            banner_card_title: block.settings.card_title,
+            banner_card_text: block.settings.card_text,
+            banner_card_button_link: block.settings.card_button_link,
+            banner_card_button_varient_class: 'banner-card__button--primary',
+            banner_card_button_varient_text: block.settings.card_button_text,
+            banner_card_image: block.settings.card_image
+          %}
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -34,26 +28,70 @@
   "name": "Half Banner Card Section",
   "blocks": [
     {
-      "type": "image",
-      "name": "Card Image",
+      "type": "block",
+      "name": "Banner Card",
       "settings": [
+        {
+          "type": "radio",
+          "id": "card_type",
+          "label": "Card Type",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "id": "card_width",
+          "label": "Width",
+          "options": [
+            {
+              "value": "full",
+              "label": "Full"
+            },
+            {
+              "value": "half",
+              "label": "Half"
+            }
+          ],
+          "default": "half"
+        },
+        {
+          "type": "text",
+          "id": "card_subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "card_text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "card_button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "card_button_text",
+          "label": "Button Text"
+        },
         {
           "type": "image_picker",
           "id": "card_image",
-          "label": "Card Image",
+          "label": "Image",
           "info": "Recommended image size: 450x360px"
-        },
-        {
-          "type": "text",
-          "id": "slider_image_title",
-          "label": "Image Title"
-        },
-        {
-          "type": "text",
-          "id": "slider_image_link",
-          "label": "Image Link",
-          "info": "Link to the product or collection",
-          "default": "#"
         }
       ]
     }
