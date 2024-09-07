@@ -5,7 +5,14 @@
         <div class="textbox">
           <h1>{{ section.settings.featured_title }}</h1>
           <p>{{ section.settings.featured_text }}</p>
-          {% render 'button', button_text: 'Shop Now', button_link: '#', button_class: 'button--primary' %}
+
+          {% assign featured_link_class = 'button--' | append: section.settings.featured_link_class %}
+
+          {% render 'button',
+            button_text: section.settings.featured_link_text,
+            button_link: section.settings.featured_link_url,
+            button_class: featured_link_class
+          %}
         </div>
       </div>
       <div class="col-12 col-lg-6 featured-section__slider-wrapper">
@@ -98,6 +105,32 @@
       "type": "text",
       "id": "featured_text",
       "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "featured_link_url",
+      "label": "Link"
+    },
+    {
+      "type": "radio",
+      "id": "featured_link_class",
+      "label": "Link Class",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "featured_link_text",
+      "label": "Link Text",
+      "default": "Shop Now"
     }
   ],
   "blocks": [
@@ -123,7 +156,8 @@
           "info": "Link to the product or collection",
           "default": "#"
         }
-      ]
+      ],
+      "limit": 3
     }
   ]
 }
