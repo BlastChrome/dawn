@@ -12,7 +12,12 @@ h1, h2, h4, h5, h6{
     margin-bottom: 20px;
 }
 h1{
-    @include mx.font-source-sans(--font-family-1,--theme-font-h1-mob-2,--clr-smoke-2,false,normal);
+
+    @include mx.font-source-sans(--font-family-1,--theme-font-h1-mob-1-1,--clr-smoke-2,false,normal);
+
+    @include mx.mq('desktop-phablet'){
+        @include mx.font-source-sans(--font-family-1,--theme-font-h1-mob-2,--clr-smoke-2,false,normal);
+    }
 
     @include mx.mq('desktop-medium'){
         @include mx.font-source-sans(--font-family-1,--theme-font-h1-tab-2, --clr-smoke-2,false,70px);

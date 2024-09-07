@@ -24,11 +24,20 @@
         <circle cx="50" cy="50" r="50"  fill="#B52F2B"/>
       </svg>
     </div>
-    <img
-      src="{{ banner_card_image | image_url: 'master' }}"
-      alt="{{ banner_card_image_title }}"
-      width="450"
-      height="360"
-    >
+    {% if banner_card_image %}
+      <img
+        src="{{ banner_card_image | image_url: 'master' }}"
+        alt="{{ banner_card_image_title }}"
+        width="450"
+        height="360"
+      >
+    {% else %}
+      <img
+        src="{{ 'banner-card-shoe.png' | file_img_url: '748x610' }}"
+        alt="{{ banner_card_image_title }}"
+        width="450"
+        height="360"
+      >
+    {% endif %}
   </div>
 </div>

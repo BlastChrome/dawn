@@ -85,6 +85,7 @@ h6 {
   --font-family-1-2: "JostBlackItalic", sans-serif;
   --font-family-2: "MontserratRegular", sans-serif;
   --font-family-2-1: "MontserratBold", sans-serif;
+  --theme-font-h1-mob-1-1: 1.875em;
   --theme-font-h1-mob-1: 2.8125em;
   --theme-font-h1-mob-2: 3.125em;
   --theme-font-h1-mob-3: 3.4375em;
@@ -4317,7 +4318,7 @@ h1, h2, h4, h5, h6 {
 
 h1 {
   font-family: var(--font-family-1);
-  font-size: var(--theme-font-h1-mob-2);
+  font-size: var(--theme-font-h1-mob-1-1);
   color: var(--clr-smoke-2);
   line-height: normal;
 }
@@ -4450,6 +4451,7 @@ a.button--secondary:hover {
   height: auto;
   background-color: var(--clr-grey);
   padding: 40px;
+  margin-bottom: 20px;
   position: relative;
   cursor: pointer;
 }
@@ -4457,6 +4459,13 @@ a.button--secondary:hover {
   .banner-card {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .banner-card {
+    min-height: 358px;
+    align-items: flex-start;
   }
 }
 .banner-card:hover .banner-card__img img {
@@ -4518,7 +4527,6 @@ a.button--secondary:hover {
 .banner-card__text-arrow {
   opacity: 0;
   transition: all 0.6s ease-in-out;
-  margin-left: 40px;
   transform: translateX(-100%);
 }
 .banner-card__button {
@@ -4534,10 +4542,14 @@ a.button--secondary:hover {
   max-width: none;
   width: -moz-fit-content;
   width: fit-content;
+  position: relative;
+  flex-direction: column;
 }
 @media only screen and (min-width: 992px) {
   .banner-card__button {
     margin-left: 0;
+    min-width: 216px;
+    flex-direction: row;
   }
 }
 .banner-card__img {
@@ -4648,12 +4660,18 @@ a.button--secondary:hover {
   }
 }
 .featured-section p {
-  margin-bottom: 20px;
+  max-width: 410px;
+  margin: 0 auto 40px;
 }
 @media only screen and (min-width: 992px) {
   .featured-section p {
     max-width: 461px;
     margin-bottom: 65px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .featured-section p {
+    margin-left: 0;
   }
 }
 .featured-section a.button {
@@ -4779,6 +4797,7 @@ a.button--secondary:hover {
   height: auto;
   background-color: var(--clr-grey);
   padding: 40px;
+  margin-bottom: 20px;
   position: relative;
   cursor: pointer;
 }
@@ -4786,6 +4805,13 @@ a.button--secondary:hover {
   .banner-card {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .banner-card {
+    min-height: 358px;
+    align-items: flex-start;
   }
 }
 .banner-card:hover .banner-card__img img {
@@ -4847,7 +4873,6 @@ a.button--secondary:hover {
 .banner-card__text-arrow {
   opacity: 0;
   transition: all 0.6s ease-in-out;
-  margin-left: 40px;
   transform: translateX(-100%);
 }
 .banner-card__button {
@@ -4863,10 +4888,14 @@ a.button--secondary:hover {
   max-width: none;
   width: -moz-fit-content;
   width: fit-content;
+  position: relative;
+  flex-direction: column;
 }
 @media only screen and (min-width: 992px) {
   .banner-card__button {
     margin-left: 0;
+    min-width: 216px;
+    flex-direction: row;
   }
 }
 .banner-card__img {
@@ -5041,12 +5070,18 @@ a.button--secondary:hover {
   }
 }
 .featured-section p {
-  margin-bottom: 20px;
+  max-width: 410px;
+  margin: 0 auto 40px;
 }
 @media only screen and (min-width: 992px) {
   .featured-section p {
     max-width: 461px;
     margin-bottom: 65px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .featured-section p {
+    margin-left: 0;
   }
 }
 .featured-section a.button {

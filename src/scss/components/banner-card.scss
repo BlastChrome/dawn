@@ -5,13 +5,20 @@
     height: auto; 
     background-color: var(--clr-grey); 
     padding: 40px; 
+    margin-bottom: 20px;
     position: relative;
     cursor: pointer;
 
     @include mx.mq('tablet-wide'){
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
+
+    @include mx.mq('desktop'){
+        min-height: 358px;
+        align-items: flex-start;
+    }   
 
     &:hover{
         .banner-card__img{
@@ -64,8 +71,8 @@
     &__text-arrow{
         opacity: 0;
         transition: all 0.6s ease-in-out;
-        margin-left: 40px;
         transform: translateX(-100%);
+
     }
     &__button{
         margin: 0 auto 40px;
@@ -76,9 +83,14 @@
         justify-content: space-between;
         max-width: none;
         width: fit-content;
+        position: relative;
+        flex-direction: column;
+        
 
         @include mx.mq('tablet-wide'){
             margin-left: 0;
+            min-width: 216px;
+            flex-direction: row;
         }
 
     }
