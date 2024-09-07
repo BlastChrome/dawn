@@ -3,6 +3,7 @@
 .featured-section {
   padding: 150px 0;
   background-color: var(--clr-grey); 
+  overflow: hidden;
 
 
   @include mx.mq('desktop-medium'){
@@ -58,14 +59,16 @@
   &__circle-wrapper{
     display: flex;
     width: 100%;
+    max-width: 550px;
     position: absolute;
-    left: 0;
-    transform-origin: center;
+    left: 22%;
+    transform: translateX(50%);
     margin: 0 auto;
     top: 30%;
 
     @include mx.mq('tablet-wide'){
       top: 10%;
+      max-width: none;
     }
   }
 

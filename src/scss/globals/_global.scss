@@ -3,7 +3,9 @@ body{
     font-family: var(--font-family-2);
     color: var(--clr-smoke-2);
 }
-h1, h2, h3, h4, h5, h6{
+
+
+h1, h2, h4, h5, h6{
     font-family: var(--font-family-1);
     color: var(--clr-smoke-2);
     text-transform: uppercase;
@@ -24,9 +26,19 @@ h1{
 
 p{
     @include mx.font-source-sans(--font-family-2,--theme-font-3,--clr-smoke-2,false,normal);
-
     @include mx.mq('desktop-medium'){
         @include mx.font-source-sans(--font-family-2,--theme-font-p-mob-3,--clr-smoke-2,false,30px);
     }
 }
 
+h3{
+    @include mx.font-source-sans(--font-family-2,--theme-font-h3-mob-1,--clr-red,false,normal);
+}
+
+
+a{
+    text-decoration: none;
+    &:hover{
+        color: var(--clr-red);
+    }
+}

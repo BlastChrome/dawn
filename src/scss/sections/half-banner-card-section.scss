@@ -1,0 +1,11 @@
+@use '../utilities/mx' as mx;
+
+.half-banner-card-section {
+
+    margin-top: 150px;
+    padding: 0 0 200px;
+    @include mx.mq('tablet-wide'){
+        margin-top: 56px;
+    }
+    
+}

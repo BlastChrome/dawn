@@ -6,9 +6,18 @@
         "featured_title": "DISCOVER YOUR SPORTY EDGE",
         "featured_text": "Get the best sports apparel with the best offer that you can afford. Available for worldwide shipping and free delivery order."
       }
+    },
+    "half-banner-card-section": {
+      "type": "half-banner-card-section",
+      "settings": {
+        "card_title": "Unleash Your Potential",
+        "card_text": "Explore our wide range of high-quality sportswear", 
+        "card_cta": "Shop Now"
+      }
     }
   },
   "order": [
-    "featured-section"
+    "featured-section",
+    "half-banner-card-section",
   ]
 }

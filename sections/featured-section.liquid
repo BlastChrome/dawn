@@ -8,26 +8,26 @@
           {% render 'button', button_text: 'Shop Now', button_link: '#', button_class: 'button--primary' %}
         </div>
       </div>
-      {% if section.blocks.size > 0 %}
-        <div class="col-12 col-lg-6 featured-section__slider-wrapper">
-          <div class="featured-section__circle-wrapper animation--rotate360">
-            <svg
-              class="featured-section__circle featured-section__circle--big circle animation--shinkGrow"
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="50" cy="50" r="50"  fill="#333332"/>
-            </svg>
-            <svg
-              class="featured-section__circle featured-section__circle--small circle animation--growShrink"
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="50" cy="50" r="50"  fill="#B52F2B"/>
-            </svg>
-          </div>
-          <div class="featured-section__slider featured-swiper--init">
-            <div class="swiper-wrapper">
+      <div class="col-12 col-lg-6 featured-section__slider-wrapper">
+        <div class="featured-section__circle-wrapper animation--rotate360">
+          <svg
+            class="featured-section__circle featured-section__circle--big circle animation--shinkGrow"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="50" cy="50" r="50"  fill="#333332"/>
+          </svg>
+          <svg
+            class="featured-section__circle featured-section__circle--small circle animation--growShrink"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="50" cy="50" r="50"  fill="#B52F2B"/>
+          </svg>
+        </div>
+        <div class="featured-section__slider featured-swiper--init">
+          <div class="swiper-wrapper">
+            {% if section.blocks.size > 0 %}
               {% for block in section.blocks %}
                 <div class="swiper-slide">
                   <a
@@ -35,7 +35,7 @@
                     class="featured-section__slider-link"
                   >
                     <img
-                      src="{{ block.settings.slider_image | img_url: 'master' }}"
+                      src="{{ block.settings.slider_image | img_url: '748x610' }}"
                       alt="{{ block.settings.slider_image_title }}"
                       width="748"
                       height="610"
@@ -43,11 +43,31 @@
                   </a>
                 </div>
               {% endfor %}
-            </div>
-            <div class="swiper-pagination"></div>
+            {% else %}
+              {% comment %}
+                Placeholder image(s)
+              {% endcomment %}
+              <div class="swiper-slide">
+                <a
+                  href="test"
+                  class="featured-section__slider-link"
+                >
+                  <img
+                    src="{{ 'featured-shoe_1_19636be1-ea6b-449d-b493-f143487551cb.png' | file_img_url: '748x610' }}"
+                    alt="placeholder"
+                    width="748"
+                    height="610"
+                  >
+                </a>
+              </div>
+            {% endif %}
+            {% comment %}
+              // Placeholder image(s)
+            {% endcomment %}
           </div>
+          <div class="swiper-pagination"></div>
         </div>
-      {% endif %}
+      </div>
     </div>
   </div>
 </section>
@@ -119,6 +139,9 @@
       keyboard: {
         enabled: true, // Enable keyboard control
         onlyInViewport: true, // Enable keyboard control only when the slider is in viewport
+      },
+      a11y: {
+        enabled: false, // Disables accessibility features that might auto-focus
       },
     });
   });

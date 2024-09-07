@@ -1,0 +1,68 @@
+<section class="half-banner-card-section" id="1-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        {% render 'banner-card',
+          banner_card_varient_class: 'banner-card--half',
+          banner_card_subtitle: 'NEW UP!',
+          banner_card_title: 'UNLEASH YOUR POTENTIAL',
+          banner_card_text: 'Explore our wide range of high-quality sportswear.',
+          banner_card_button_link: '#',
+          banner_card_button_varient_class: 'banner-card__button--primary',
+          banner_card_button_varient_text: 'Shop Now',
+          banner_card_image: section.blocks[0].settings.card_image
+        %}
+      </div>
+      <div class="col-12 col-lg-6">
+        {% render 'banner-card',
+          banner_card_varient_class: 'banner-card--half banner-card--secondary',
+          banner_card_subtitle: 'Our Best',
+          banner_card_title: 'Stay ahead of the game',
+          banner_card_text: 'Upgrade your workout with our collection.',
+          banner_card_button_link: '#',
+          banner_card_button_varient_class: 'banner-card__button--secondary',
+          banner_card_button_varient_text: 'Explore More',
+          banner_card_image: section.blocks[0].settings.card_image
+        %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Half Banner Card Section",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Card Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Card Image",
+          "info": "Recommended image size: 450x360px"
+        },
+        {
+          "type": "text",
+          "id": "slider_image_title",
+          "label": "Image Title"
+        },
+        {
+          "type": "text",
+          "id": "slider_image_link",
+          "label": "Image Link",
+          "info": "Link to the product or collection",
+          "default": "#"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Half Banner Card",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

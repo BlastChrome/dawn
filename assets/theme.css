@@ -93,11 +93,12 @@ h6 {
   --theme-font-h1-tab-3: 4.375em;
   --theme-font-h2-mob-1: 1.25em;
   --theme-font-h2-mob-2: 1.875em;
+  --theme-font-h2-mob-2-1: 2.25em;
   --theme-font-h2-mob-3: 2.5em;
   --theme-font-h2-tab-1: 2.8125em;
   --theme-font-h2-tab-2: 3.125em;
   --theme-font-h2-tab-3: 3.75em;
-  --theme-font-h3-mob-1: 1.25em;
+  --theme-font-h3-mob-1: 1em;
   --theme-font-h3-mob-2: 1.875em;
   --theme-font-h3-mob-3: 2.5em;
   --theme-font-h3-tab-1: 2.5em;
@@ -106,6 +107,11 @@ h6 {
   --theme-font-p-mob-1: 1em;
   --theme-font-p-mob-2: 1.125em;
   --theme-font-p-mob-3: 1.25em;
+  --theme-font-p-mob-4: 1.25em;
+  --theme-font-btn-mob-1: 1em;
+  --theme-font-btn-mob-2: 1.125em;
+  --theme-font-btn-mob-3: 1.25em;
+  --theme-font-btn-tab-1: 1.5em;
   --clr-red: #B52F2B;
   --clr-smoke-1: #333332;
   --clr-smoke-2: #303030;
@@ -4222,6 +4228,12 @@ h6 {
 /**
 * Media queries
 **/
+@media screen and (min-width: 768px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1024;
+  }
+}
+
 @media screen and (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1544px;
@@ -4296,7 +4308,7 @@ body {
   color: var(--clr-smoke-2);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h4, h5, h6 {
   font-family: var(--font-family-1);
   color: var(--clr-smoke-2);
   text-transform: uppercase;
@@ -4341,6 +4353,20 @@ p {
   }
 }
 
+h3 {
+  font-family: var(--font-family-2);
+  font-size: var(--theme-font-h3-mob-1);
+  color: var(--clr-red);
+  line-height: normal;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: var(--clr-red);
+}
+
 /**
 * Convert PX to EM
 *
@@ -4419,9 +4445,173 @@ a.button--secondary:hover {
 /**
 * Media queries
 **/
+.banner-card {
+  width: 100%;
+  height: auto;
+  background-color: var(--clr-grey);
+  padding: 40px;
+  position: relative;
+  cursor: pointer;
+}
+@media only screen and (min-width: 992px) {
+  .banner-card {
+    display: flex;
+    align-items: center;
+  }
+}
+.banner-card:hover .banner-card__img img {
+  transform: scale(1.05);
+}
+.banner-card:hover .banner-card__button {
+  color: var(--clr-red);
+}
+.banner-card:hover .banner-card__text-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+.banner-card__wrapper-info {
+  text-align: center;
+}
+@media only screen and (min-width: 992px) {
+  .banner-card__wrapper-info {
+    text-align: left;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__wrapper-info {
+    max-width: 283px;
+    margin-top: 5px;
+  }
+}
+.banner-card__subtitle {
+  letter-spacing: 4.3px;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__subtitle {
+    margin-bottom: 19px;
+  }
+}
+.banner-card__title {
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__title {
+    font-family: var(--font-family-1);
+    font-size: var(--theme-font-h2-mob-2-1);
+    color: var(--clr-smoke-2);
+    line-height: 44px;
+  }
+}
+.banner-card__text {
+  margin-bottom: 10px;
+  font-family: var(--font-family-2);
+  font-size: var(--theme-font-p-mob-3);
+  color: var(--clr-smoke-2);
+  line-height: 30px;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__text {
+    margin-bottom: 51px;
+  }
+}
+.banner-card__text-arrow {
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+  margin-left: 40px;
+  transform: translateX(-100%);
+}
+.banner-card__button {
+  margin: 0 auto 40px;
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: normal;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: none;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media only screen and (min-width: 992px) {
+  .banner-card__button {
+    margin-left: 0;
+  }
+}
+.banner-card__img {
+  position: relative;
+}
+.banner-card__img img {
+  width: 100%;
+  height: auto;
+  max-width: 448px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+  transition: all 0.6s ease-in-out;
+}
+.banner-card__img:hover img {
+  transform: scale(1.05);
+}
+.banner-card__img .bg-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.banner-card__img .bg-circle svg {
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card--half {
+    min-height: 430px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 69px 23px 33px 57px;
+  }
+}
+.banner-card--secondary {
+  background-color: var(--clr-smoke-2);
+}
+.banner-card--secondary:hover .banner-card__button {
+  color: var(--clr-yellow);
+}
+.banner-card--secondary .banner-card__title,
+.banner-card--secondary .banner-card__text,
+.banner-card--secondary .banner-card__button {
+  color: var(--clr-white);
+}
+.banner-card--secondary .banner-card__subtitle {
+  color: var(--clr-yellow);
+}
+.banner-card--secondary .banner-card__text-arrow svg {
+  fill: var(--clr-yellow);
+}
+.banner-card--secondary .bg-circle circle {
+  fill: var(--clr-yellow);
+}
+
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
 .featured-section {
   padding: 150px 0;
   background-color: var(--clr-grey);
+  overflow: hidden;
 }
 @media only screen and (min-width: 1440px) {
   .featured-section {
@@ -4481,15 +4671,17 @@ a.button--secondary:hover {
 .featured-section__circle-wrapper {
   display: flex;
   width: 100%;
+  max-width: 550px;
   position: absolute;
-  left: 0;
-  transform-origin: center;
+  left: 22%;
+  transform: translateX(50%);
   margin: 0 auto;
   top: 30%;
 }
 @media only screen and (min-width: 992px) {
   .featured-section__circle-wrapper {
     top: 10%;
+    max-width: none;
   }
 }
 .featured-section__circle {
@@ -4547,6 +4739,190 @@ a.button--secondary:hover {
 }
 .featured-section .swiper-pagination-bullet-active {
   background: var(--clr-red);
+}
+
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.half-banner-card-section {
+  margin-top: 150px;
+  padding: 0 0 200px;
+}
+@media only screen and (min-width: 992px) {
+  .half-banner-card-section {
+    margin-top: 56px;
+  }
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.banner-card {
+  width: 100%;
+  height: auto;
+  background-color: var(--clr-grey);
+  padding: 40px;
+  position: relative;
+  cursor: pointer;
+}
+@media only screen and (min-width: 992px) {
+  .banner-card {
+    display: flex;
+    align-items: center;
+  }
+}
+.banner-card:hover .banner-card__img img {
+  transform: scale(1.05);
+}
+.banner-card:hover .banner-card__button {
+  color: var(--clr-red);
+}
+.banner-card:hover .banner-card__text-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+.banner-card__wrapper-info {
+  text-align: center;
+}
+@media only screen and (min-width: 992px) {
+  .banner-card__wrapper-info {
+    text-align: left;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__wrapper-info {
+    max-width: 283px;
+    margin-top: 5px;
+  }
+}
+.banner-card__subtitle {
+  letter-spacing: 4.3px;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__subtitle {
+    margin-bottom: 19px;
+  }
+}
+.banner-card__title {
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__title {
+    font-family: var(--font-family-1);
+    font-size: var(--theme-font-h2-mob-2-1);
+    color: var(--clr-smoke-2);
+    line-height: 44px;
+  }
+}
+.banner-card__text {
+  margin-bottom: 10px;
+  font-family: var(--font-family-2);
+  font-size: var(--theme-font-p-mob-3);
+  color: var(--clr-smoke-2);
+  line-height: 30px;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card__text {
+    margin-bottom: 51px;
+  }
+}
+.banner-card__text-arrow {
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+  margin-left: 40px;
+  transform: translateX(-100%);
+}
+.banner-card__button {
+  margin: 0 auto 40px;
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: normal;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: none;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media only screen and (min-width: 992px) {
+  .banner-card__button {
+    margin-left: 0;
+  }
+}
+.banner-card__img {
+  position: relative;
+}
+.banner-card__img img {
+  width: 100%;
+  height: auto;
+  max-width: 448px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+  transition: all 0.6s ease-in-out;
+}
+.banner-card__img:hover img {
+  transform: scale(1.05);
+}
+.banner-card__img .bg-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.banner-card__img .bg-circle svg {
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (min-width: 1440px) {
+  .banner-card--half {
+    min-height: 430px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 69px 23px 33px 57px;
+  }
+}
+.banner-card--secondary {
+  background-color: var(--clr-smoke-2);
+}
+.banner-card--secondary:hover .banner-card__button {
+  color: var(--clr-yellow);
+}
+.banner-card--secondary .banner-card__title,
+.banner-card--secondary .banner-card__text,
+.banner-card--secondary .banner-card__button {
+  color: var(--clr-white);
+}
+.banner-card--secondary .banner-card__subtitle {
+  color: var(--clr-yellow);
+}
+.banner-card--secondary .banner-card__text-arrow svg {
+  fill: var(--clr-yellow);
+}
+.banner-card--secondary .bg-circle circle {
+  fill: var(--clr-yellow);
 }
 /**
 * Convert PX to EM
@@ -4628,6 +5004,7 @@ a.button--secondary:hover {
 .featured-section {
   padding: 150px 0;
   background-color: var(--clr-grey);
+  overflow: hidden;
 }
 @media only screen and (min-width: 1440px) {
   .featured-section {
@@ -4687,15 +5064,17 @@ a.button--secondary:hover {
 .featured-section__circle-wrapper {
   display: flex;
   width: 100%;
+  max-width: 550px;
   position: absolute;
-  left: 0;
-  transform-origin: center;
+  left: 22%;
+  transform: translateX(50%);
   margin: 0 auto;
   top: 30%;
 }
 @media only screen and (min-width: 992px) {
   .featured-section__circle-wrapper {
     top: 10%;
+    max-width: none;
   }
 }
 .featured-section__circle {
@@ -4766,6 +5145,33 @@ a.button--secondary:hover {
 /**
 * Media queries
 **/
+.half-banner-card-section {
+  margin-top: 150px;
+  padding: 0 0 200px;
+}
+@media only screen and (min-width: 992px) {
+  .half-banner-card-section {
+    margin-top: 56px;
+  }
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+@media screen and (min-width: 768px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1024;
+  }
+}
+
 @media screen and (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1544px;
