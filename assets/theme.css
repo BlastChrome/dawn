@@ -5030,6 +5030,29 @@ a.button--secondary:hover {
 /**
 * Media queries
 **/
+@media screen and (min-width: 768px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1024;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1544px;
+  }
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
 .featured-section {
   padding: 150px 0;
   background-color: var(--clr-grey);
@@ -5187,29 +5210,6 @@ a.button--secondary:hover {
 @media only screen and (min-width: 992px) {
   .half-banner-card-section {
     margin-top: 56px;
-  }
-}
-/**
-* Convert PX to EM
-*
-* em-convert is a function of the gulp postcss-em package
-*
-**/
-/**
-* Example
-**/
-/**
-* Media queries
-**/
-@media screen and (min-width: 768px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1024;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1544px;
   }
 }
 /*# sourceMappingURL=theme.css.map */
