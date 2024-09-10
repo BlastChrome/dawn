@@ -19,32 +19,6 @@
             %}
           </div>
         {% endfor %}
-      {% else %}
-        <div class="col-12 col-xl-6">
-          {% render 'banner-card',
-            banner_card_varient_class: 'banner-card--half',
-            banner_card_width_class: 'banner-card--primary',
-            banner_card_subtitle: 'NEW UP!',
-            banner_card_title: 'UNLEASH YOUR POTENTIAL',
-            banner_card_text: 'Explore our wide range of high-quality sportswear.',
-            banner_card_button_link: '#',
-            banner_card_button_varient_text: 'Shop Now',
-            banner_card_image: null
-          %}
-        </div>
-        <div class="col-12 col-xl-6">
-          {% render 'banner-card',
-            banner_card_varient_class: 'banner-card--half',
-            banner_card_width_class: 'banner-card--secondary',
-            banner_card_subtitle: 'OUR BEST!',
-            banner_card_title: 'stay ahead of the game',
-            banner_card_text: 'Upgrade your workout with our collection.',
-            banner_card_button_link: '#',
-            banner_card_button_varient_text: 'Shop Now',
-            banner_card_image: null
-          %}
-        </div>
-      {% endif %}
     </div>
   </div>
 </section>
@@ -64,11 +38,13 @@
           "options": [
             {
               "value": "primary",
-              "label": "Primary"
+              "label": "Primary",
+              "default": true
             },
             {
               "value": "secondary",
-              "label": "Secondary"
+              "label": "Secondary",
+              "default": false
             }
           ],
           "default": "primary"
@@ -80,14 +56,15 @@
           "options": [
             {
               "value": "full",
-              "label": "Full"
+              "label": "Full",
+              "default": false
             },
             {
               "value": "half",
-              "label": "Half"
+              "label": "Half",
+              "default": true
             }
-          ],
-          "default": "half"
+          ]
         },
         {
           "type": "text",

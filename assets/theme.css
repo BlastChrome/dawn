@@ -4453,7 +4453,6 @@ a.button--secondary:hover {
   padding: 40px;
   margin-bottom: 20px;
   position: relative;
-  cursor: pointer;
 }
 @media only screen and (min-width: 992px) {
   .banner-card {
@@ -4563,6 +4562,7 @@ a.button--secondary:hover {
   z-index: 2;
   position: relative;
   transition: all 0.6s ease-in-out;
+  cursor: pointer;
 }
 .banner-card__img:hover img {
   transform: scale(1.05);
@@ -4799,7 +4799,6 @@ a.button--secondary:hover {
   padding: 40px;
   margin-bottom: 20px;
   position: relative;
-  cursor: pointer;
 }
 @media only screen and (min-width: 992px) {
   .banner-card {
@@ -4909,6 +4908,7 @@ a.button--secondary:hover {
   z-index: 2;
   position: relative;
   transition: all 0.6s ease-in-out;
+  cursor: pointer;
 }
 .banner-card__img:hover img {
   transform: scale(1.05);
@@ -5017,29 +5017,6 @@ a.button--secondary {
 }
 a.button--secondary:hover {
   color: var(--clr-yellow);
-}
-/**
-* Convert PX to EM
-*
-* em-convert is a function of the gulp postcss-em package
-*
-**/
-/**
-* Example
-**/
-/**
-* Media queries
-**/
-@media screen and (min-width: 768px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1024;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1544px;
-  }
 }
 /**
 * Convert PX to EM
@@ -5210,6 +5187,29 @@ a.button--secondary:hover {
 @media only screen and (min-width: 992px) {
   .half-banner-card-section {
     margin-top: 56px;
+  }
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+@media screen and (min-width: 768px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1024;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1544px;
   }
 }
 /*# sourceMappingURL=theme.css.map */
