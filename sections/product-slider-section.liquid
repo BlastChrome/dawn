@@ -8,6 +8,116 @@
           <a href="#" id="product-tab-2" class="product-tabs__title">New</a>
         </div>
         <div class="product-tabs__separator product-tabs__separator--horizontal"></div>
+        <div class="product-slider product-slider--init" data-slick="slider">
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+          <div class="product" data-slick="slide">
+            <a href="#" class="product__link">
+              <div class="img-wrapper">
+                <img
+                  src="{{ 'product-thumbnail-placeholder.jpg' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -20,4 +130,38 @@
 {% endschema %}
 
 {% javascript %}
+  $(document).ready(function () {
+    $('.product-slider--init').slick({
+      slidesToShow: 4,
+      speed: 300,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      pauseOnHover: true,
+      dots: false,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            dots: false,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            dots: true,
+          },
+        },
+      ],
+    });
+  });
 {% endjavascript %}

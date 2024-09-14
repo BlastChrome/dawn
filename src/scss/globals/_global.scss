@@ -47,3 +47,7 @@ a{
         color: var(--clr-red);
     }
 }
+
+[data-slick="slider"] > [data-slick="slide"]:not(:first-child){
+    display: none;
+}

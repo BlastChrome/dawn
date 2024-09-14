@@ -32,10 +32,10 @@
             <circle cx="50" cy="50" r="50"  fill="#B52F2B"/>
           </svg>
         </div>
-        <div class="featured-section__slider featured-swiper--init">
+        <div class="featured-section__slider featured-swiper--init" data-slick="slider">
           {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
-              <div class="swiper-slide">
+              <div class="swiper-slide" data-slick="slide">
                 <a
                   href="{{ block.settings.slider_image_link }}"
                   class="featured-section__slider-link"
@@ -53,9 +53,9 @@
             {% comment %}
               Placeholder image(s)
             {% endcomment %}
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-slick="slide">
               <a
-                href="test"
+                href="#"
                 class="featured-section__slider-link"
               >
                 <img
@@ -66,9 +66,9 @@
                 >
               </a>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-slick="slide">
               <a
-                href="test"
+                href="#"
                 class="featured-section__slider-link"
               >
                 <img
@@ -160,7 +160,7 @@
 }
 {% endschema %}
 
-<script>
+{% javascript %}
   $(document).ready(function () {
     $('.featured-swiper--init').slick({
       slidesToShow: 1,
@@ -173,4 +173,4 @@
       arrows: false,
     });
   });
-</script>
+{% endjavascript %}
