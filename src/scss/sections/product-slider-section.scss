@@ -1,0 +1,130 @@
+@use '../utilities/mx' as mx;
+
+.product-slider-section {
+    padding: 0 0 200px; // placeholder padding
+
+    .product-tabs{
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+
+        @include mx.mq('tablet-wide'){
+            justify-content: flex-start;
+        }
+
+        &__title{
+            @include mx.font-source-sans(--font-family-1,--theme-font-h2-mob-1,--clr-smoke-2,false,44px,normal);
+            text-transform: none;
+            opacity: 0.5;
+            margin: 0;
+
+            &--active{
+                color: var(--clr-black);
+                opacity: 1;
+            }
+
+            &--first{
+                
+            }
+            &--second{
+
+            }
+
+            @include mx.mq('phone'){
+                font-size: var(--theme-font-h2-mob-2);          
+            }
+
+            @include mx.mq('tablet-wide'){
+                font-size: var(--theme-font-h2-mob-2-1);          
+                line-height: 44px;  
+            }
+        }
+
+        &__separator{
+            margin: 0 10px;
+            width: 1px;
+            background-color:var(--clr-smoke-2);
+            opacity: 0.5;
+            &--vertical{
+                height: 40px;
+                width: 1px;
+            }
+            &--horizontal{
+                height: 1px;
+                width: 100%;
+                margin: 30px 0 61px;
+            }
+
+        }
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+      max-height: 471px;
+    }
+    
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // max-width: 365px;
+      
+      width: 100%;
+      height: 100%;
+    }
+    
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .swiper-controller{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 66px;
+      height: 66px;
+      aspect-ratio: 1;
+      background-color: #d9d9d9;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-button-next svg,
+    .swiper-button-prev svg {
+      max-width: 25px;
+    }
+    
+    .swiper-button-next {
+      left: 100%;
+      margin-left: 10px;
+    }
+    .swiper-button-prev {
+      right: 100%;
+      left: auto;
+      margin-right: 10px;
+    }
+    
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      display: none;
+    }
+    
+    .swiper-button-prev svg {
+      transform: rotate(180deg);
+    }
+      
+
+}

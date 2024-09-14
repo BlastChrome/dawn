@@ -14,10 +14,14 @@
         "card_text": "Explore our wide range of high-quality sportswear", 
         "card_cta": "Shop Now"
       }
+    }, 
+    "product-slider-section": {
+      "type": "product-slider-section"
     }
   },
   "order": [
     "featured-section",
     "half-banner-card-section",
+    "product-slider-section",
   ]
 }

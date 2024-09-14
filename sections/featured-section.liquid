@@ -33,59 +33,56 @@
           </svg>
         </div>
         <div class="featured-section__slider featured-swiper--init">
-          <div class="swiper-wrapper">
-            {% if section.blocks.size > 0 %}
-              {% for block in section.blocks %}
-                <div class="swiper-slide">
-                  <a
-                    href="{{ block.settings.slider_image_link }}"
-                    class="featured-section__slider-link"
-                  >
-                    <img
-                      src="{{ block.settings.slider_image | img_url: '748x610' }}"
-                      alt="{{ block.settings.slider_image_title }}"
-                      width="748"
-                      height="610"
-                    >
-                  </a>
-                </div>
-              {% endfor %}
-            {% else %}
-              {% comment %}
-                Placeholder image(s)
-              {% endcomment %}
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
               <div class="swiper-slide">
                 <a
-                  href="test"
+                  href="{{ block.settings.slider_image_link }}"
                   class="featured-section__slider-link"
                 >
                   <img
-                    src="{{ 'featured-shoe_1_19636be1-ea6b-449d-b493-f143487551cb.png' | file_img_url: '748x610' }}"
-                    alt="placeholder"
+                    src="{{ block.settings.slider_image | img_url: '748x610' }}"
+                    alt="{{ block.settings.slider_image_title }}"
                     width="748"
                     height="610"
                   >
                 </a>
               </div>
-              <div class="swiper-slide">
-                <a
-                  href="test"
-                  class="featured-section__slider-link"
-                >
-                  <img
-                    src="{{ 'featured-shoe_1_19636be1-ea6b-449d-b493-f143487551cb.png' | file_img_url: '748x610' }}"
-                    alt="placeholder"
-                    width="748"
-                    height="610"
-                  >
-                </a>
-              </div>
-            {% endif %}
+            {% endfor %}
+          {% else %}
             {% comment %}
-              // Placeholder image(s)
+              Placeholder image(s)
             {% endcomment %}
-          </div>
-          <div class="swiper-pagination"></div>
+            <div class="swiper-slide">
+              <a
+                href="test"
+                class="featured-section__slider-link"
+              >
+                <img
+                  src="{{ 'featured-shoe_1_19636be1-ea6b-449d-b493-f143487551cb.png' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a
+                href="test"
+                class="featured-section__slider-link"
+              >
+                <img
+                  src="{{ 'featured-shoe_1_19636be1-ea6b-449d-b493-f143487551cb.png' | file_img_url: '748x610' }}"
+                  alt="placeholder"
+                  width="748"
+                  height="610"
+                >
+              </a>
+            </div>
+          {% endif %}
+          {% comment %}
+            // Placeholder image(s)
+          {% endcomment %}
         </div>
       </div>
     </div>
@@ -163,33 +160,17 @@
 }
 {% endschema %}
 
-{% javascript %}
-  document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.featured-swiper--init', {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-      effect: 'fade',
-      fadeEffect: {
-        crossFade: true,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      keyboard: {
-        enabled: true, // Enable keyboard control
-        onlyInViewport: true, // Enable keyboard control only when the slider is in viewport
-      },
-      a11y: {
-        enabled: false, // Disables accessibility features that might auto-focus
-      },
+<script>
+  $(document).ready(function () {
+    $('.featured-swiper--init').slick({
+      slidesToShow: 1,
+      speed: 300,
+      fade: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      pauseOnHover: true,
+      dots: true,
+      arrows: false,
     });
   });
-{% endjavascript %}
+</script>

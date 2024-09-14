@@ -1,24 +1,23 @@
 <section class="half-banner-card-section" id="1-block">
   <div class="container">
     <div class="row">
-      {% if section.blocks.size > 0 %}
-        {% for block in section.blocks %}
-          <div class="col-12 col{% if block.settings.card_width == 'half' %}-xl-6{% elsif block.settings.card_width == 'full' %}-xl-12{% endif %}">
-            {% assign card_width = 'banner-card--' | append: block.settings.card_width %}
-            {% assign card_type = 'banner-card--' | append: block.settings.card_type %}
+      {% for block in section.blocks %}
+        <div class="col-12 col{% if block.settings.card_width == 'half' %}-xl-6{% elsif block.settings.card_width == 'full' %}-xl-12{% endif %}">
+          {% assign card_width = 'banner-card--' | append: block.settings.card_width %}
+          {% assign card_type = 'banner-card--' | append: block.settings.card_type %}
 
-            {% render 'banner-card',
-              banner_card_varient_class: card_width,
-              banner_card_width_class: card_type,
-              banner_card_subtitle: block.settings.card_subtitle,
-              banner_card_title: block.settings.card_title,
-              banner_card_text: block.settings.card_text,
-              banner_card_button_link: block.settings.card_button_link,
-              banner_card_button_varient_text: block.settings.card_button_text,
-              banner_card_image: block.settings.card_image
-            %}
-          </div>
-        {% endfor %}
+          {% render 'banner-card',
+            banner_card_varient_class: card_width,
+            banner_card_width_class: card_type,
+            banner_card_subtitle: block.settings.card_subtitle,
+            banner_card_title: block.settings.card_title,
+            banner_card_text: block.settings.card_text,
+            banner_card_button_link: block.settings.card_button_link,
+            banner_card_button_varient_text: block.settings.card_button_text,
+            banner_card_image: block.settings.card_image
+          %}
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -38,13 +37,11 @@
           "options": [
             {
               "value": "primary",
-              "label": "Primary",
-              "default": true
+              "label": "Primary"
             },
             {
               "value": "secondary",
-              "label": "Secondary",
-              "default": false
+              "label": "Secondary"
             }
           ],
           "default": "primary"
@@ -56,15 +53,14 @@
           "options": [
             {
               "value": "full",
-              "label": "Full",
-              "default": false
+              "label": "Full"
             },
             {
               "value": "half",
-              "label": "Half",
-              "default": true
+              "label": "Half"
             }
-          ]
+          ],
+          "default": "half"
         },
         {
           "type": "text",
@@ -87,14 +83,13 @@
         {
           "type": "url",
           "id": "card_button_link",
-          "label": "Button Link",
-          "default": "#"
+          "label": "Button Link"
         },
         {
           "type": "text",
           "id": "card_button_text",
           "label": "Button Text",
-          "default": "Button"
+          "default": "Shop Now"
         },
         {
           "type": "image_picker",

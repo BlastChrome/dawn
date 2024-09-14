@@ -1,6 +1,17 @@
 <html>
   <head>
     {{ content_for_header }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    >
+    <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <style>
         @font-face {
           font-family: 'MontserratBlackItalic';
@@ -316,11 +327,6 @@
           font-display: swap;
       }
     </style>
-
-    <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
-    <script src="{{ 'theme.js' | asset_url }}" defer></script>
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-    {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
   </head>
   <body>
     <main id="main" role="main">
