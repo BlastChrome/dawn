@@ -76,7 +76,7 @@
     // default settings for the slick slider
 
     const defaultProductSliderSettings = {
-      slidesToShow: 4,
+      slidesToShow: {{ section.settings.visible_slides_desktop }},
       speed: 300,
       autoplay: false,
       autoplaySpeed: 5000,
@@ -89,17 +89,17 @@
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: {{ section.settings.visible_slides_mobile }},
             dots: false,
           },
         },
-        {
+        {% comment %} {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: {{ section.settings.slides_to_show_mobile }},
             dots: true,
           },
-        },
+        }, {% endcomment %}
         {
           breakpoint: 480,
           settings: {
@@ -222,7 +222,7 @@
     const sliderSection = document.getElementById('2-block');
     if (sliderSection !== null) {
       $('.product-slider--init').slick({
-        slidesToShow: 4,
+        slidesToShow: {{ section.settings.visible_slides_desktop }},
         speed: 300,
         autoplay: false,
         autoplaySpeed: 5000,
@@ -235,17 +235,17 @@
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3,
+              slidesToShow: {{ section.settings.visible_slides_mobile }},
               dots: false,
             },
           },
-          {
+          {% comment %} {
             breakpoint: 600,
             settings: {
-              slidesToShow: 2,
+              slidesToShow: {{ section.settings.slides_to_show_mobile }},
               dots: true,
             },
-          },
+          }, {% endcomment %}
           {
             breakpoint: 480,
             settings: {
@@ -288,6 +288,24 @@
       "type": "collection",
       "id": "product_collection_two",
       "label": "Product Collection Two"
+    },
+    {
+      "type": "range",
+      "label": "Visible Slides (Desktop)",
+      "id": "visible_slides_desktop",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "label": "Visible Slides (Mobile)",
+      "id": "visible_slides_mobile",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
     }
   ]
 }
