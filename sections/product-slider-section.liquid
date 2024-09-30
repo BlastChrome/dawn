@@ -148,6 +148,7 @@
         products.forEach((product) => {
           // query the relevant product info
           const first_varient_id = product.variants[0].id;
+          const first_varient_price = product.variants[0].price;
           const product_title = product.title;
           const product_featured_image = product.images[0].src;
           const product_category = product.product_type;
@@ -204,7 +205,7 @@
                   <div class="product-card__details">
                     <h3 class="product-card__category">${product_category}</h3>
                     <h2 class="product-card__title">${product_title}</h2>
-                    <p class="product-card__price">#</p>
+                    <p class="product-card__price">$${first_varient_price}</p>
                   </div>
                 </form>
               </div>
