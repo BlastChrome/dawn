@@ -4,24 +4,59 @@
       "type": "featured-section",
       "settings": {
         "featured_title": "DISCOVER YOUR SPORTY EDGE",
-        "featured_text": "Get the best sports apparel with the best offer that you can afford. Available for worldwide shipping and free delivery order."
+        "featured_text": "Get the best sports apparel with the best offer that you can afford. Available for worldwide shipping and free delivery order.",
+        "featured_link_url": "",
+        "featured_link_class": "primary",
+        "featured_link_text": "Shop Now"
       }
     },
     "half-banner-card-section": {
       "type": "half-banner-card-section",
+      "blocks": {
+        "block_QJ3Bc9": {
+          "type": "block",
+          "settings": {
+            "card_type": "primary",
+            "card_width": "half",
+            "card_subtitle": "NEW UP!",
+            "card_title": "UNLEASH YOUR POTENTIAL",
+            "card_text": "Explore our wide range of high-quality sportswear.",
+            "card_button_link": "",
+            "card_button_text": "Shop Now"
+          }
+        },
+        "block_8PetNa": {
+          "type": "block",
+          "settings": {
+            "card_type": "secondary",
+            "card_width": "half",
+            "card_subtitle": "NEW UP!",
+            "card_title": "UNLEASH YOUR POTENTIAL",
+            "card_text": "Explore our wide range of high-quality sportswear.",
+            "card_button_link": "",
+            "card_button_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "block_QJ3Bc9",
+        "block_8PetNa"
+      ],
       "settings": {
-        "card_title": "Unleash Your Potential",
-        "card_text": "Explore our wide range of high-quality sportswear", 
-        "card_cta": "Shop Now"
       }
-    }, 
+    },
     "product-slider-section": {
-      "type": "product-slider-section"
+      "type": "product-slider-section",
+      "settings": {
+        "active_tab": "product-tab-2",
+        "product_collection_one": "featured",
+        "product_collection_two": "new"
+      }
     }
   },
   "order": [
     "featured-section",
     "half-banner-card-section",
-    "product-slider-section",
+    "product-slider-section"
   ]
 }
