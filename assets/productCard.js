@@ -6,22 +6,21 @@ if (!customElements.get('product-card')) {
       constructor() {
         super();
         this.addForm = this.querySelector('form[action$="/cart/add.js"]');
-
-        this.addForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          let formData = new FormData(this.addForm);
-
-          const res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
-            method: 'POST',
-            body: formData,
+        this.addForm.addEventListener('submit', this.handleAddToCart.bind(this));
+      }
+      async handleAddToCart(e) {
+        e.preventDefault();
+        let formData = new FormData(this.addForm);
+        fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          body: formData,
+        })
+          .then((response) => {
+            return response.json();
           })
-            .then((response) => {
-              return response.json();
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-            });
-        });
+          .catch((error) => {
+            console.error('Error:', error);
+          });
       }
     }
   );
