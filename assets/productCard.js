@@ -7,6 +7,7 @@ if (!customElements.get('product-card')) {
         super();
         this.addForm = this.querySelector('form[action$="/cart/add.js"]');
         this.addForm.addEventListener('submit', this.handleAddToCart.bind(this));
+        console.log('element initialized');
       }
       async handleAddToCart(e) {
         e.preventDefault();

@@ -4565,6 +4565,23 @@ a:hover {
   display: none;
 }
 
+.loader {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid var(--color-1);
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
 /**
 * Convert PX to EM
 *
@@ -4821,6 +4838,9 @@ a.button--secondary:hover {
   width: 100%;
   height: auto;
   margin: 0 10px;
+}
+.product-card.disabled {
+  opacity: 0.3;
 }
 .product-card * {
   cursor: pointer;
@@ -5520,6 +5540,9 @@ a.button--secondary:hover {
   width: 100%;
   height: auto;
   margin: 0 10px;
+}
+.product-card.disabled {
+  opacity: 0.3;
 }
 .product-card * {
   cursor: pointer;

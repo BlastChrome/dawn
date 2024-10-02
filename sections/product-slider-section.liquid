@@ -31,6 +31,11 @@
         </div>
         <div class="product-tabs__separator product-tabs__separator--horizontal"></div>
 
+        {% comment %} Shows a spinner during tab switching {% endcomment %}
+        <div id="spinner" style="display: none;">
+          <div class="loader"></div>
+        </div>
+
         <div class="product-slider-wrapper">
           <div class="product-slider product-slider--init" data-slick="slider">
             {% if section.settings.product_collection_one and section.settings.active_tab == 'product-tab-1' %}
@@ -56,14 +61,10 @@
           </div>
           <div class="product-slider__controller">
             <button class="product-slider__controller-button product-slider__controller-button--prev" data-slick="prev">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
-                <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
-              </svg>
+              {{ 'product-slider-section-prev.svg' | inline_asset_content }}
             </button>
             <button class="product-slider__controller-button product-slider__controller-button--next" data-slick="next">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
-                <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
-              </svg>
+              {{ 'product-slider-section-next.svg' | inline_asset_content }}
             </button>
           </div>
         </div>
@@ -148,8 +149,8 @@
 
           // re-construct the product card html
           const productHTML = `
-              <div class="product-card" data-slick="slide">
-                <product-card-form action="/cart/add.js" method="post" class="product-card__form">
+              <product-card class="product-card" data-slick="slide">
+                <form action="/cart/add.js" method="post" class="product-card__form">
                   <!-- Hidden input for variant ID -->
                   <input type="hidden" name="id" value="${first_varient_id}">
 
@@ -184,8 +185,8 @@
                     <h2 class="product-card__title">${product_title}</h2>
                     <p class="product-card__price">$${first_varient_price}</p>
                   </div>
-                </product-card-form>
-              </div>
+                </form>
+              </product-card>
           `;
           $('.product-slider--init').append(productHTML);
         });

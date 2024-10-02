@@ -6,6 +6,11 @@
     margin: 0 10px;
 
 
+    &.disabled{
+        opacity: 0.3;
+    }
+
+
     * {
         cursor: pointer;
     }
