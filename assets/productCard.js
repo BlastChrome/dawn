@@ -5,23 +5,65 @@ if (!customElements.get('product-card')) {
     class ProductCardForm extends HTMLElement {
       constructor() {
         super();
+        // cache dom
         this.addForm = this.querySelector('form[action$="/cart/add.js"]');
+        this.addBtn = this.querySelector('button[type="submit"]');
+        this.addBtn.disabled = false;
+
+        // handle events
         this.addForm.addEventListener('submit', this.handleAddToCart.bind(this));
-        console.log('element initialized');
       }
       async handleAddToCart(e) {
+        // prevent the screen from refreshing
         e.preventDefault();
+
+        // set the button to disabled
+        this.addBtn.disabled = true;
+
+        // update the state of the btn UI
+        this.toggleAddToCartButton(this.addBtn.disabled);
+
         let formData = new FormData(this.addForm);
-        fetch(window.Shopify.routes.root + 'cart/add.js', {
-          method: 'POST',
-          body: formData,
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .catch((error) => {
-            console.error('Error:', error);
+        try {
+          const res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            body: formData,
           });
+
+          const data = await res.json();
+
+          // don't let the user click the button for atleast 0.6s
+          // re-enable the button
+          setTimeout(() => {
+            this.addBtn.disabled = false;
+            this.toggleAddToCartButton(this.addBtn.disabled);
+          }, 600);
+
+          // return the data
+          return {
+            id: data.id,
+            sku: data.sku,
+            quantity: data.quantity,
+          };
+        } catch (e) {
+          this.addBtn.innerHTML('Error...');
+          setTimeout(() => {
+            this.addBtn.disabled = true;
+            this.toggleAddToCartButton(this.addBtn.disabled);
+          }, 1000);
+        }
+      }
+
+      toggleAddToCartButton(isDisabled) {
+        if (isDisabled) {
+          this.addBtn.classList.add('adding');
+          this.classList.add('disabled');
+          this.addBtn.innerHTML = 'Adding';
+        } else {
+          this.addBtn.classList.remove('adding');
+          this.classList.remove('disabled');
+          this.addBtn.innerHTML = 'Add To Cart';
+        }
       }
     }
   );

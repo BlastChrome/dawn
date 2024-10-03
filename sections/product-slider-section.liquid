@@ -74,6 +74,7 @@
 </section>
 
 <script>
+  
   document.addEventListener('DOMContentLoaded', function () {
     // default settings for the collections slider
     const defaultProductSliderSettings = {
@@ -88,10 +89,17 @@
       nextArrow: $('[data-slick="next"]'),
       responsive: [
         {
+          breakpoint: 1721,
+          settings: {
+            arrows: false,
+          },
+        },
+        {
           breakpoint: 1024,
           settings: {
             slidesToShow: {{ section.settings.visible_slides_mobile }},
             dots: false,
+            arrows: false,
           },
         },
         {
@@ -212,10 +220,17 @@
         nextArrow: $('[data-slick="next"]'),
         responsive: [
           {
+            breakpoint: 1721,
+            settings: {
+              arrows: false,
+            },
+          },
+          {
             breakpoint: 1024,
             settings: {
               slidesToShow: {{ section.settings.visible_slides_mobile }},
               dots: false,
+              arrows: false,
             },
           },
           {
