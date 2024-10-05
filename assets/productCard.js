@@ -23,7 +23,8 @@ if (!customElements.get('product-card')) {
         // update the state of the btn UI
         this.toggleAddToCartButton(this.addBtn.disabled);
 
-        let formData = new FormData(this.addForm);
+        const formData = new FormData(this.addForm);
+
         try {
           const res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
@@ -31,6 +32,7 @@ if (!customElements.get('product-card')) {
           });
 
           const data = await res.json();
+          console.log(data);
 
           // don't let the user click the button for atleast 0.6s
           // re-enable the button
@@ -38,13 +40,6 @@ if (!customElements.get('product-card')) {
             this.addBtn.disabled = false;
             this.toggleAddToCartButton(this.addBtn.disabled);
           }, 600);
-
-          // return the data
-          return {
-            id: data.id,
-            sku: data.sku,
-            quantity: data.quantity,
-          };
         } catch (e) {
           this.addBtn.innerHTML('Error...');
           setTimeout(() => {

@@ -1,18 +1,38 @@
 <!-- product-card.liquid -->
+
+{% assign show_second_image = false %}
+{% if product_card_image_two != null %}
+  {% assign show_second_image = true %}
+{% endif %}
+
 <product-card class="product-card" data-slick="slide">
   <form action="/cart/add.js" method="post" class="product-card__form">
     <!-- Hidden input for variant ID -->
     <input type="hidden" name="id" value="{{ product_varient_id }}">
-    <div class="product-card__actions active">
+    <div class="product-card__actions {% if product_card_image_two == null %}image-single {% endif %}">
       <div class="product-card__actions--image">
-        <a href="{{ product_card_url }}">
-          <img
-            src="{{ product_card_image | img_url: 'master' }}"
-            alt="{{ product_card_title }}"
-            width="748"
-            height="610"
-          >
-        </a>
+        <div class="img-wrapper {% if product_card_image_two != null %}img-wrapper--one {% endif %}">
+          <a href="{{ product_card_url }}">
+            <img
+              src="{{ product_card_image | img_url: 'master' }}"
+              alt="{{ product_card_title }}"
+              width="748"
+              height="610"
+            >
+          </a>
+        </div>
+        {% if product_card_image_two != null %}
+          <div class="img-wrapper img-wrapper--two">
+            <a href="{{ product_card_url }}">
+              <img
+                src="{{ product_card_image_two | img_url: 'master' }}"
+                alt="{{ product_card_title }}"
+                width="748"
+                height="610"
+              >
+            </a>
+          </div>
+        {% endif %}
       </div>
 
       <button type="submit" class="product-card__actions--cart">Add to Cart</button>
@@ -29,7 +49,6 @@
         </button>
       </div>
     </div>
-
     <div class="product-card__details">
       <h3 class="product-card__category">{{ product_card_category }}</h3>
       <h2 class="product-card__title">{{ product_card_title }}</h2>

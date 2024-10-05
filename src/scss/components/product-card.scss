@@ -55,11 +55,30 @@
         }
 
         &--image{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: relative;
+
+
+            .img-wrapper{
+                position: absolute; 
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                &--one{
+                    z-index: 1;
+                    &:hover{
+                        img{
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                &--two{
+                    z-index: 0;
+                }
+            }
+
             img{
                 width: 100%;
                 height: auto;
@@ -168,6 +187,14 @@
                 transform: translateX(-25%);
             }
 
+            // .product-card__actions--image{
+            //     img{
+            //         transform: scale(1.05);
+            //     }
+            // }
+        }
+
+        &:hover.image-single{
             .product-card__actions--image{
                 img{
                     transform: scale(1.05);

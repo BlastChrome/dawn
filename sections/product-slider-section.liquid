@@ -46,11 +46,15 @@
             {% if collection %}
               {% for product in collection.products %}
                 {% assign first_variant = product.variants.first %}
+                {% if section.settings.show_secondary_image == true %}
+                  {% assign image_two = product.media[1] %}
+                {% endif %}
                 {%
                   render 'product-card',
                   product_form: product,
                   product_varient_id: first_variant.id,
                   product_card_image: product.featured_media | default: product.featured_image,
+                  product_card_image_two: image_two
                   product_card_category: product.type,
                   product_card_title: product.title,
                   product_card_price: product.price,
@@ -76,6 +80,8 @@
 <script>
   
   document.addEventListener('DOMContentLoaded', function () {
+
+    
     // default settings for the collections slider
     const defaultProductSliderSettings = {
       slidesToShow: {{ section.settings.visible_slides_desktop }},
@@ -92,13 +98,16 @@
           breakpoint: 1721,
           settings: {
             arrows: false,
+            dots: true,
+          },
+          beforeChange: function(){
+            console.log('here');
           },
         },
         {
           breakpoint: 1024,
           settings: {
             slidesToShow: {{ section.settings.visible_slides_mobile }},
-            dots: false,
             arrows: false,
           },
         },
@@ -106,18 +115,18 @@
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            dots: true,
           },
         },
       ],
     };
 
+    // Initialize the slider with default settings
     $('.product-slider--init').slick(defaultProductSliderSettings);
 
     // Select all tabs within the product slider section
     const tabs = [...document.querySelectorAll('.product-tabs__title')];
 
-    // Add click event listeners to each tab
+    // handle tab switching
     tabs.forEach((tab) => {
       tab.addEventListener('click', async (e) => {
         // Prevent the default link behavior
@@ -203,9 +212,12 @@
         $('.product-slider--init').slick(defaultProductSliderSettings);
       });
     });
+
+
   });
 
   document.addEventListener('shopify:section:load', function (event) {
+
     const sliderSection = document.getElementById('2-block');
     if (sliderSection !== null) {
       $('.product-slider--init').slick({
@@ -223,13 +235,16 @@
             breakpoint: 1721,
             settings: {
               arrows: false,
+              dots: true,
+            },
+            beforeChange: function(){ 
+              console.log('here');
             },
           },
           {
             breakpoint: 1024,
             settings: {
               slidesToShow: {{ section.settings.visible_slides_mobile }},
-              dots: false,
               arrows: false,
             },
           },
@@ -237,7 +252,6 @@
             breakpoint: 480,
             settings: {
               slidesToShow: 1,
-              dots: true,
             },
           },
         ],
@@ -250,6 +264,10 @@
 {
   "name": "Collection Slider Section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Tab Settings"
+    },
     {
       "type": "radio",
       "id": "active_tab",
@@ -267,6 +285,10 @@
       ]
     },
     {
+      "type": "header",
+      "content": "Collections"
+    },
+    {
       "type": "collection",
       "id": "product_collection_one",
       "label": "Product Collection One"
@@ -275,6 +297,10 @@
       "type": "collection",
       "id": "product_collection_two",
       "label": "Product Collection Two"
+    },
+    {
+      "type": "header",
+      "content": "Slide Settings"
     },
     {
       "type": "range",
@@ -293,6 +319,16 @@
       "max": 4,
       "step": 1,
       "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Product Image Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Show secondary image on hover"
     }
   ]
 }
