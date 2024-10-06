@@ -3,7 +3,6 @@
 .product-card{
     width: 100%;
     height: auto;
-    max-height: 600px;
 
     
     &.disabled{
@@ -123,6 +122,11 @@
                 background-color: var(--clr-red);
             }
 
+            &.adding{
+                .loader-spinner{
+                    opacity: 1;
+                }
+            }
         }
 
 

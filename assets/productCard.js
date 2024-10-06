@@ -8,6 +8,8 @@ if (!customElements.get('product-card')) {
         // cache dom
         this.addForm = this.querySelector('form[action$="/cart/add.js"]');
         this.addBtn = this.querySelector('button[type="submit"]');
+        this.addBtnText = this.querySelector('#btn-text');
+        this.addBtnSpinner = this.querySelector('#loader-spinner');
         this.addBtn.disabled = false;
 
         // handle events
@@ -53,11 +55,11 @@ if (!customElements.get('product-card')) {
         if (isDisabled) {
           this.addBtn.classList.add('adding');
           this.classList.add('disabled');
-          this.addBtn.innerHTML = 'Adding';
+          this.addBtnText.innerHTML = '';
         } else {
           this.addBtn.classList.remove('adding');
           this.classList.remove('disabled');
-          this.addBtn.innerHTML = 'Add To Cart';
+          this.addBtnText.innerHTML = 'Add To Cart';
         }
       }
     }

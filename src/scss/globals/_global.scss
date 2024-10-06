@@ -52,17 +52,22 @@ a{
     display: none;
 }
 
-.loader {
-    border: 2px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 3px solid var(--color-1);
+
+.loader-spinner{
     width: 20px;
     height: 20px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: loader-spinner 1s ease-in-out infinite;
+    -webkit-animation: loader-spinner 1s ease-in-out infinite;
+    position: absolute;
+    opacity: 0;
+}
+
+@keyframes loader-spinner {
+    to { -webkit-transform: rotate(360deg); }
   }
-  
-  @keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+  @-webkit-keyframes loader-spinner {
+    to { -webkit-transform: rotate(360deg); }
   }

@@ -30,12 +30,6 @@
           {% endif %}
         </div>
         <div class="product-tabs__separator product-tabs__separator--horizontal"></div>
-
-        {% comment %} Shows a spinner during tab switching {% endcomment %}
-        <div id="spinner" style="display: none;">
-          <div class="loader"></div>
-        </div>
-
         <div class="product-slider-wrapper">
           <div class="product-slider__controller">
             <button class="product-slider__controller-button product-slider__controller-button--prev" data-slick="prev">
@@ -78,7 +72,6 @@
 </section>
 
 <script>
-
   function initCollectionSlider(){
     $('.product-slider--init').slick({
       slidesToShow: {{ section.settings.columns_desktop}},
@@ -88,8 +81,6 @@
       speed: 300,
       {% if section.settings.autoplay == "yes" %}
         autoplaySpeed: {{section.settings.autoplay_speed}} * 1000,
-      prevArrow: $('#{{ section.id }} [data-slick="prev"]'),
-      nextArrow: $('#{{ section.id }} [data-slick="next"]'),
       {% endif %}
       arrows: true,
       prevArrow: $('#{{ section.id }} [data-slick="prev"]'),

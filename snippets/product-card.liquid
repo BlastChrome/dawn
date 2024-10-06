@@ -9,7 +9,7 @@
   <form action="/cart/add.js" method="post" class="product-card__form">
     <!-- Hidden input for variant ID -->
     <input type="hidden" name="id" value="{{ product_varient_id }}">
-    <div class="product-card__actions {% if product_card_image_two == null %}image-single {% endif %}">
+    <div class="product-card__actions active {% if product_card_image_two == null %}image-single {% endif %}">
       <div class="product-card__actions--image">
         <div class="img-wrapper {% if product_card_image_two != null %}img-wrapper--one {% endif %}">
           <a href="{{ product_card_url }}">
@@ -35,7 +35,10 @@
         {% endif %}
       </div>
 
-      <button type="submit" class="product-card__actions--cart">Add to Cart</button>
+      <button type="submit" class="product-card__actions--cart">
+        <span id="btn-text" class="actions__btn-text">Add to Cart</span>
+        <span id="loader-spinner" class="loader-spinner"></span>
+      </button>
 
       <div class="product-card__actions-group">
         <button class="product-card__action product-card__action--favorite">
