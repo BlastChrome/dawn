@@ -2,7 +2,7 @@
 {{ 'slick.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'productCard.js' | asset_url }}" defer></script>
 
-<section class="product-slider-section section-{{ section.id }}" id="2-block">
+<section class="product-slider-section section-{{ section.id }}" id="{{section.id}}">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -37,6 +37,14 @@
         </div>
 
         <div class="product-slider-wrapper">
+          <div class="product-slider__controller">
+            <button class="product-slider__controller-button product-slider__controller-button--prev" data-slick="prev">
+              {{ 'product-slider-section-prev.svg' | inline_asset_content }}
+            </button>
+            <button class="product-slider__controller-button product-slider__controller-button--next" data-slick="next">
+              {{ 'product-slider-section-next.svg' | inline_asset_content }}
+            </button>
+          </div>
           <div class="product-slider product-slider--init" data-slick="slider">
             {% if section.settings.product_collection_one and section.settings.active_tab == 'product-tab-1' %}
               {% assign collection = collections[section.settings.product_collection_one] %}
@@ -63,14 +71,6 @@
               {% endfor %}
             {% endif %}
           </div>
-          <div class="product-slider__controller">
-            <button class="product-slider__controller-button product-slider__controller-button--prev" data-slick="prev">
-              {{ 'product-slider-section-prev.svg' | inline_asset_content }}
-            </button>
-            <button class="product-slider__controller-button product-slider__controller-button--next" data-slick="next">
-              {{ 'product-slider-section-next.svg' | inline_asset_content }}
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -78,185 +78,136 @@
 </section>
 
 <script>
-  
-  document.addEventListener('DOMContentLoaded', function () {
 
-    
-    // default settings for the collections slider
-    const defaultProductSliderSettings = {
-      slidesToShow: {{ section.settings.visible_slides_desktop }},
+  function initCollectionSlider(){
+    $('.product-slider--init').slick({
+      slidesToShow: {{ section.settings.columns_desktop}},
+      slidesToScroll: {{ section.settings.columns_desktop}},
+      autoplay: "{{ section.settings.autoplay}}"  ==  "yes" ? true : false,
+      pauseOnHover: "{{ section.settings.pause_on_hover}}"  ==  "yes" ? true : false,
       speed: 300,
-      autoplay: false,
-      autoplaySpeed: 5000,
-      pauseOnHover: true,
-      dots: false,
+      {% if section.settings.autoplay == "yes" %}
+        autoplaySpeed: {{section.settings.autoplay_speed}} * 1000,
+      prevArrow: $('#{{ section.id }} [data-slick="prev"]'),
+      nextArrow: $('#{{ section.id }} [data-slick="next"]'),
+      {% endif %}
       arrows: true,
-      prevArrow: $('[data-slick="prev"]'),
-      nextArrow: $('[data-slick="next"]'),
+      prevArrow: $('#{{ section.id }} [data-slick="prev"]'),
+      nextArrow: $('#{{ section.id }} [data-slick="next"]'),
       responsive: [
         {
-          breakpoint: 1721,
+          breakpoint: 768,
           settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
             arrows: false,
-            dots: true,
-          },
-          beforeChange: function(){
-            console.log('here');
-          },
-        },
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: {{ section.settings.visible_slides_mobile }},
-            arrows: false,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
           },
         },
       ],
-    };
-
-    // Initialize the slider with default settings
-    $('.product-slider--init').slick(defaultProductSliderSettings);
-
-    // Select all tabs within the product slider section
-    const tabs = [...document.querySelectorAll('.product-tabs__title')];
-
-    // handle tab switching
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', async (e) => {
-        // Prevent the default link behavior
-        e.preventDefault();
-
-        // if the tab is already active, return
-        if (e.target.classList.contains('product-tabs__title--active')) return;
-
-        // Remove the active class from all tabs
-        tabs.forEach((tab) => tab.classList.remove('product-tabs__title--active'));
-
-        // Add the active class to the clicked tab
-        e.target.classList.add('product-tabs__title--active');
-
-        // Get the inner text of the clicked tab - this is the name of the collection
-        const tabName = e.target.innerText;
-
-        // Fetch the products for the clicked tab
-        const res = await fetch(`/collections/${tabName.toLowerCase()}/products.json`);
-        const collection = await res.json();
-        const products = collection.products;
-
-        // Destroy current slider
-        $('.product-slider--init').slick('unslick');
-
-        // Clear the product slider content
-        $('.product-slider--init').empty();
-
-        // Loop through the products and render them in the product slider
-        products.forEach((product) => {
-          // query the relevant product info
-          const first_varient_id = product.variants[0].id;
-          const first_varient_price = product.variants[0].price;
-          const product_title = product.title;
-          const product_featured_image = product.images[0].src;
-          const product_category = product.product_type;
-
-          // re-construct the product card html
-          const productHTML = `
-              <product-card class="product-card" data-slick="slide">
-                <form action="/cart/add.js" method="post" class="product-card__form">
-                  <!-- Hidden input for variant ID -->
-                  <input type="hidden" name="id" value="${first_varient_id}">
-
-                  <div class="product-card__actions">
-                    <div class="product-card__actions--image">
-                      <a href="#">
-                        <img
-                          src="${product_featured_image}"
-                          alt="${product_title}"
-                          width="748"
-                          height="610"
-                        >
-                      </a>
-                    </div>
-                    <button type="submit" class="product-card__actions--cart">Add to Cart</button>
-
-                    <div class="product-card__actions-group">
-                      <button class="product-card__action product-card__action--favorite">
-                       {{ 'product-card-favorite.svg' | inline_asset_content }}
-                      </button>
-                      <button class="product-card__action product-card__action--share">
-                       {{ 'product-card-share.svg' | inline_asset_content }}
-                      </button>
-                      <button class="product-card__action product-card__action--zoom">
-                       {{ 'product-card-zoom.svg' | inline_asset_content }}
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="product-card__details">
-                    <h3 class="product-card__category">${product_category}</h3>
-                    <h2 class="product-card__title">${product_title}</h2>
-                    <p class="product-card__price">$${first_varient_price}</p>
-                  </div>
-                </form>
-              </product-card>
-          `;
-          $('.product-slider--init').append(productHTML);
-        });
-
-        // re-initialize the slider
-        $('.product-slider--init').slick(defaultProductSliderSettings);
-      });
     });
+  }
 
+  function handleTabSwitching(){
+        // Select all tabs within the product slider section
+        const tabs = [...document.querySelectorAll('.product-tabs__title')];
 
+        // handle tab switching
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', async (e) => {
+            // Prevent the default link behavior
+            e.preventDefault();
+    
+            // if the tab is already active, return
+            if (e.target.classList.contains('product-tabs__title--active')) return;
+    
+            // Remove the active class from all tabs
+            tabs.forEach((tab) => tab.classList.remove('product-tabs__title--active'));
+    
+            // Add the active class to the clicked tab
+            e.target.classList.add('product-tabs__title--active');
+    
+            // Get the inner text of the clicked tab - this is the name of the collection
+            const tabName = e.target.innerText;
+    
+            // Fetch the products for the clicked tab
+            const res = await fetch(`/collections/${tabName.toLowerCase()}/products.json`);
+            const collection = await res.json();
+            const products = collection.products;
+    
+            // Destroy current slider
+            $('.product-slider--init').slick('unslick');
+    
+            // Clear the product slider content
+            $('.product-slider--init').empty();
+    
+            // Loop through the products and render them in the product slider
+            products.forEach((product) => {
+              // query the relevant product info
+              const first_varient_id = product.variants[0].id;
+              const first_varient_price = product.variants[0].price;
+              const product_title = product.title;
+              const product_featured_image = product.images[0].src;
+              const product_category = product.product_type;
+    
+              // re-construct the product card html
+              const productHTML = `
+                  <product-card class="product-card" data-slick="slide">
+                    <form action="/cart/add.js" method="post" class="product-card__form">
+                      <!-- Hidden input for variant ID -->
+                      <input type="hidden" name="id" value="${first_varient_id}">
+    
+                      <div class="product-card__actions">
+                        <div class="product-card__actions--image">
+                          <a href="#">
+                            <img
+                              src="${product_featured_image}"
+                              alt="${product_title}"
+                              width="748"
+                              height="610"
+                            >
+                          </a>
+                        </div>
+                        <button type="submit" class="product-card__actions--cart">Add to Cart</button>
+    
+                        <div class="product-card__actions-group">
+                          <button class="product-card__action product-card__action--favorite">
+                           {{ 'product-card-favorite.svg' | inline_asset_content }}
+                          </button>
+                          <button class="product-card__action product-card__action--share">
+                           {{ 'product-card-share.svg' | inline_asset_content }}
+                          </button>
+                          <button class="product-card__action product-card__action--zoom">
+                           {{ 'product-card-zoom.svg' | inline_asset_content }}
+                          </button>
+                        </div>
+                      </div>
+    
+                      <div class="product-card__details">
+                        <h3 class="product-card__category">${product_category}</h3>
+                        <h2 class="product-card__title">${product_title}</h2>
+                        <p class="product-card__price">$${first_varient_price}</p>
+                      </div>
+                    </form>
+                  </product-card>
+              `;
+              $('.product-slider--init').append(productHTML);
+            });
+    
+            // re-initialize the slider
+            initCollectionSlider();
+          });
+        });
+  }
+
+  // re-initialize the slider in the editor
+  document.addEventListener('shopify:section:load', function (event) {
+    initCollectionSlider()
   });
 
-  document.addEventListener('shopify:section:load', function (event) {
-
-    const sliderSection = document.getElementById('2-block');
-    if (sliderSection !== null) {
-      $('.product-slider--init').slick({
-        slidesToShow: {{ section.settings.visible_slides_desktop }},
-        speed: 300,
-        autoplay: false,
-        autoplaySpeed: 5000,
-        pauseOnHover: true,
-        dots: false,
-        arrows: true,
-        prevArrow: $('[data-slick="prev"]'),
-        nextArrow: $('[data-slick="next"]'),
-        responsive: [
-          {
-            breakpoint: 1721,
-            settings: {
-              arrows: false,
-              dots: true,
-            },
-            beforeChange: function(){ 
-              console.log('here');
-            },
-          },
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: {{ section.settings.visible_slides_mobile }},
-              arrows: false,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-            },
-          },
-        ],
-      });
-    }
+  // initial setup for the section
+  document.addEventListener('DOMContentLoaded', function () {
+    initCollectionSlider();
+    handleTabSwitching()
   });
 </script>
 
@@ -304,21 +255,54 @@
     },
     {
       "type": "range",
-      "label": "Visible Slides (Desktop)",
-      "id": "visible_slides_desktop",
+      "label": "Number of Columns (Desktop)",
+      "id": "columns_desktop",
       "min": 3,
       "max": 6,
       "step": 1,
       "default": 4
     },
     {
+      "type": "select",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "yes"
+    },
+    {
       "type": "range",
-      "label": "Visible Slides (Mobile)",
-      "id": "visible_slides_mobile",
-      "min": 2,
-      "max": 4,
+      "label": "Autoplay Speed (seconds)",
+      "info": "Autoplay must be enabled",
+      "id": "autoplay_speed",
+      "min": 1,
+      "max": 6,
       "step": 1,
       "default": 3
+    },
+    {
+      "type": "select",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "yes"
     },
     {
       "type": "header",

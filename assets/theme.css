@@ -4840,7 +4840,6 @@ a.button--secondary:hover {
   width: 100%;
   height: auto;
   max-height: 600px;
-  margin: 0 10px;
 }
 .product-card.disabled {
   opacity: 0.9;
@@ -5281,8 +5280,20 @@ a.button--secondary:hover {
   width: 100%;
   margin: 30px 0 72px;
 }
+.product-slider-section .product-slider .slick-track {
+  display: flex;
+  gap: 0 20px;
+}
 .product-slider-section .product-slider-wrapper {
   position: relative;
+}
+.product-slider-section .product-slider__controller {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 .product-slider-section .product-slider__controller-button--next,
 .product-slider-section .product-slider__controller-button--prev {
@@ -5298,19 +5309,65 @@ a.button--secondary:hover {
   position: absolute;
   top: 40%;
   cursor: pointer;
+  pointer-events: auto;
+}
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--next,
+  .product-slider-section .product-slider__controller-button--prev {
+    background-color: var(--clr-black);
+    width: 55px;
+    height: 55px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .product-slider-section .product-slider__controller-button--next,
+  .product-slider-section .product-slider__controller-button--prev {
+    top: 30%;
+    width: 35px;
+    height: 35px;
+  }
 }
 .product-slider-section .product-slider__controller-button--next svg,
 .product-slider-section .product-slider__controller-button--prev svg {
   max-width: 25px;
 }
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--next svg path,
+  .product-slider-section .product-slider__controller-button--prev svg path {
+    fill: var(--clr-white);
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .product-slider-section .product-slider__controller-button--next svg,
+  .product-slider-section .product-slider__controller-button--prev svg {
+    max-width: 16px;
+  }
+}
 .product-slider-section .product-slider__controller-button--next {
   left: 100%;
   margin-left: 10px;
 }
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--next {
+    left: auto;
+    right: 0;
+    border-radius: 0;
+    margin-right: 15px;
+  }
+}
 .product-slider-section .product-slider__controller-button--prev {
   right: 100%;
   left: auto;
-  margin-right: 10px;
+  margin-right: 9px;
+}
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--prev {
+    right: auto;
+    left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    margin-left: 30px;
+  }
 }
 .product-slider-section .product-slider__controller-button--next:after,
 .product-slider-section .product-slider__controller-button--prev:after {
@@ -5573,7 +5630,6 @@ a.button--secondary:hover {
   width: 100%;
   height: auto;
   max-height: 600px;
-  margin: 0 10px;
 }
 .product-card.disabled {
   opacity: 0.9;
@@ -5745,6 +5801,29 @@ a.button--secondary:hover {
 }
 .product-card__actions.active .product-card__actions--image img {
   transform: scale(1.05);
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+@media screen and (min-width: 768px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1024;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1585.87px;
+  }
 }
 /**
 * Convert PX to EM
@@ -6011,8 +6090,20 @@ a.button--secondary:hover {
   width: 100%;
   margin: 30px 0 72px;
 }
+.product-slider-section .product-slider .slick-track {
+  display: flex;
+  gap: 0 20px;
+}
 .product-slider-section .product-slider-wrapper {
   position: relative;
+}
+.product-slider-section .product-slider__controller {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 .product-slider-section .product-slider__controller-button--next,
 .product-slider-section .product-slider__controller-button--prev {
@@ -6028,19 +6119,65 @@ a.button--secondary:hover {
   position: absolute;
   top: 40%;
   cursor: pointer;
+  pointer-events: auto;
+}
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--next,
+  .product-slider-section .product-slider__controller-button--prev {
+    background-color: var(--clr-black);
+    width: 55px;
+    height: 55px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .product-slider-section .product-slider__controller-button--next,
+  .product-slider-section .product-slider__controller-button--prev {
+    top: 30%;
+    width: 35px;
+    height: 35px;
+  }
 }
 .product-slider-section .product-slider__controller-button--next svg,
 .product-slider-section .product-slider__controller-button--prev svg {
   max-width: 25px;
 }
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--next svg path,
+  .product-slider-section .product-slider__controller-button--prev svg path {
+    fill: var(--clr-white);
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .product-slider-section .product-slider__controller-button--next svg,
+  .product-slider-section .product-slider__controller-button--prev svg {
+    max-width: 16px;
+  }
+}
 .product-slider-section .product-slider__controller-button--next {
   left: 100%;
   margin-left: 10px;
 }
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--next {
+    left: auto;
+    right: 0;
+    border-radius: 0;
+    margin-right: 15px;
+  }
+}
 .product-slider-section .product-slider__controller-button--prev {
   right: 100%;
   left: auto;
-  margin-right: 10px;
+  margin-right: 9px;
+}
+@media only screen and (max-width: 1759px) {
+  .product-slider-section .product-slider__controller-button--prev {
+    right: auto;
+    left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    margin-left: 30px;
+  }
 }
 .product-slider-section .product-slider__controller-button--next:after,
 .product-slider-section .product-slider__controller-button--prev:after {
@@ -6048,28 +6185,5 @@ a.button--secondary:hover {
 }
 .product-slider-section .product-slider__controller-button--prev svg {
   transform: rotate(180deg);
-}
-/**
-* Convert PX to EM
-*
-* em-convert is a function of the gulp postcss-em package
-*
-**/
-/**
-* Example
-**/
-/**
-* Media queries
-**/
-@media screen and (min-width: 768px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1024;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1585.87px;
-  }
 }
 /*# sourceMappingURL=theme.css.map */
