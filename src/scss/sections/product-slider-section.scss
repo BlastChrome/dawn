@@ -1,7 +1,7 @@
 @use '../utilities/mx' as mx;
 
 .product-slider-section {
-  padding: 0 0 200px; // placeholder padding
+  padding: 0; // placeholder padding
 
   .product-tabs {
     display: flex;
@@ -65,8 +65,6 @@
     }
   }
 
-
-
   .product-slider-wrapper {
     position: relative;
   }
@@ -78,11 +76,6 @@
     top: 0;
     z-index: 2;
     pointer-events: none;
-    @include mx.mq('desktop-extra-wide', max) {
-      // position: initial;
-      // max-width: 400px;
-      // height: auto;
-    }
   }
 
   .product-slider__controller-button--next,
@@ -103,9 +96,10 @@
 
     @include mx.mq('desktop-extra-wide', max) {
       background-color: var(--clr-black);
-      width: 55px; 
+      width: 55px;
       height: 55px;
     }
+
     @include mx.mq('desktop', max) {
       top: 30%;
       width: 35px;
@@ -118,14 +112,14 @@
     max-width: 25px;
 
     @include mx.mq('desktop-extra-wide', max) {
-      path{
+      path {
         fill: var(--clr-white);
       }
     }
 
     @include mx.mq('desktop', max) {
       max-width: 16px;
-     
+
     }
   }
 
@@ -162,6 +156,39 @@
 
   .product-slider__controller-button--prev svg {
     transform: rotate(180deg);
+  }
+
+
+  // full width slider
+  .container-full {
+    .product-slider__controller-button--next,
+    .product-slider__controller-button--prev {
+      background-color: var(--clr-black);
+      width: 55px;
+      height: 55px;
+    }
+
+    .product-slider__controller-button--next svg,
+    .product-slider__controller-button--prev svg {
+      path {
+        fill: var(--clr-white);
+      }
+    }
+
+    .product-slider__controller-button--next {
+      left: auto;
+      right: 0;
+      border-radius: 0;
+      margin-right: 15px;
+    }
+
+    .product-slider__controller-button--prev {
+      right: auto;
+      left: 0;
+      margin-right: 0;
+      border-radius: 0;
+      margin-left: 30px;
+    }
   }
 
 }

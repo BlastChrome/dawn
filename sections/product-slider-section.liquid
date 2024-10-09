@@ -2,7 +2,39 @@
 {{ 'slick.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'productCard.js' | asset_url }}" defer></script>
 
-<section class="product-slider-section section-{{ section.id }}" id="{{section.id}}">
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {% if section.settings.view_all %}
+    .view-all-wrapper{
+      margin-top: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  {% endif %}
+
+  {% if section.settings.grid_layout != blank  %}
+    {% assign grid_columns = section.settings.columns_desktop %}
+    .section-{{ section.id }} .product-slider--grid{
+      display: grid;
+      gap: 30px;
+      padding: 0 15px;
+      grid-template-columns: repeat({{ grid_columns }}, 1fr);
+    }
+  {% endif %}
+{%- endstyle -%}
+
+<section class="product-slider-section section-{{ section.id }} section-{{ section.id }}-padding" id="{{section.id}}">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -30,16 +62,35 @@
           {% endif %}
         </div>
         <div class="product-tabs__separator product-tabs__separator--horizontal"></div>
+      </div>
+    </div>
+  </div>
+  <div class="{% if section.settings.full_width %} container-full {% else %} container {% endif %}">
+    <div class="row">
+      <div class="col-12">
         <div class="product-slider-wrapper">
-          <div class="product-slider__controller">
-            <button class="product-slider__controller-button product-slider__controller-button--prev" data-slick="prev">
-              {{ 'product-slider-section-prev.svg' | inline_asset_content }}
-            </button>
-            <button class="product-slider__controller-button product-slider__controller-button--next" data-slick="next">
-              {{ 'product-slider-section-next.svg' | inline_asset_content }}
-            </button>
-          </div>
-          <div class="product-slider product-slider--init" data-slick="slider">
+          {% if section.settings.grid_layout == false %}
+            <div class="product-slider__controller">
+              <button
+                class="product-slider__controller-button product-slider__controller-button--prev"
+                data-slick="prev"
+              >
+                {{ 'product-slider-section-prev.svg' | inline_asset_content }}
+              </button>
+              <button
+                class="product-slider__controller-button product-slider__controller-button--next"
+                data-slick="next"
+              >
+                {{ 'product-slider-section-next.svg' | inline_asset_content }}
+              </button>
+            </div>
+          {% endif %}
+          <div
+            class="product-slider {% if section.settings.grid_layout %} product-slider--grid {% else %} product-slider--init {% endif %}"
+            {% unless section.settings.grid_layout %}
+              data-slick="slider"
+            {% endunless %}
+          >
             {% if section.settings.product_collection_one and section.settings.active_tab == 'product-tab-1' %}
               {% assign collection = collections[section.settings.product_collection_one] %}
             {% elsif section.settings.product_collection_two and section.settings.active_tab == 'product-tab-2' %}
@@ -47,16 +98,15 @@
             {% endif %}
             {% if collection %}
               {% for product in collection.products %}
-                {% assign first_variant = product.variants.first %}
                 {% if section.settings.show_secondary_image == true %}
                   {% assign image_two = product.media[1] %}
                 {% endif %}
                 {%
                   render 'product-card',
                   product_form: product,
-                  product_varient_id: first_variant.id,
+                  product_varient_id: product.variants.first.id,
                   product_card_image: product.featured_media | default: product.featured_image,
-                  product_card_image_two: image_two
+                  product_card_image_two: image_two,  asdasd
                   product_card_category: product.type,
                   product_card_title: product.title,
                   product_card_price: product.price,
@@ -68,6 +118,16 @@
         </div>
       </div>
     </div>
+    {% if section.settings.view_all %}
+      {% assign view_all_class = 'button--' | append: section.settings.view_all_style %}
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="view-all-wrapper">
+            {% render 'button', button_text: 'View All', button_link: collection.url, button_class: view_all_class %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -98,9 +158,10 @@
     });
   }
 
+
   function handleTabSwitching(){
         // Select all tabs within the product slider section
-        const tabs = [...document.querySelectorAll('.product-tabs__title')];
+        const tabs = [...document.querySelectorAll('.section-{{ section.id }} .product-tabs__title')];
 
         // handle tab switching
         tabs.forEach((tab) => {
@@ -139,7 +200,7 @@
               const product_title = product.title;
               const product_featured_image = product.images[0].src;
               const product_category = product.product_type;
-    
+
               // re-construct the product card html
               const productHTML = `
                   <product-card class="product-card" data-slick="slide">
@@ -183,6 +244,12 @@
               `;
               $('.product-slider--init').append(productHTML);
             });
+            
+            {% if section.settings.view_all %}
+              const viewAllBtn = document.querySelector('.section-{{ section.id }} .view-all-wrapper a'); 
+              viewAllBtn.src = 'test';
+              console.log(viewAllBtn.href);
+            {% endif%} 
     
             // re-initialize the slider
             initCollectionSlider();
@@ -191,7 +258,7 @@
   }
 
   // re-initialize the slider in the editor
-  document.addEventListener('shopify:section:load', function (event) {
+  document.addEventListener('shopify:section:load', function () {
     initCollectionSlider()
   });
 
@@ -206,6 +273,30 @@
 {
   "name": "Collection Slider Section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    },
     {
       "type": "header",
       "content": "Tab Settings"
@@ -241,8 +332,30 @@
       "label": "Product Collection Two"
     },
     {
-      "type": "header",
-      "content": "Slide Settings"
+      "type": "checkbox",
+      "id": "view_all",
+      "label": "Enable View All Button",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "View View All Style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "solid"
     },
     {
       "type": "range",
@@ -252,6 +365,17 @@
       "max": 6,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make Products Full Width",
+      "default": false
     },
     {
       "type": "select",
@@ -274,6 +398,7 @@
       "label": "Autoplay Speed (seconds)",
       "info": "Autoplay must be enabled",
       "id": "autoplay_speed",
+      "unit": "sec",
       "min": 1,
       "max": 6,
       "step": 1,
@@ -294,6 +419,26 @@
         }
       ],
       "default": "yes"
+    },
+    {
+      "type": "header",
+      "content": "Grid Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "grid_layout",
+      "label": "Change to grid layout",
+      "info": "this setting will disable the carousel",
+      "default": false
+    },
+    {
+      "type": "range",
+      "label": "Products To Show",
+      "id": "grid_products_to_show",
+      "min": 3,
+      "max": 16,
+      "step": 1,
+      "default": 5
     },
     {
       "type": "header",

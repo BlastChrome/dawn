@@ -40,7 +40,8 @@ a.button{
         z-index: 1; 
     }
 
-    &--primary{
+    &--primary,
+    &--solid{
         border: 2px solid var(--clr-red);
         background-color: var(--clr-red);
 
@@ -56,6 +57,33 @@ a.button{
 
         &:hover{
             color: var(--clr-yellow);
+        }
+    }
+
+    &--outline,
+    &--link{
+        span{
+            color: var(--clr-red);
+        }
+    }
+
+    &--outline{
+        background: transparent;
+        border: 2px solid var(--clr-red);
+        &:after{
+            background: var(--clr-red);
+        }
+        &:hover{
+            span{
+                color: var(--clr-white);
+            }
+        }
+    }
+    &--link{
+        background-color: none;
+        border: none;
+        span{
+            text-decoration: underline;
         }
     }
 }

@@ -9,7 +9,7 @@
   <form action="/cart/add.js" method="post" class="product-card__form">
     <!-- Hidden input for variant ID -->
     <input type="hidden" name="id" value="{{ product_varient_id }}">
-    <div class="product-card__actions active {% if product_card_image_two == null %}image-single {% endif %}">
+    <div class="product-card__actions {% if product_card_image_two == null %}image-single {% endif %}">
       <div class="product-card__actions--image">
         <div class="img-wrapper {% if product_card_image_two != null %}img-wrapper--one {% endif %}">
           <a href="{{ product_card_url }}">

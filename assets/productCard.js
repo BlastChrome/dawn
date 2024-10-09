@@ -43,7 +43,7 @@ if (!customElements.get('product-card')) {
             this.toggleAddToCartButton(this.addBtn.disabled);
           }, 600);
         } catch (e) {
-          this.addBtn.innerHTML('Error...');
+          this.addBtnText.innerHTML('Error...');
           setTimeout(() => {
             this.addBtn.disabled = true;
             this.toggleAddToCartButton(this.addBtn.disabled);
