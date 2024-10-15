@@ -132,101 +132,128 @@
 </section>
 
 <script>
-  
+
   function initCollectionSlider(){
-    $('.product-slider--init').slick({
-      slidesToShow: {{ section.settings.columns_desktop}},
-      slidesToScroll: {{ section.settings.columns_desktop}},
-      autoplay: "{{ section.settings.autoplay}}"  ==  "yes" ? true : false,
-      pauseOnHover: "{{ section.settings.pause_on_hover}}"  ==  "yes" ? true : false,
-      speed: 300,
-      {% if section.settings.autoplay == "yes" %}
-        autoplaySpeed: {{section.settings.autoplay_speed}} * 1000,
-      {% endif %}
-      arrows: true,
-      prevArrow: $('#{{ section.id }} [data-slick="prev"]'),
-      nextArrow: $('#{{ section.id }} [data-slick="next"]'),
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            arrows: false,
+    if($('#{{ section.id }} .product-slider--init').length){
+      $('.product-slider--init').slick({
+        slidesToShow: {{ section.settings.columns_desktop}},
+        slidesToScroll: {{ section.settings.columns_desktop}},
+        autoplay: "{{ section.settings.autoplay}}"  ==  "yes" ? true : false,
+        pauseOnHover: "{{ section.settings.pause_on_hover}}"  ==  "yes" ? true : false,
+        speed: 300,
+        {% if section.settings.autoplay == "yes" %}
+          autoplaySpeed: {{section.settings.autoplay_speed}} * 1000,
+        {% endif %}
+        arrows: true,
+        prevArrow: $('#{{ section.id }} [data-slick="prev"]'),
+        nextArrow: $('#{{ section.id }} [data-slick="next"]'),
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              arrows: false,
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+    }
   }
 
-  function handleProductLayout(products,layoutClass){
-     // Destroy current slider
-     if(layoutClass == '.product-slider--init'){
-      $(layoutClass).slick('unslick');
+
+  function handleProductLayout(products,layoutElement){
+
+    // Destroy current slider
+    if(layoutElement == '.product-slider--init'){
+      $(layoutElement).slick('unslick');
     }
+
     // Clear the contents of the wrapper
-    $(layoutClass).empty();
+    $(layoutElement).empty();
 
-     // Loop through the products and render them in the product slider
-     products.forEach((product) => {
-       // query the relevant product info
-       const first_varient_id = product.variants[0].id;
-       const first_varient_price = product.variants[0].price;
-       const product_title = product.title;
-       const product_featured_image = product.images[0].src;
-       const product_category = product.product_type;
-
-       // re-construct the product card html
-       const productHTML = `
-           <product-card class="product-card" data-slick="slide">
-             <form action="/cart/add.js" method="post" class="product-card__form">
-               <!-- Hidden input for variant ID -->
-               <input type="hidden" name="id" value="${first_varient_id}">
-
-               <div class="product-card__actions">
-                 <div class="product-card__actions--image">
-                   <a href="#">
-                     <img
-                       src="${product_featured_image}"
-                       alt="${product_title}"
-                       width="748"
-                       height="610"
-                     >
-                   </a>
-                 </div>
-                 <button type="submit" class="product-card__actions--cart">Add to Cart</button>
-
-                 <div class="product-card__actions-group">
-                   <button class="product-card__action product-card__action--favorite">
-                    {{ 'product-card-favorite.svg' | inline_asset_content }}
-                   </button>
-                   <button class="product-card__action product-card__action--share">
-                    {{ 'product-card-share.svg' | inline_asset_content }}
-                   </button>
-                   <button class="product-card__action product-card__action--zoom">
-                    {{ 'product-card-zoom.svg' | inline_asset_content }}
-                   </button>
-                 </div>
-               </div>
-
-               <div class="product-card__details">
-                 <h3 class="product-card__category">${product_category}</h3>
-                 <h2 class="product-card__title">${product_title}</h2>
-                 <p class="product-card__price">$${first_varient_price}</p>
-               </div>
-             </form>
-           </product-card>
-       `;
-       $(layoutClass).append(productHTML);
-     });
-     // re-initialize the slider
-     initCollectionSlider(); 
+     // Loop through the products and render them in the product slider, 
+     for(let i = 0; i < {{ section.settings.total_products_to_show }}; i++){
+            const product = products[i];
+            // query the relevant product info
+            const first_varient_id = product.variants[0].id;
+            const first_varient_price = product.variants[0].price;
+            const product_title = product.title;
+            const product_featured_image = product.images[0].src;
+            const product_url = product.url
+            {% if section.settings.show_secondary_image == true %}
+            const product_secondary_image = product.images[1].src;
+            {% endif %}
+            const product_category = product.product_type;
+     
+            // re-construct the product card html
+            const productHTML = `
+                <product-card class="product-card" data-slick="slide">
+                  <form action="/cart/add.js" method="post" class="product-card__form">
+                    <!-- Hidden input for variant ID -->
+                    <input type="hidden" name="id" value="${first_varient_id}">
+                    <div class="product-card__actions {% if section.settings.show_secondary_image == blank %} image-single {%endif %}">
+                      <div class="product-card__actions--image">
+                       <div class="img-wrapper {% if section.settings.show_secondary_image %} img-wrapper--one {% endif %}">
+                        <a href="${product_url}">
+                          <img
+                            src="${product_featured_image}"
+                            alt="${product_title}"
+                            width="748"
+                            height="610"
+                          >
+                        </a>
+                      </div>
+                   {% if section.settings.show_secondary_image %}
+                       <div class="img-wrapper img-wrapper--two">
+                         <a href="${product_url}">
+                           <img
+                             src="${product_secondary_image}"
+                             alt=""
+                             width="748"
+                             height="610"
+                           >
+                         </a>
+                       </div>
+                     {% endif %} 
+                      </div>
+                      
+                       <button type="submit" class="product-card__actions--cart">
+                          <span id="btn-text" class="actions__btn-text">Add to Cart</span>
+                         <span id="loader-spinner" class="loader-spinner"></span>
+                       </button>
+     
+                      <div class="product-card__actions-group">
+                        <button class="product-card__action product-card__action--favorite">
+                         {{ 'product-card-favorite.svg' | inline_asset_content }}
+                        </button>
+                        <button class="product-card__action product-card__action--share">
+                         {{ 'product-card-share.svg' | inline_asset_content }}
+                        </button>
+                        <button class="product-card__action product-card__action--zoom">
+                         {{ 'product-card-zoom.svg' | inline_asset_content }}
+                        </button>
+                      </div>
+                    </div>
+     
+                    <div class="product-card__details">
+                      <h3 class="product-card__category">${product_category}</h3>
+                      <h2 class="product-card__title">${product_title}</h2>
+                      <p class="product-card__price">$${first_varient_price}</p>
+                    </div>
+                  </form>
+                </product-card>
+            `;
+          $(layoutElement).append(productHTML); 
+    }
+     // re-initialize the slider 
+     if(layoutElement == '.product-slider--init')
+      initCollectionSlider(); 
   }
 
   function handleTabSwitching(){
         // Select all tabs within the product slider section
         const tabs = [...document.querySelectorAll('.section-{{ section.id }} .product-tabs__title')];
-
         // handle tab switching
         tabs.forEach((tab) => {
           tab.addEventListener('click', async (e) => {
@@ -272,6 +299,7 @@
   // re-initialize the slider in the editor
   document.addEventListener('shopify:section:load', function () {
     initCollectionSlider()
+    handleTabSwitching()
   });
 
   // initial setup for the section
@@ -388,16 +416,16 @@
       "default": 5
     },
     {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Enable Full Width",
+      "default": false
+    },
+    {
       "type": "header",
       "content": "Carousel Settings"
     },
 
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Make Products Full Width",
-      "default": false
-    },
     {
       "type": "select",
       "id": "autoplay",
