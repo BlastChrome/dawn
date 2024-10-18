@@ -17,12 +17,7 @@
   </div>
   <div class="banner-card__img">
     <div class="bg-circle">
-      <svg
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="50" cy="50" r="50"  fill="#B52F2B"/>
-      </svg>
+      {{ 'half-banner-card-circle.svg' | inline_asset_content }}
     </div>
     {% if banner_card_image %}
       <a href="{{ banner_card_button_link }}">

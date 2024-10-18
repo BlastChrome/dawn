@@ -52,11 +52,35 @@
         "product_collection_one": "featured",
         "product_collection_two": "new"
       }
-    }
+    },
+    "full-banner-card-section": {
+      "type": "full-banner-card-section",
+      "blocks": {
+        "block_QJ3Bc9": {
+          "type": "block",
+          "settings": {
+            "card_type": "primary",
+            "card_width": "full",
+            "card_subtitle": "NEW UP!",
+            "card_title": "UNLOCK YOUR BEST SELF",
+            "card_text": "Elevate your style on and off the field with our fashionable sportswear. 40% Off for 15-30 July only.",
+            "card_button_link": "#",
+            "card_button_text": "Shop Now"
+          }
+        },
+      },
+      "block_order": [
+        "block_QJ3Bc9",
+        "block_8PetNa"
+      ],
+      "settings": {
+      }
+    },
   },
   "order": [
     "featured-section",
     "half-banner-card-section",
-    "product-slider-section"
+    "product-slider-section",
+    "full-banner-card-section"
   ]
 }
