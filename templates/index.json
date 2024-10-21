@@ -76,11 +76,20 @@
       "settings": {
       }
     },
+    "product-listing-section": {
+      "type": "product-listing-section",
+      "settings": {
+        "active_tab": "product-tab-2",
+        "product_collection_one": "featured",
+        "product_collection_two": "new"
+      }
+    },
   },
   "order": [
     "featured-section",
     "half-banner-card-section",
     "product-slider-section",
-    "full-banner-card-section"
+    "full-banner-card-section",
+    "product-listing-section",
   ]
 }

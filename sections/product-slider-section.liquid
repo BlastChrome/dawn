@@ -133,9 +133,11 @@
 
 <script>
 
+  // Encapsulate the section logic inside IIFE
+(function(){
   function initCollectionSlider(){
     if($('#{{ section.id }} .product-slider--init').length){
-      $('.product-slider--init').slick({
+      $('#{{ section.id }} .product-slider--init').slick({
         slidesToShow: {{ section.settings.columns_desktop}},
         slidesToScroll: {{ section.settings.columns_desktop}},
         autoplay: "{{ section.settings.autoplay}}"  ==  "yes" ? true : false,
@@ -165,7 +167,7 @@
   function handleProductLayout(products,layoutElement){
 
     // Destroy current slider
-    if(layoutElement == '.product-slider--init'){
+    if(layoutElement == '#{{ section.id }} .product-slider--init'){
       $(layoutElement).slick('unslick');
     }
 
@@ -247,7 +249,7 @@
           $(layoutElement).append(productHTML); 
     }
      // re-initialize the slider 
-     if(layoutElement == '.product-slider--init')
+     if(layoutElement == '#{{ section.id }} .product-slider--init')
       initCollectionSlider(); 
   }
 
@@ -288,9 +290,9 @@
 
 
           {% if section.settings.grid_layout == false %}
-            handleProductLayout(products,'.product-slider--init')
+            handleProductLayout(products,'#{{ section.id }} .product-slider--init')
           {% else %}
-            handleProductLayout(products,'.product-slider--grid')
+            handleProductLayout(products,'#{{ section.id }} .product-slider--grid')
           {% endif %}
           });
         });
@@ -307,6 +309,7 @@
     initCollectionSlider();
     handleTabSwitching()
   });
+})()
 </script>
 
 {% schema %}
