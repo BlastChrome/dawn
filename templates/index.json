@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "featured-section": {
       "type": "featured-section",
@@ -47,12 +47,8 @@
           }
         }
       },
-      "block_order": [
-        "block_QJ3Bc9",
-        "block_8PetNa"
-      ],
-      "settings": {
-      }
+      "block_order": ["block_QJ3Bc9", "block_8PetNa"],
+      "settings": {}
     },
     "product-slider-section": {
       "type": "product-slider-section",
@@ -87,9 +83,7 @@
           }
         }
       },
-      "block_order": [
-        "block_QJ3Bc9"
-      ],
+      "block_order": ["block_QJ3Bc9"],
       "settings": {
         "padding_top": 40,
         "padding_bottom": 40
@@ -150,19 +144,52 @@
             "card_image_middle": "shopify://shop_images/minicard-second.png",
             "card_title_bottom": "Nike Air Max 3",
             "card_text_bottom": "From $40.00",
-            "card_image_bottom": "shopify://shop_images/minicard-third.png",
+            "card_image_bottom": "shopify://shop_images/minicard-third.png"
           }
         }
       },
-      "block_order": [
-        "promo_card_1",
-        "promo_card_2",
-        "mini_cards"
-      ],
+      "block_order": ["promo_card_1", "promo_card_2", "mini_cards"],
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "callout-banner-section": {
+      "type": "callout-banner-section",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title": "WE ARE DIFFERENT",
+        "text": "Discover our qualities that makes us different than other marketplace.",
+        "button_text": "More About Us",
+      }, 
+      "blocks": {
+        "icon_column_1": {
+          "type": "icon_column",
+          "settings": {
+            "title": "Worldwide Shipping",
+            "text": "Doesn’t matter wherever you are, you will always get your order.",
+            "icon": "worldwide"
+          }
+        },
+        "icon_column_2": {
+          "type": "icon_column",
+          "settings": {
+            "title": "Free Delivery",
+            "text": "No more additional fees other than what you pay for what you want.",
+            "icon": "delivery"
+          }
+        },
+        "icon_column_3": {
+          "type": "icon_column",
+          "settings": {
+            "title": "Secure Transaction",
+            "text": "We are a verified marketplace since 2018. Safety guarantee.",
+            "icon": "secure"
+          }
+        }
+      },
+      "block_order": ["icon_column_1", "icon_column_2", "icon_column_3"]
     }
   },
   "order": [
@@ -171,6 +198,7 @@
     "product-slider-section",
     "full-banner-card-section",
     "product-listing-section",
-    "product-promos-section"
+    "product-promos-section",
+    "callout-banner-section"
   ]
 }
