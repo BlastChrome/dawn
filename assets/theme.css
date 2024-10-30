@@ -295,6 +295,7 @@ h6 {
   --theme-font-h2-tab-3: 3.75em;
   --theme-font-h3-mob-1: 1em;
   --theme-font-h3-mob-2: 1.875em;
+  --theme-font-h3-mob-2-1: 2.125em;
   --theme-font-h3-mob-3: 2.5em;
   --theme-font-h3-mob-4: 0.75em;
   --theme-font-h3-tab-1: 2.5em;
@@ -6399,6 +6400,127 @@ a.button--link span {
   margin-bottom: 12px;
   transition: all 0.6s ease-in-out;
 }
+
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.blog-card-section__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
+.blog-card-section h2 {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-h2-mob-2-1);
+  color: var(--clr-smoke-2);
+  line-height: 44px;
+  letter-spacing: normal;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.blog-card-section h3 {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  letter-spacing: normal;
+  margin-bottom: 16px;
+}
+.blog-card-section p {
+  margin-bottom: 16px;
+}
+.blog-card-section .blog-block {
+  position: relative;
+}
+.blog-card-section .img {
+  overflow: hidden;
+  height: 394px;
+  margin-bottom: 40px;
+}
+.blog-card-section .img img {
+  width: auto;
+  height: 436px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.blog-card-section .date {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 100px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-white);
+}
+.blog-card-section .date span.day {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  letter-spacing: normal;
+}
+.blog-card-section .date span.month {
+  font-family: var(--font-family-2);
+  font-size: var(--theme-font-p-mob-3);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.arrow-button {
+  width: 100%;
+  max-width: 200px;
+  min-height: 52px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.arrow-button:hover .arrow-button__text {
+  color: var(--clr-red);
+}
+.arrow-button:hover .arrow-button__arrow {
+  transform: translateX(10px);
+}
+.arrow-button__text {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  margin: 0;
+  transition: all 0.6s ease-in-out;
+}
+.arrow-button__arrow {
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
 /**
 * Convert PX to EM
 *
@@ -7407,6 +7529,84 @@ a.button--link span {
 }
 .promo-card--secondary .bg-circle circle {
   fill: var(--clr-yellow);
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.blog-card-section__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
+.blog-card-section h2 {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-h2-mob-2-1);
+  color: var(--clr-smoke-2);
+  line-height: 44px;
+  letter-spacing: normal;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.blog-card-section h3 {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  letter-spacing: normal;
+  margin-bottom: 16px;
+}
+.blog-card-section p {
+  margin-bottom: 16px;
+}
+.blog-card-section .blog-block {
+  position: relative;
+}
+.blog-card-section .img {
+  overflow: hidden;
+  height: 394px;
+  margin-bottom: 40px;
+}
+.blog-card-section .img img {
+  width: auto;
+  height: 436px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.blog-card-section .date {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 100px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-white);
+}
+.blog-card-section .date span.day {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  letter-spacing: normal;
+}
+.blog-card-section .date span.month {
+  font-family: var(--font-family-2);
+  font-size: var(--theme-font-p-mob-3);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  letter-spacing: normal;
+  text-transform: uppercase;
 }
 /**
 * Convert PX to EM

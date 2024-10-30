@@ -190,6 +190,43 @@
         }
       },
       "block_order": ["icon_column_1", "icon_column_2", "icon_column_3"]
+    },
+    "blog-card-section": {
+      "type": "blog-card-section",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title": "Latest Updates",
+        "button_text": "See All Articles",
+      },  
+      "blocks": {
+        "blog_block_1": {
+          "type": "blog_block",
+          "settings": {
+            "title": "The LeBron X Nike Plus basketball shoes will retail for approximately $270",
+            "text": "Michael Davis",
+            "img": "shopify://shop_images/blog-thumbnail-1.png"
+          }
+        },
+        "blog_block_2": {
+          "type": "blog_block",
+          "settings": {
+            "title": "ECCO Men's Biom Hybrid Gore-tex Golf Shoe – Ascent Wear",
+            "text": "Sarah Thompson",
+            "img": "shopify://shop_images/blog-thumbnail-2.png"
+          }
+        },
+        "blog_block_3": {
+          "type": "blog_block",
+          "settings": {
+            "title": "Updates to the Therapeutic Shoes for Persons with Diabetes LCD",
+            "text": "Emily Wilson",
+            "img": "shopify://shop_images/blog-thumbnail-3.png"
+          }
+        },
+      },
+      "block_order": ["blog_block_1", "blog_block_2", "blog_block_3"]
+      
     }
   },
   "order": [
@@ -199,6 +236,7 @@
     "full-banner-card-section",
     "product-listing-section",
     "product-promos-section",
-    "callout-banner-section"
+    "callout-banner-section",
+    "blog-card-section"
   ]
 }

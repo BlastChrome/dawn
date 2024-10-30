@@ -1,0 +1,62 @@
+@use '../utilities/mx' as mx;
+
+.blog-card-section {
+    &__title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 64px;
+    }
+
+    h2 {
+        @include mx.font-source-sans(--font-family-1, --theme-font-h2-mob-2-1, --clr-smoke-2, false, 44px, normal);
+        text-transform: capitalize;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        @include mx.font-source-sans(--font-family-1, --theme-font-btn-tab-1, --clr-smoke-2, false, 32px, normal);
+        margin-bottom: 16px;
+    }
+
+    p {
+        margin-bottom: 16px;
+    }
+
+    .blog-block{
+        position: relative;
+    }
+
+    .img {
+        overflow: hidden;
+        height: 394px;
+        margin-bottom: 40px;
+
+        img {
+            width: auto;
+            height: 436px;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
+    .date{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 100px;
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--clr-white);
+
+        span.day{
+            @include mx.font-source-sans(--font-family-1, --theme-font-btn-tab-1, --clr-smoke-2, false, 32px, normal);
+        }
+        span.month{
+            @include mx.font-source-sans(--font-family-2, --theme-font-p-mob-3, --clr-smoke-2, false, 32px, normal);
+            text-transform: uppercase;
+        }
+    }
+}
