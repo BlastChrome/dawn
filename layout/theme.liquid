@@ -4,9 +4,11 @@
     {{ content_for_header }}
   </head>
   <body>
+    {% sections 'header-group' %}
     <main id="main" role="main">
       {{ content_for_layout }}
     </main>
+    {% sections 'footer-group' %}
     <script src="{{ 'jquery.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>

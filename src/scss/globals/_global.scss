@@ -56,6 +56,20 @@ a{
     display: none;
 }
 
+.horizontal-line,
+.vertical-line{
+    background-color: var(--clr-smoke-2);
+    opacity: 0.2;
+}
+.horizontal-line {
+    width: 100%;
+    height: 1px;
+}
+.vertical-line {
+    height: 100%;
+    width: 1px;
+}
+
 
 .loader-spinner{
     width: 20px;

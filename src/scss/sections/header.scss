@@ -1,0 +1,237 @@
+@use '../utilities/mx' as mx;
+
+.header {
+    background-color: var(--clr-white);
+
+    .vertical-line {
+        height: 24px;
+        margin: 0 16px;
+    }
+
+    &__address-bar {
+        padding: 22px 0;
+
+
+        @include mx.mq('tablet', max) {
+            padding: 12px 0;
+            display: none;
+        }
+
+        .location,
+        .settings {
+            display: flex;
+            align-items: center;
+        }
+
+        .location {
+            gap: 0 12px;
+
+            &:hover {
+                .location__text {
+                    color: var(--clr-red);
+                }
+
+                .location__pin {
+                    transform: scale(1.1);
+
+                    svg {
+                        path {
+                            fill: var(--clr-red);
+                            ;
+                        }
+                    }
+                }
+            }
+
+            @include mx.mq('tablet', max) {
+                justify-content: center;
+                margin-bottom: 5px;
+            }
+
+            &__pin {
+                transition: all 0.6s ease-in-out;
+
+                svg {
+                    path {
+                        transition: all 0.6s ease-in-out;
+                    }
+                }
+            }
+
+            &__text {
+                @include mx.font-source-sans(--font-family-2, --theme-font-p-mob-5, --clr-smoke-2, false, 20px);
+                padding: 0;
+                transition: all 0.6s ease-in-out;
+            }
+        }
+
+        .settings {
+            justify-content: flex-end;
+
+            @include mx.mq('tablet', max) {
+                justify-content: center;
+            }
+
+            select {
+                border: none;
+                background-color: transparent;
+            }
+
+
+
+            &__currency,
+            &__lang,
+            &__order-track {
+                @include mx.font-source-sans(--font-family-2, --theme-font-p-mob-5, --clr-smoke-2, false, 20px);
+            }
+
+
+            &__currency {}
+
+            &__lang {}
+
+            &__order-track {
+                &:hover {
+                    a {
+                        color: car(--clr-red);
+                    }
+                }
+
+                a {
+                    color: var(--clr-smoke-2);
+                }
+            }
+        }
+    }
+
+    &__logo-bar {
+        padding: 22px 0;
+
+        .row {
+            align-items: center;
+        }
+
+        .location,
+        .settings {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            margin: 0 auto;
+
+            @include mx.mq('tablet',max){
+                margin: 0 auto 0 0;
+            }
+
+            svg,
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .icon-group {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .user {
+                display: flex;
+                align-items: center;
+                gap: 0 16px;
+
+                &__text {
+                    @include mx.font-source-sans(--font-family-2-1, --theme-font-p-mob-1, --clr-smoke-2, false, 24px);
+                    text-transform: uppercase;
+                    opacity: 0.75;
+                    transition: all 0.5s ease-in-out;
+                }
+
+                svg {
+                    path {
+                        transition: all 0.5s ease-in-out;
+                    }
+                }
+
+                &:hover {
+                    .user__text {
+                        color: var(--clr-red);
+                        opacity: 1;
+                    }
+
+                    svg {
+                        path {
+                            fill: var(--clr-red);
+                        }
+                    }
+                }
+            }
+
+            .cart {
+                &__icon {
+                    svg {
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+
+                &:hover {
+                    .cart__icon {
+                        svg {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .search {
+            &:hover {
+                svg {
+                    transform: scale(1.1);
+                }
+            }
+
+            form {
+                display: flex;
+                gap: 12px;
+            }
+
+            input {
+                width: 100%;
+                max-width: 236px;
+                border: none;
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+            }
+
+            svg {
+                transition: all 0.5s ease-in-out;
+            }
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            max-width: 25px;
+            margin: 0 0 0 auto;
+            span.line {
+                width: 100%;
+                height: 3px;
+                background-color: var(--clr-red);
+            }
+        }
+    }
+
+    // header Varients
+    &--sticky {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 9999;
+    }
+}

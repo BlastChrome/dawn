@@ -40,15 +40,25 @@
                 <span class="day">2</span>
                 <span class="month">Feb</span>
               </div>
-              <img
-                src="{{ block.settings.img | img_url: 'master' }}"
-                alt="blog thumbnail"
-                width="auto"
-                height="auto"
-              >
+              <a href="#">
+                <img
+                  src="{{ block.settings.img | img_url: 'master' }}"
+                  alt="blog thumbnail"
+                  width="auto"
+                  height="auto"
+                >
+              </a>
             </div>
-            <h3>{{ block.settings.title }}</h3>
-            <p>{{ block.settings.text }}</p>
+            <h3>
+              <a href="#">
+                {{ block.settings.title }}
+              </a>
+            </h3>
+            <p>
+              <a href="#">
+                {{ block.settings.text }}
+              </a>
+            </p>
           </div>
         </div>
       {% endfor %}
