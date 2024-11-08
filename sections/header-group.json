@@ -18,10 +18,17 @@
               "nav_width": 150
             }
           },
+          "nav-bar": {
+            "type": "nav-bar",
+            "settings": {
+              "primary_nav": "main-menu", 
+            }
+          },
         },
         "block_order": [
           "address-bar",
           "logo-bar",
+          "nav-bar",
         ],
         "settings": { 
           "padding_top": 40, 
