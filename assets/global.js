@@ -1,34 +1,72 @@
-class MenuDrawer extends HTMLElement {
-  constructor() {
-    super();
-    this.nav = this.querySelector('nav');
-
-    //setup Functions
-  }
-  // define methods
-}
-
-customElements.define('menu-drawer', MenuDrawer);
-
 class TopHeader extends HTMLElement {
   constructor() {
     super();
-    this.nav = this.querySelector('nav');
+    this.nav = this.querySelector('.header__nav-bar');
     this.hamburger = this.querySelector('#hamburger');
-    //setup Functions
+    this.headerElements = [this.nav, this.hamburger];
+    this.outerLinks = [...this.nav.querySelectorAll('li.has-submenu')];
+    this.hasTitleLinksClickListener = false;
 
-    this.hamburger.addEventListener('click', this.handleHamburgerClick);
+    // attach event listerners
+    this.hamburger.addEventListener('click', this.handleHamburgerClick.bind(this));
+
+    window.addEventListener('resize', this.handleWindowResize.bind(this));
+    window.addEventListener('load', this.handleWindowResize.bind(this));
   }
 
   // define methods
-  handleHamburgerClick(e) {
-    // if the hamburger is not active, add the active class
-    if (this.classList.contains('open')) {
-      this.classList.remove('open');
-      return;
+  handleHamburgerClick() {
+    // toggle the active state of the hamburger
+    this.hamburger.classList.contains('open')
+      ? this.headerElements.forEach((item) => this.closeItems(item))
+      : this.headerElements.forEach((item) => this.openItems(item));
+  }
+
+  handleMBTitleLinkClick(e, link) {
+    e.preventDefault();
+
+    // show the submenu, if it exists
+    link.classList.contains('has-submenu') && !link.classList.contains('open')
+      ? this.openItems(link)
+      : this.closeItems(link);
+  }
+
+  removeMBTitleEvents() {
+    this.outerLinks.forEach((link) => {
+      this.closeItems(link);
+      link.querySelector('a').removeEventListener('click', link._clickHandler);
+      delete link._clickHandler;
+    });
+    this.hasTitleLinksClickListener = false;
+    console.log(this.hasTitleLinksClickListener);
+  }
+  addMbTitleEvents() {
+    this.outerLinks.forEach((link) => {
+      link._clickHandler = (e) => this.handleMBTitleLinkClick(e, link);
+      link.querySelector('a').addEventListener('click', link._clickHandler);
+    });
+    this.hasTitleLinksClickListener = true;
+    console.log(this.hasTitleLinksClickListener);
+  }
+
+  handleWindowResize() {
+    const BP = 768;
+    if (window.innerWidth <= BP) {
+      if (!this.hasTitleLinksClickListener) {
+        this.addMbTitleEvents();
+      }
+    } else {
+      if (this.hasTitleLinksClickListener) {
+        this.removeMBTitleEvents();
+      }
     }
-    this.classList.add('open');
+  }
+
+  openItems(item) {
+    item.classList.add('open');
+  }
+  closeItems(item) {
+    item.classList.remove('open');
   }
 }
-
 customElements.define('top-header', TopHeader);

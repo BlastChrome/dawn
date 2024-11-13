@@ -274,7 +274,7 @@
         display: flex;
         background-color: var(--clr-smoke-2);
 
-        @include mx.mq('tablet', max){
+        @include mx.mq('tablet', max) {
             background-color: var(--clr-white);
             position: absolute;
             right: 0;
@@ -283,11 +283,35 @@
             max-width: 65%;
             width: 100%;
             opacity: 1;
-            transform: translate(0);
-            transition: translate .3s ease-in-out;
+            transform: translateX(100%); // Start off-screen in mobile view
+            transition: transform 0.3s ease-in-out;
             z-index: 9999;
             border-top: 1px solid #ececec;
+    
+            &:after {
+                transition: all 0.3s ease-in-out;
+                content: "";
+                position: absolute;
+                opacity: 0;
+                right: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 9998;
+                background-color: rgba(71, 71, 71, 0.36);
+                pointer-events: none;
+                transform: translateX(-100%);
+            }
+    
+            &.open {
+                transform: translateX(0); 
+                &::after {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
         }
+
 
         ul {
             padding: 0;
@@ -337,7 +361,7 @@
                 padding: 0 14px;
                 display: flex;
                 align-items: center;
-                transition: all 0.3s ease-in-out;
+                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
                 @include mx.font-source-sans(--font-family-2-1, --theme-font-p-mob-1, --clr-white, false, 24px);
                 text-transform: uppercase;
 
@@ -368,8 +392,16 @@
                 }
             }
 
-            &.has-submenu:hover {
+            &.has-submenu:hover{
                 >.submenu {
+                    @include mx.mq('tablet',min){
+                        display: block;
+                    }
+                }
+            }
+
+            &.has-submenu{
+                &.open .submenu{
                     display: block;
                 }
             }

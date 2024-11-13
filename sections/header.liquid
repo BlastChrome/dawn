@@ -132,15 +132,15 @@
                   <nav>
                     <ul class="submenu-depth-0 nav nav--{{ nav.handle }}">
                       {% for link in nav.links %}
-                        <li class="{% if link.links.size > 0 %}has-submenu{% endif %}">
+                        <li class="outer-link {% if link.links.size > 0 %}has-submenu{% endif %}">
                           {% if link.links.size > 0 %}
-                            <a href="{{ link.url }}">
+                            <a class="nav-link" href="{{ link.url }}">
                               {{ link.title }}
                               <span class="nav-arrow">{{- 'nav-arrow-icon.svg' | inline_asset_content }}</span>
                             </a>
                             <ul class="submenu submenu-depth-1">
                               {% for sub_link in link.links %}
-                                <li class="{% if sub_link.links.size > 0 %}has-submenu{% endif %}">
+                                <li class="inner-link {% if sub_link.links.size > 0 %}has-submenu{% endif %}">
                                   {% if sub_link.links.size > 0 %}
                                     <a class="nav-link" href="{{ sub_link.url }}">
                                       {{- sub_link.title }}
@@ -148,8 +148,10 @@
                                     </a>
                                     <ul class="submenu submenu-depth-2">
                                       {% for sub_sub_link in sub_link.links %}
-                                        <li>
-                                          <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                                        <li class="inner-link">
+                                          <a class="nav-link" href="{{ sub_sub_link.url }}">
+                                            {{- sub_sub_link.title -}}
+                                          </a>
                                         </li>
                                       {% endfor %}
                                     </ul>

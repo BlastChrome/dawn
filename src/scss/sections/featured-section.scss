@@ -1,10 +1,14 @@
 @use '../utilities/mx' as mx;
 
 .featured-section {
-  padding: 350px 0 150px;
+  padding: 200px 0 150px;
   background-color: var(--clr-grey); 
   overflow: hidden;
 
+
+  @include mx.mq('tablet'){
+    padding: 350px 0 150px;
+  }
 
   @include mx.mq('desktop-medium'){
     padding-top: 200px;
