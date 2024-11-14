@@ -356,7 +356,7 @@
 
         }
 
-        .nav.nav--main-menu>li {
+        .nav.nav--main-menu li {
             a {
                 padding: 0 14px;
                 display: flex;
@@ -372,10 +372,22 @@
 
                 .nav-arrow{
                     svg{
+                        transform-origin:center;
                         path{
                             @include mx.mq('tablet', max){
                                 fill: var(--clr-smoke-2);
                             }
+                        }
+                    }
+                }
+            }
+
+            &.open{
+               > a{
+                   > .nav-arrow{
+
+                       > svg{
+                            transform: rotate(-90deg);
                         }
                     }
                 }
@@ -401,7 +413,7 @@
             }
 
             &.has-submenu{
-                &.open .submenu{
+                &.open > .submenu{
                     display: block;
                 }
             }
@@ -417,7 +429,10 @@
                 }
 
                 >.submenu {
-                    display: block;
+                    // display: block;
+                    @include mx.mq('tablet',min){
+                        display: block;
+                    }
                 }
             }
         }
@@ -444,7 +459,6 @@
             padding: 0;
 
             @include mx.mq('tablet',max){
-                // display: block;
                 position: inherit;
                 width: 100%;
             }
@@ -490,6 +504,15 @@
             }
         }
 
+        .nav.nav--main-menu .submenu.submenu-depth-1 {
+            >li {
+                >a {
+                    @include mx.mq('tablet', max){
+                        padding: 5px 5px 5px 15px;
+                    }
+                }
+            }
+        }
         .nav.nav--main-menu .submenu.submenu-depth-2 {
             left: 100%;
             top: 0;
@@ -502,7 +525,7 @@
             >li {
                 >a {
                     @include mx.mq('tablet', max){
-                        padding: 5px 5px 5px 35px;
+                        padding: 5px 5px 5px 30px;
                     }
                 }
             }

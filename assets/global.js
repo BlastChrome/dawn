@@ -38,7 +38,6 @@ class TopHeader extends HTMLElement {
       delete link._clickHandler;
     });
     this.hasTitleLinksClickListener = false;
-    console.log(this.hasTitleLinksClickListener);
   }
   addMbTitleEvents() {
     this.outerLinks.forEach((link) => {
@@ -46,7 +45,6 @@ class TopHeader extends HTMLElement {
       link.querySelector('a').addEventListener('click', link._clickHandler);
     });
     this.hasTitleLinksClickListener = true;
-    console.log(this.hasTitleLinksClickListener);
   }
 
   handleWindowResize() {
