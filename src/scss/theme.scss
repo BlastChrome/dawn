@@ -14,13 +14,18 @@
 // Global styles
 @import 'globals/global';
 
-// Components
-@import 'components/button';
-@import 'components/banner-card';
-@import 'components/product-card';
-@import 'components/full-banner-card';
-@import 'components/promo-card';
-@import 'components/mini-cards';
+
+// Snippets-global
+@import 'snippets/button';
+@import 'snippets/banner-card';
+@import 'snippets/product-card';
+@import 'snippets/full-banner-card';
+@import 'snippets/promo-card';
+@import 'snippets/mini-cards';
+
+// Snippets-header
+@import 'snippets/header-top-bar';
+@import 'snippets/header-logo-bar';
 
 // Sections
 @import 'sections/header';

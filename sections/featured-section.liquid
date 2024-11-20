@@ -1,7 +1,32 @@
 {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
 {{ 'slick.css' | asset_url | stylesheet_tag }}
 
-<section class="featured-section" id="featured-section">
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: 95px;
+      padding-bottom: 115px;
+    }
+
+  @media screen and (max-width: 991px) {
+    .section-{{ section.id }}-padding {
+      padding: 40px 0 120px;
+    }
+  }
+
+  /* Sticky Nav active */
+    .section-{{ section.id }}-sticky-padding {
+      padding-top: 200px;
+      padding-bottom: 115px;
+    }
+
+  @media screen and (max-width: 991px) {
+    .section-{{ section.id }}-sticky-padding {
+    padding: 200px 0 120px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="featured-section section-{{ section.id }} section-{{ section.id }}-padding" id="{{section.id}}">
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-6">
@@ -53,9 +78,6 @@
               </div>
             {% endfor %}
           {% else %}
-            {% comment %}
-              Placeholder image(s)
-            {% endcomment %}
             <div class="swiper-slide" data-slick="slide">
               <a
                 href="#"

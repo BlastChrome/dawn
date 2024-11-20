@@ -1,23 +1,8 @@
 @use '../utilities/mx' as mx;
 
 .featured-section {
-  padding: 200px 0 150px;
   background-color: var(--clr-grey); 
   overflow: hidden;
-
-
-  @include mx.mq('tablet'){
-    padding: 350px 0 150px;
-  }
-
-  @include mx.mq('desktop-medium'){
-    padding-top: 200px;
-  }
-
-  @include mx.mq('desktop-medium'){
-    padding-top: 436px;  //placeholder value
-    padding-bottom: 115px;
-  }
 
   .textbox{
     text-align: center;
@@ -28,7 +13,8 @@
   }
 
   h1{
-    max-width: 500px; 
+    // max-width: 500px; 
+    max-width: 320px;
     margin: 0 auto 20px;
 
     @include mx.mq('tablet-wide'){

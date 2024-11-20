@@ -6,39 +6,65 @@ class TopHeader extends HTMLElement {
     this.headerElements = [this.nav, this.hamburger];
     this.outerLinks = [...this.nav.querySelectorAll('li.has-submenu')];
     this.hasTitleLinksClickListener = false;
+    this.isSticky = this.parentElement.classList.contains('header--sticky') ? true : false; // returns true if the sticky nav is enabled
 
-    // attach event listerners
     this.hamburger.addEventListener('click', this.handleHamburgerClick.bind(this));
-
     window.addEventListener('resize', this.handleWindowResize.bind(this));
     window.addEventListener('load', this.handleWindowResize.bind(this));
+
+    if (this.isSticky) {
+      this.handleStickyNavSettings();
+    }
   }
 
-  // define methods
   handleHamburgerClick() {
     // toggle the active state of the hamburger
-    this.hamburger.classList.contains('open')
-      ? this.headerElements.forEach((item) => this.closeItems(item))
-      : this.headerElements.forEach((item) => this.openItems(item));
+    if (this.hamburger.classList.contains('open')) {
+      this.headerElements.forEach((item) => item.classList.remove('open'));
+      !this.isSticky
+        ? (document.querySelector('body').style.overflowY = 'visible')
+        : (document.querySelector('body').style.overflowY = 'hidden');
+    } else {
+      // add the open class to the nav and hamburger
+      this.headerElements.forEach((item) => item.classList.add('open'));
+      // if sticky nav is not enabled, disable scroll on the body
+      !this.isSticky
+        ? (document.querySelector('body').style.overflowY = 'hidden')
+        : (document.querySelector('body').style.overflowY = 'visible');
+    }
   }
 
   handleMBTitleLinkClick(e, link) {
     e.preventDefault();
-
     // show the submenu, if it exists
     link.classList.contains('has-submenu') && !link.classList.contains('open')
-      ? this.openItems(link)
-      : this.closeItems(link);
+      ? link.classList.add('open')
+      : link.classList.remove('open');
+  }
+
+  handleStickyNavSettings() {
+    // get the nav
+    const nav = this.parentElement;
+
+    // get the first section on the page
+    const firstSection = document.querySelector('#main section'); // gets the first section within <main></main>
+
+    // add spacing equal to the height of the nav and then some
+    const observer = new ResizeObserver((entries) => {
+      firstSection.style.paddingTop = entries[0].contentRect.height + 50 + 'px';
+    });
+    observer.observe(nav);
   }
 
   removeMBTitleEvents() {
     this.outerLinks.forEach((link) => {
-      this.closeItems(link);
+      link.classList.remove('open');
       link.querySelector('a').removeEventListener('click', link._clickHandler);
       delete link._clickHandler;
     });
     this.hasTitleLinksClickListener = false;
   }
+
   addMbTitleEvents() {
     this.outerLinks.forEach((link) => {
       link._clickHandler = (e) => this.handleMBTitleLinkClick(e, link);
@@ -48,6 +74,7 @@ class TopHeader extends HTMLElement {
   }
 
   handleWindowResize() {
+    // default mobile breakpoint = 768px
     const BP = 768;
     if (window.innerWidth <= BP) {
       if (!this.hasTitleLinksClickListener) {
@@ -58,13 +85,6 @@ class TopHeader extends HTMLElement {
         this.removeMBTitleEvents();
       }
     }
-  }
-
-  openItems(item) {
-    item.classList.add('open');
-  }
-  closeItems(item) {
-    item.classList.remove('open');
   }
 }
 customElements.define('top-header', TopHeader);
