@@ -27,8 +27,11 @@
 @import 'snippets/header-top-bar';
 @import 'snippets/header-logo-bar';
 
-// Sections
+// global
 @import 'sections/header';
+@import 'sections/footer';
+
+// homepage
 @import 'sections/featured-section';
 @import 'sections/half-banner-card-section';
 @import 'sections/product-slider-section';
@@ -37,4 +40,9 @@
 @import 'sections/product-promos-section';
 @import 'sections/callout-banner-section';
 @import 'sections/blog-card-section';
-@import 'sections/footer';
+
+// main 
+@import 'sections/main-collection-title';
+
+
+

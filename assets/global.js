@@ -21,16 +21,10 @@ class TopHeader extends HTMLElement {
     // toggle the active state of the hamburger
     if (this.hamburger.classList.contains('open')) {
       this.headerElements.forEach((item) => item.classList.remove('open'));
-      !this.isSticky
-        ? (document.querySelector('body').style.overflowY = 'visible')
-        : (document.querySelector('body').style.overflowY = 'hidden');
+      document.querySelector('body').style.overflowY = 'visible';
     } else {
-      // add the open class to the nav and hamburger
       this.headerElements.forEach((item) => item.classList.add('open'));
-      // if sticky nav is not enabled, disable scroll on the body
-      !this.isSticky
-        ? (document.querySelector('body').style.overflowY = 'hidden')
-        : (document.querySelector('body').style.overflowY = 'visible');
+      document.querySelector('body').style.overflowY = 'hidden';
     }
   }
 

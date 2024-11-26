@@ -1,6 +1,7 @@
 @use '../utilities/mx' as mx;
 
-a.button{
+a.button,
+button.button{
 
     display: block;
     border: none;

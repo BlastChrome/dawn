@@ -1,7 +1,7 @@
 
   
 @font-face {
-    font-family: 'Montserrat Black Italic';
+    font-family: 'MontserratBlackItalic';
     src: url('./MontserratBlackItalic.eot');
     src: url('./MontserratBlackItalic.eot?#iefix') format('embedded-opentype'),
          url('./MontserratBlackItalic.woff2') format('woff2'),
@@ -35,6 +35,18 @@
         url('./MontserratBold.woff') format('woff'),
         url('./MontserratBold.ttf') format('truetype'),
         url('./MontserratBold.svg#MontserratBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'MontserratSemiBold';
+    src: url('{{ "MontserratSemiBold.eot" | asset_url }}');
+    src: url('./MontserratSemiBold.eot?#iefix') format('embedded-opentype'),
+        url('./MontserratSemiBold.woff2') format('woff2'),
+        url('./MontserratSemiBold.woff') format('woff'),
+        url('./MontserratSemiBold.ttf') format('truetype'),
+        url('./MontserratSemiBold.svg#MontserratSemiBold') format('svg');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
