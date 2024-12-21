@@ -50,7 +50,7 @@
   </div>
   <div class="{% if section.settings.full_width %} container-full {% else %} container {% endif %}">
     <div class="row">
-      <div class="col-3">
+      <div class="d-none d-md-block col-3 col-lg-2">
         <aside class="filter-sidebar">
           <!-- Filter Clear Button -->
           <div class="filter-clear">
@@ -261,7 +261,7 @@
           {% endif %}
         </aside>
       </div>
-      <div class="col-9">
+      <div class="col-12 col-lg-10">
         <div class="row">
           <div class="col-12 title-category-col">
             {% assign collection_one = collections[section.settings.product_collection_one] %}
