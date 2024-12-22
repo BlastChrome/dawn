@@ -50,8 +50,8 @@
   </div>
   <div class="{% if section.settings.full_width %} container-full {% else %} container {% endif %}">
     <div class="row">
-      <div class="d-none d-md-block col-3 col-lg-2">
-        <aside class="filter-sidebar">
+      <div class="d-none d-md-block col-12 col-md-3">
+        <aside class="filter-sidebar" id="filter-sidebar">
           <!-- Filter Clear Button -->
           <div class="filter-clear">
             <button class="clear-btn">
@@ -177,7 +177,7 @@
                   <div class="checkmark">
                     <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
                   </div>
-                  <label for="brand-skechers">Skechers (100)</label>
+                  <label for="brand-skechers">Sketchers (100)</label>
                 </div>
               </li>
             </ul>
@@ -239,6 +239,7 @@
               </div>
             </div>
           </div>
+
           <div class="horizontal-line"></div>
 
           {% if section.settings.show_ad != 'blank' %}
@@ -261,7 +262,7 @@
           {% endif %}
         </aside>
       </div>
-      <div class="col-12 col-lg-10">
+      <div class="col-12 col-md-9">
         <div class="row">
           <div class="col-12 title-category-col">
             {% assign collection_one = collections[section.settings.product_collection_one] %}
