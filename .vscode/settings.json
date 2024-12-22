@@ -11,5 +11,9 @@
     "editor.defaultFormatter": "Shopify.theme-check-vscode",
     "editor.formatOnSave": true
   },
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
   "themeCheck.checkOnSave": true
 }

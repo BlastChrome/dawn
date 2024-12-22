@@ -7,7 +7,6 @@ class TopHeader extends HTMLElement {
     this.outerLinks = [...this.nav.querySelectorAll('li.has-submenu')];
     this.hasTitleLinksClickListener = false;
     this.isSticky = this.parentElement.classList.contains('header--sticky') ? true : false; // returns true if the sticky nav is enabled
-
     this.hamburger.addEventListener('click', this.handleHamburgerClick.bind(this));
     window.addEventListener('resize', this.handleWindowResize.bind(this));
     window.addEventListener('load', this.handleWindowResize.bind(this));
