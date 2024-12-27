@@ -1,7 +1,6 @@
 class FacetFiltersForm extends HTMLElement {
   constructor() {
     super();
-    console.log(this);
   }
 }
 

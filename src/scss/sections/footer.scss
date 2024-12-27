@@ -1,6 +1,11 @@
 @use '../utilities/mx' as mx;
 
 .footer {
+
+    @include mx.mq('tablet', max) {
+        text-align: center
+    }
+
     h3 {
         @include mx.font-source-sans(--font-family-1, --theme-font-btn-tab-1, --clr-smoke-2, false, 32px, normal);
         margin-bottom: 16px;
@@ -18,6 +23,7 @@
                 @include mx.font-source-sans(--font-family-2, --theme-font-btn-mob-1, --clr-smoke-2, false, 24px);
                 transition: all 0.3 ease-in-out;
 
+
                 &:hover {
                     color: var(--clr-red)
                 }
@@ -29,8 +35,19 @@
         &__logo_block {
             max-width: 250px;
 
+            @include mx.mq('tablet', max) {
+                margin: 0 auto;
+            }
+
             .img--logo {
                 margin-bottom: 36px;
+
+                svg {
+                    @include mx.mq('tablet', max) {
+                        margin: 0 auto;
+                    }
+                }
+
             }
 
             li {
@@ -38,6 +55,10 @@
                     display: flex;
                     align-items: flex-start;
                     gap: 12px;
+
+                    @include mx.mq('tablet', max) {
+                        justify-content: center;
+                    }
 
                     .icon {
                         svg {
@@ -114,6 +135,12 @@
                 justify-content: space-between;
                 width: 100%;
                 gap: 5px;
+            }
+        }
+
+        &__nav_block {
+            @include mx.mq('tablet', max) {
+                margin: 0 auto 30px;
             }
         }
     }

@@ -1,6 +1,6 @@
 @use '../utilities/mx' as mx;
 
-.header{
+.header {
     &__nav-bar {
         display: flex;
         background-color: var(--clr-smoke-2);
@@ -20,8 +20,8 @@
             right: 0;
 
             &:after {
-                transition: all 0.3s ease-in-out;
                 content: "";
+                transition: all 0.3s ease-in-out;
                 position: absolute;
                 opacity: 0;
                 transform: translateX(-100%);
@@ -34,6 +34,7 @@
 
             &.open {
                 transform: translateX(0%);
+
                 &::after {
                     opacity: 1;
                     pointer-events: auto;

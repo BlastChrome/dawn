@@ -81,3 +81,43 @@ class TopHeader extends HTMLElement {
   }
 }
 customElements.define('top-header', TopHeader);
+
+class MenuDrawer extends HTMLElement {
+  constructor() {
+    super();
+    this.targets = Array.from(document.querySelectorAll(`[data-target='${this.id}']`));
+    this.content = document.querySelector('[data-drawer="content"');
+    this.overlay = document.querySelector('[data-drawer="overlay"');
+    this.handleOpenCloseEvents();
+
+    this.overlay.addEventListener('click', () => {
+      this.closeDrawer();
+    });
+  }
+
+  handleOpenCloseEvents() {
+    this.targets.forEach((target) => {
+      const action = target.getAttribute('data-drawer');
+      if (action == 'open') {
+        target.addEventListener('click', this.openDrawer.bind(this));
+      } else if (action == 'close') {
+        target.addEventListener('click', this.closeDrawer.bind(this));
+      }
+    });
+  }
+
+  openDrawer() {
+    this.overlay.classList.add('active');
+    this.content.classList.add('active');
+    // disable the sroll on the body
+    document.querySelector('body').style.overflowY = 'hidden';
+  }
+
+  closeDrawer() {
+    this.overlay.classList.remove('active');
+    this.content.classList.remove('active');
+    // enable the sroll on the body
+    document.querySelector('body').style.overflowY = 'visible';
+  }
+}
+customElements.define('menu-drawer', MenuDrawer);

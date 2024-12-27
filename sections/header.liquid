@@ -24,6 +24,7 @@
       {% endif %}
     {% endfor %}
   </top-header>
+  {% render 'filters', image_ad: section.settings.image_ad, show_ad: section.settings.show_ad, filter_type: 'drawer' %}
 </section>
 
 {% schema %}
