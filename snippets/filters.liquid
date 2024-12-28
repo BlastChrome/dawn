@@ -229,7 +229,7 @@
   {% if filter_type == 'drawer' %}
     <!-- Overlay -->
     <menu-drawer id="mobile-filters">
-      <div id="mobile-filters-overlay" class="filter--overlay" data-drawer="overlay"></div>
+      {% comment %} <div id="mobile-filters-overlay" class="filter--overlay" data-drawer="overlay"></div> {% endcomment %}
       <aside class="filter filter--drawer" data-drawer="content">
         <a href="#" id="close-btn" class="button button--black" data-target="mobile-filters" data-drawer="close">
           <span>Close Filters</span>
