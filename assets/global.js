@@ -10,7 +10,6 @@ class TopHeader extends HTMLElement {
     this.hamburger.addEventListener('click', this.handleHamburgerClick.bind(this));
     window.addEventListener('resize', this.handleWindowResize.bind(this));
     window.addEventListener('load', this.handleWindowResize.bind(this));
-
     if (this.isSticky) {
       this.handleStickyNavSettings();
     }
@@ -37,7 +36,7 @@ class TopHeader extends HTMLElement {
 
   handleStickyNavSettings() {
     // get the nav
-    const nav = this.parentElement;
+    const header = this.parentElement;
 
     // get the first section on the page
     const firstSection = document.querySelector('#main section'); // gets the first section within <main></main>
@@ -46,7 +45,7 @@ class TopHeader extends HTMLElement {
     const observer = new ResizeObserver((entries) => {
       firstSection.style.paddingTop = entries[0].contentRect.height + 50 + 'px';
     });
-    observer.observe(nav);
+    observer.observe(header);
   }
 
   removeMBTitleEvents() {
@@ -86,7 +85,7 @@ class MenuDrawer extends HTMLElement {
   constructor() {
     super();
     this.targets = Array.from(document.querySelectorAll(`[data-target='${this.id}']`));
-    this.content = document.querySelector('[data-drawer="content"');
+    this.content = this.querySelector('[data-drawer="content"');
     this.overlay = document.querySelector('[data-drawer="overlay"');
     this.handleOpenCloseEvents();
 

@@ -1,6 +1,6 @@
 @use '../utilities/mx' as mx;
 
-.header{
+.header {
     &__logo-bar {
         padding: 22px 0;
 
@@ -25,6 +25,16 @@
             img {
                 width: 100%;
                 height: auto;
+
+                @include mx.mq('tablet-wide', max) {
+                    max-width: 80px;
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                @include mx.mq('tablet', max) {
+                    margin: 0;
+                }
             }
         }
 

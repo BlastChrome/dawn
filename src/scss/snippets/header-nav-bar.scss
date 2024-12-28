@@ -8,7 +8,6 @@
         @include mx.mq('tablet', max) {
             background-color: var(--clr-white);
             position: absolute;
-            top: 138px;
             height: 100vh;
             max-width: 65%;
             width: 100%;

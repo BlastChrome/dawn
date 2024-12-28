@@ -1,7 +1,7 @@
 @use '../utilities/mx' as mx;
 
 
-.filters-container {
+.sortby-container {
 
     .filter {
         .horizontal-line {
@@ -233,68 +233,6 @@
             }
         }
 
-        .advertisement {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            height: 1258px;
-            margin-bottom: 20px;
-
-            @include mx.mq('desktop-medium', max) {
-                height: 400px;
-            }
-
-            @include mx.mq('tablet-wide', max) {
-                height: 300px;
-            }
-
-            @include mx.mq('tablet', max) {
-                height: 600px;
-            }
-
-            &:after {
-                position: absolute;
-                content: '';
-                background-color: #00000069;
-                width: 100%;
-                height: 100%;
-                z-index: 0;
-                top: 0;
-            }
-
-            .img {
-                position: absolute;
-                width: auto;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-
-                img {
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                }
-            }
-
-            &__text {
-                position: relative;
-                z-index: 1;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                margin-bottom: 48px;
-                width: 100%;
-            }
-
-            h3 {
-                @include mx.font-source-sans(--font-family-1, --theme-font-h2-mob-2-1, --clr-white, false, 44px, normal);
-                margin-bottom: 24px;
-                text-align: center;
-            }
-        }
 
     }
 
