@@ -19,6 +19,7 @@ main#main {
 
 
 .global--overlay {
+    display: none;
     position: fixed; // Ensure overlay covers the entire screen
     top: 0;
     left: 0;
@@ -33,6 +34,11 @@ main#main {
     &.active {
         opacity: 1;
         visibility: visible;
+    }
+
+    @include mx.mq('tablet-wide', max) {
+        display: block;
+
     }
 }
 

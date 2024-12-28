@@ -37,13 +37,9 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    @media screen and (max-width: 767px) {
-        .section-{{ section.id }} .product-slider--grid{
-        grid-template-columns: repeat(1, 1fr);
-      }
-    }
 {%- endstyle -%}
 
+{% render 'filters', image_ad: section.settings.image_ad, show_ad: section.settings.show_ad, filter_type: 'drawer' %}
 <section class="main-collection-grid section-{{ section.id }} section-{{ section.id }}-padding" id="{{section.id}}">
   <div class="{% if section.settings.full_width %} container-full {% else %} container {% endif %}">
     <div class="row">
@@ -56,7 +52,7 @@
       </div>
       <div class="col-12 col-lg-10">
         <div class="row">
-          <div class="col-6 d-lg-none">
+          <div class="col-12 col-sm-6 d-lg-none">
             <a
               href="#"
               id="filters-open-btn"
@@ -64,10 +60,10 @@
               data-target="mobile-filters"
               data-drawer="open"
             >
-              <span>Filters</span>
+              <span>Filter Products</span>
             </a>
           </div>
-          <div class="col-6 d-lg-none">
+          <div class="col-12 col-sm-6 d-lg-none">
             <a href="#" id="filters-open-btn" class="button black button--outline" data-drawer="open">
               <span>Sort</span>
             </a>

@@ -7,11 +7,12 @@
         height: 24px;
         margin: 0 16px;
     }
+
     // header Varients
     &--sticky {
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 9999;
+        z-index: 9997;
     }
 }
