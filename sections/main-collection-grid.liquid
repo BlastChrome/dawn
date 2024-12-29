@@ -60,29 +60,29 @@
       </div>
       <div class="col-12 col-lg-10">
         <div class="row">
-          <div class="col-12 col-sm-6 d-lg-none">
-            <a
-              href="#"
-              id="filters-open-btn"
-              class="button black button--outline"
-              data-target="mobile-filters"
-              data-drawer="open"
-            >
-              <span>Filter Products</span>
-              <span class="icon">{{ 'filter-hamburger.svg' | inline_asset_content }}</span>
-            </a>
-          </div>
-          <div class="col-12 col-sm-6 d-lg-none">
-            <a
-              href="#"
-              id="filters-open-btn"
-              data-target="mobile-sortby"
-              class="button black button--outline"
-              data-drawer="open"
-            >
-              <span>Sort By</span>
-              <span class="icon">{{ 'filter-sortby.svg' | inline_asset_content }}</span>
-            </a>
+          <div class="col-12 d-lg-none">
+            <div class="mb-filters-buttons">
+              <a
+                href="#"
+                id="filters-open-btn"
+                class="button black button--outline"
+                data-target="mobile-filters"
+                data-drawer="open"
+              >
+                <span>Filters</span>
+                <span class="icon">{{ 'filter-hamburger.svg' | inline_asset_content }}</span>
+              </a>
+              <a
+                href="#"
+                id="filters-open-btn"
+                data-target="mobile-sortby"
+                class="button black button--outline"
+                data-drawer="open"
+              >
+                <span>Sort By</span>
+                <span class="icon">{{ 'filter-sortby.svg' | inline_asset_content }}</span>
+              </a>
+            </div>
           </div>
         </div>
         <div class="row">
