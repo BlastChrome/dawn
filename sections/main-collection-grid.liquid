@@ -48,6 +48,7 @@
 
 {% render 'filters', image_ad: section.settings.image_ad, show_ad: section.settings.show_ad, filter_type: 'drawer' %}
 {% render 'sortby', filter_type: 'drawer' %}
+
 <section class="main-collection-grid section-{{ section.id }} section-{{ section.id }}-padding" id="{{section.id}}">
   <div class="{% if section.settings.full_width %} container-full {% else %} container {% endif %}">
     <div class="row">
@@ -88,20 +89,24 @@
         <div class="row">
           <div class="col-12 title-category-col">
             <p class="results-summary">Showing 1 of 150 results.</p>
-            <facet-filters-form>
+            {% comment %}
+              <facet-filters-form>
               <form id="facet-sort-form">
-                <div class="sort-by">
-                  <label for="sort-by-select" class="sort-by-label">Sort By</label>
-                  <div class="vert-line"></div>
-                  <select name="sort-by-select" id="sort-by-select" class="sort-by-select">
-                    <option value="featured">Featured</option>
-                    <option value="latest">Latest</option>
-                    <option value="price-high">Price: High to low</option>
-                    <option value="price-low">Price: Low to high</option>
-                  </select>
-                </div>
+            {% endcomment %}
+            <div class="sort-by">
+              <label for="sort-by-select" class="sort-by-label">Sort By</label>
+              <div class="vert-line"></div>
+              <select name="sort-by-select" id="sort-by-select" class="sort-by-select">
+                <option value="featured">Featured</option>
+                <option value="latest">Latest</option>
+                <option value="price-high">Price: High to low</option>
+                <option value="price-low">Price: Low to high</option>
+              </select>
+            </div>
+            {% comment %}
               </form>
-            </facet-filters-form>
+              </facet-filters-form>
+            {% endcomment %}
           </div>
         </div>
         <div class="row">
