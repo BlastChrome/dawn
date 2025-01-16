@@ -6779,7 +6779,6 @@ button.button--link span {
 .featured-section {
   background-color: var(--clr-grey);
   overflow: hidden;
-  display: none;
 }
 .featured-section .textbox {
   text-align: center;
@@ -7931,7 +7930,6 @@ button.button--link span {
 .featured-section {
   background-color: var(--clr-grey);
   overflow: hidden;
-  display: none;
 }
 .featured-section .textbox {
   text-align: center;
