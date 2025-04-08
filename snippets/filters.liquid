@@ -14,345 +14,307 @@
 {% endcomment %}
 
 <div class="filters-container">
-  {% if filter_type == 'sidebar' %}
-    <facet-filters-form>
+  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+  {% if filter_type == 'main_filters_sidebar' %}
+    <facet-filters-form class="sidebar-filters">
       <form>
-        <aside class="filter filter--sidebar">
-          <!-- Filter Clear Button -->
-          <div class="filter-clear">
-            <button class="clear-btn">
-              <span class="icon">X</span>
-              <span class="text">Clear All Filters </span>
-            </button>
-          </div>
-          {%- for filter in collection.filters -%}
-            <div class="filter-group">
-              <h3>{{ filter.label }}</h3>
-              {% case filter.type %}
-                {% when 'list' %}
-                  {% comment %} Size Filters {% endcomment %}
-                  {% if filter.label == 'Size' %}
-                    <div class="filter-group__buttons">
-                      {%- for filter_value in filter.values -%}
-                        <button class="button button--outline">
-                          <span>{{ filter_value.label }}</span>
-                        </button>
-                      {% endfor %}
-                    </div>
-                  {% else %}
-                    {% comment %} Filter CheckBoxes {% endcomment %}
-                    <ul>
-                      {%- for filter_value in filter.values -%}
-                        {% liquid
-                          assign input_id = 'Filter-' | append: filter.param_name | escape | append: '-' | append: forloop.index
-                        %}
-
-                        <li>
-                          <div class="checkboxWrapper">
-                            <input
-                              type="checkbox"
-                              id="{{input_id}}"
-                              value="{{ filter_value.label }}"
-                              name="{{ filter_value.param_name }}"
-                            >
-                            <div class="checkmark">
-                              <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                            </div>
-                            <label for="{{input_id}}">{{ filter_value.label }} ({{ filter_value.count }})</label>
-                          </div>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {% endif %}
-
-                {% when 'price_range' %}
-                  <div class="range">
-                    <!-- Slider -->
-                    <div class="range__slider">
-                      <div class="range__track"></div>
-                      <input
-                        class="range__slide-input range__slide-input--min"
-                        type="range"
-                        class="min-range"
-                        min="50"
-                        max="1000"
-                        value="50"
-                        step="1"
-                      >
-                      <input
-                        class="range__slide-input range__slide-input--max"
-                        type="range"
-                        class="min-range"
-                        min="50"
-                        max="1000"
-                        value="50"
-                        step="1"
-                      >
-                    </div>
-                    <div class="range__number">
-                      <div class="input-group">
-                        <label for="min-price">Min. Price</label>
-                        <input type="number" name="min-price" id="min-price">
-                      </div>
-                      <div class="input-group">
-                        <label for="max-price">Max. Price</label>
-                        <input type="number" name="max-price" id="max-price">
-                      </div>
-                    </div>
-                  </div>
-              {% endcase %}
+        <div class="wrapper sidebar-wrapper" data-filter="wrapper">
+          <aside class="filter filter--sidebar" data-filter="content">
+            <!-- Filter Clear Button -->
+            <div class="filter-clear">
+              <button class="clear-btn">
+                <span class="icon">X</span>
+                <span class="text">Clear All Filters </span>
+              </button>
+              {%- for filter in collection.filters -%}
+                {%- for value in filter.active_values -%}
+                  <facet-remove>
+                    {% render 'pill-button',
+                      pill_button_varient_class: 'primary',
+                      pill_button_url_to_remove: value.url_to_remove,
+                      pill_button_name: filter.label,
+                      pill_button_label: value.label,
+                      pill_button_param_name: value.param_name
+                    %}
+                  </facet-remove>
+                {%- endfor -%}
+              {%- endfor -%}
             </div>
-            <div class="horizontal-line"></div>
-          {%- endfor -%}
-
-          {% if show_ad != 'blank' %}
-            <a href="#">
-              <div class="advertisement advertisement--vertical">
-                <div class="img">
-                  <img
-                    src="{{ image_ad | img_url: 'master' }}"
-                    alt="advertisement"
-                    width="100%"
-                    height="auto"
-                  >
-                </div>
-                <div class="advertisement__text">
-                  <h3>Nike Shoes</h3>
-                  {% render 'button', button_text: 'Buy Now', button_link: '#', button_class: 'button--primary' %}
-                </div>
+            {%- for filter in collection.filters -%}
+              <div class="filter-group">
+                <h3>{{ filter.label }}</h3>
+                {% case filter.type %}
+                  {% when 'list' %}
+                    {% if filter.label == 'Size' %}
+                      <div class="filter-group__buttons">
+                        {%- for filter_value in filter.values -%}
+                          <button
+                            class=" button button--outline{% if filter_value.active %} active {% endif %}"
+                            id="{{input_id}}"
+                            value="{{ filter_value.label }}"
+                            name="{{ filter_value.param_name }}"
+                          >
+                            <span>{{ filter_value.label }}</span>
+                          </button>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                      <ul>
+                        {%- for filter_value in filter.values -%}
+                          {% liquid
+                            assign input_id = 'Filter-' | append: filter.param_name | escape | append: '-' | append: forloop.index
+                          %}
+                          <li>
+                            <div class="checkboxWrapper">
+                              <input
+                                type="checkbox"
+                                id="{{input_id}}"
+                                class="checkbox-filters checkbox-filters--sidebar"
+                                name="{{ filter_value.param_name }}"
+                                value="{{ filter_value.label }}"
+                                {% if filter_value.active %}
+                                  checked
+                                {% endif %}
+                              >
+                              <div class="checkmark">
+                                <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
+                              </div>
+                              <label for="{{input_id}}">{{ filter_value.label }} ({{ filter_value.count }})</label>
+                            </div>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {% endif %}
+                {% endcase %}
               </div>
-            </a>
-          {% endif %}
-        </aside>
+              <div class="horizontal-line"></div>
+            {%- endfor -%}
+
+            {% if show_ad != 'blank' %}
+              <a href="#">
+                <div class="advertisement advertisement--vertical">
+                  <div class="img">
+                    <img
+                      src="{{ image_ad | img_url: 'master' }}"
+                      alt="advertisement"
+                      width="100%"
+                      height="auto"
+                    >
+                  </div>
+                  <div class="advertisement__text">
+                    <h3>Nike Shoes</h3>
+                    {% render 'button', button_text: 'Buy Now', button_link: '#', button_class: 'button--primary' %}
+                  </div>
+                </div>
+              </a>
+            {% endif %}
+          </aside>
+        </div>
       </form>
     </facet-filters-form>
   {% endif %}
   {% comment %} Mobile filters {% endcomment %}
-  {% if filter_type == 'drawer' %}
-    <!-- Overlay -->
+  {% if filter_type == 'main_filters_drawer' %}
     <menu-drawer id="mobile-filters">
-      <aside class="filter filter--drawer" data-drawer="content">
-        <div class="filter-wrapper filter-wrapper__header">
-          <a href="#" id="close-btn" class="button button--black" data-target="mobile-filters" data-drawer="close">
-            <span>Filter Options</span>
-            <span>X</span>
-          </a>
-        </div>
-        <div class="filter-wrapper filter-wrapper__content">
-          <!-- Filter Clear Button -->
-          <div class="filter-clear">
-            <button class="clear-btn">
-              <span class="icon">X</span>
-              <span class="text">Clear All Filters </span>
-            </button>
-          </div>
-
-          <!-- Categories -->
-          <div class="filter-group">
-            <h3>Categories</h3>
-            <ul>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="new-in">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="new-in">New in Closet (50)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="featured-items">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="featured-items">Featured Items (150)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="mens-shoes">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="mens-shoes">Men's Shoes (220)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="womens-shoes">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="womens-shoes">Women's Shoes (350)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="kids-shoes">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="kids-shoes">Kids Shoes (120)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="sports-shoes">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="sports-shoes">Sports Shoes (80)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="sports-equipment">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="sports-equipment">Sports Equipmnet (70)</label>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="horizontal-line"></div>
-
-          <!-- Brands -->
-          <div class="filter-group">
-            <h3>Brands</h3>
-            <ul>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="brand-nike">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="brand-nike">Nike (430)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="brand-puma">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="brand-puma">Puma (320)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="brand-adidas">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="brand-adidas">Adidas (300)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="brand-reebok">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="brand-reebok">Reebok (280)</label>
-                </div>
-              </li>
-              <li>
-                <div class="checkboxWrapper">
-                  <input type="checkbox" id="brand-skechers">
-                  <div class="checkmark">
-                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
-                  </div>
-                  <label for="brand-skechers">Sketchers (100)</label>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="horizontal-line"></div>
-
-          <!-- Sizes -->
-          <div class="filter-group">
-            <h3>Sizes (US)</h3>
-            <div class="filter-group__buttons">
-              <button class="button button--outline active"><span>4</span></button>
-              <button class="button button--outline"><span>5</span></button>
-              <button class="button button--outline"><span>6</span></button>
-              <button class="button button--outline"><span>7</span></button>
-              <button class="button button--outline"><span>8</span></button>
-              <button class="button button--outline"><span>9</span></button>
-              <button class="button button--outline"><span>10</span></button>
-              <button class="button button--outline"><span>11</span></button>
-              <button class="button button--outline"><span>12</span></button>
+      <facet-filters-form class="mobile-filters">
+        <form>
+          <aside class="filter filter--drawer" data-drawer="content">
+            <div class="filter-wrapper filter-wrapper__header">
+              <a
+                href="#"
+                id="close-btn"
+                class="button button--black"
+                data-target="mobile-filters"
+                data-drawer="close"
+              >
+                <span>Filter Options</span>
+                <span>X</span>
+              </a>
             </div>
-          </div>
-          <div class="horizontal-line"></div>
+            <div class="wrapper mobile-wrapper mobile-wrapper--filters" data-filter="wrapper">
+              <div class="filter-wrapper filter-wrapper__content" data-filter="content">
+                <!-- Filter Clear Button -->
+                <div class="filter-clear">
+                  <button class="clear-btn">
+                    <span class="icon">X</span>
+                    <span class="text">Clear All Filters </span>
+                  </button>
+                  {%- for filter in collection.filters -%}
+                    {%- for value in filter.active_values -%}
+                      <facet-remove>
+                        {% render 'pill-button',
+                          pill_button_varient_class: 'primary',
+                          pill_button_url_to_remove: value.url_to_remove,
+                          pill_button_name: filter.label,
+                          pill_button_label: value.label,
+                          pill_button_param_name: value.param_name
+                        %}
+                      </facet-remove>
+                    {%- endfor -%}
+                  {%- endfor -%}
+                </div>
+                {%- for filter in collection.filters -%}
+                  <div class="filter-group">
+                    <h3>{{ filter.label }}</h3>
+                    {% case filter.type %}
+                      {% when 'list' %}
+                        {% if filter.label == 'Size' %}
+                          <div class="filter-group__buttons">
+                            {%- for filter_value in filter.values -%}
+                              <button
+                                class=" button button--outline{% if filter_value.active %} active {% endif %}"
+                                id="{{input_id}}"
+                                value="{{ filter_value.label }}"
+                                name="{{ filter_value.param_name }}"
+                              >
+                                <span>{{ filter_value.label }}</span>
+                              </button>
+                            {% endfor %}
+                          </div>
+                        {% else %}
+                          <ul>
+                            {%- for filter_value in filter.values -%}
+                              {% liquid
+                                assign input_id = 'Filter-' | append: filter.param_name | escape | append: '-' | append: forloop.index
+                              %}
+                              <li>
+                                <div class="checkboxWrapper">
+                                  <input
+                                    type="checkbox"
+                                    id="{{input_id}}"
+                                    class="checkbox-filters checkbox-filters--drawer"
+                                    name="{{ filter_value.param_name }}"
+                                    value="{{ filter_value.label }}"
+                                    {% if filter_value.active %}
+                                      checked
+                                    {% endif %}
+                                  >
+                                  <div class="checkmark">
+                                    <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
+                                  </div>
+                                  <label for="{{input_id}}">{{ filter_value.label }} ({{ filter_value.count }})</label>
+                                </div>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {% endif %}
+                    {% endcase %}
+                  </div>
+                  <div class="horizontal-line"></div>
+                {%- endfor -%}
 
-          <!-- Price Range -->
-          <div class="filter-group">
-            <h3>Price</h3>
-            <div class="range">
-              <!-- Slider -->
-              <div class="range__slider">
-                <div class="range__track"></div>
-                <input
-                  class="range__slide-input range__slide-input--min"
-                  type="range"
-                  class="min-range"
-                  min="50"
-                  max="1000"
-                  value="50"
-                  step="1"
-                >
-                <input
-                  class="range__slide-input range__slide-input--max"
-                  type="range"
-                  class="min-range"
-                  min="50"
-                  max="1000"
-                  value="50"
-                  step="1"
-                >
-              </div>
-              <div class="range__number">
-                <div class="input-group">
-                  <label for="min-price">Min. Price</label>
-                  <input type="number" name="min-price" id="min-price">
-                </div>
-                <div class="input-group">
-                  <label for="max-price">Max. Price</label>
-                  <input type="number" name="max-price" id="max-price">
-                </div>
+                {% if show_ad != 'blank' %}
+                  <a href="#">
+                    <div class="advertisement advertisement--vertical">
+                      <div class="img">
+                        <img
+                          src="{{ image_ad | img_url: 'master' }}"
+                          alt="advertisement"
+                          width="100%"
+                          height="auto"
+                        >
+                      </div>
+                      <div class="advertisement__text">
+                        <h3>Nike Shoes</h3>
+                        {% render 'button', button_text: 'Buy Now', button_link: '#', button_class: 'button--primary' %}
+                      </div>
+                    </div>
+                  </a>
+                {% endif %}
               </div>
             </div>
-          </div>
-
-          <div class="horizontal-line"></div>
-          {% if show_ad != 'blank' %}
-            <a href="#">
-              <div class="advertisement advertisement--vertical">
-                <div class="img">
-                  <img
-                    src="{{ image_ad | img_url: 'master' }}"
-                    alt="advertisement"
-                    width="100%"
-                    height="auto"
+            <div class="filter-wrapper filter-wrapper__footer">
+              <a
+                href="#"
+                id="close-btn"
+                class="button button--black"
+                data-target="mobile-filters"
+                data-drawer="close"
+              >
+                <span>Close</span>
+              </a>
+            </div>
+          </aside>
+        </form>
+      </facet-filters-form>
+    </menu-drawer>
+  {% endif %}
+  {% if filter_type == 'sortby_desktop' %}
+    <facet-filters-form>
+      <div class="sort-by">
+        <label for="sort-by-select" class="sort-by-label">Sort By</label>
+        <div class="vert-line"></div>
+        <form>
+          <div data-filter="wrapper">
+            <div data-filter="content">
+              <select name="sort-by-select" id="sort-by-select" class="sort-by-select" data-sortby="option">
+                {%- for option in sort_by_options -%}
+                  <option
+                    value="{{ option.value | escape }}"
+                    {% if option.value == sort_by %}
+                      selected="selected"
+                    {% endif %}
                   >
-                </div>
-                <div class="advertisement__text">
-                  <h3>Nike Shoes</h3>
-                  {% render 'button', button_text: 'Buy Now', button_link: '#', button_class: 'button--primary' %}
-                </div>
-              </div>
+                    {{ option.name | escape }}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </facet-filters-form>
+  {% endif %}
+  {% if filter_type == 'sortby_drawer' %}
+    <menu-drawer id="mobile-sortby">
+      <facet-filters-form class="mobile-filters">
+        <aside class="filter filter--drawer" data-drawer="content">
+          <div class="filter-wrapper filter-wrapper__header">
+            <a href="#" id="close-btn" class="button button--black" data-target="mobile-sortby" data-drawer="close">
+              <span>Sort Options</span>
+              <span>X</span>
             </a>
-          {% endif %}
-        </div>
-        <div class="filter-wrapper filter-wrapper__footer">
-          <a href="#" id="close-btn" class="button button--black" data-target="mobile-filters" data-drawer="close">
-            <span>Close</span>
-          </a>
-        </div>
-      </aside>
+          </div>
+          <form>
+            <div class="wrapper mobile-wrapper mobile-wrapper--sortby" data-filter="wrapper">
+              <div class="filter-wrapper filter-wrapper__content" data-filter="content">
+                <!-- Sort options -->
+                <div class="filter-group">
+                  <ul class="sort_by sort_by--mobile" data-sortby="checkbox">
+                    {%- for option in sort_by_options -%}
+                      <li>
+                        <div class="checkboxWrapper">
+                          {% assign input_id = 'sort-' | append: option.value | escape %}
+
+                          <input
+                            type="checkbox"
+                            id="{{ input_id }}"
+                            class="checkbox-sortby checkbox-sortby--drawer"
+                            value="{{ option.value | escape }}"
+                            {% if option.value == sort_by %}
+                              checked
+                            {% endif %}
+                          >
+                          <div class="checkmark">
+                            <span class="icon">{{ 'filter-checkmark.svg' | inline_asset_content }}</span>
+                          </div>
+                          <label for="{{input_id}}">{{ option.name | escape }}</label>
+                        </div>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+                <div class="horizontal-line"></div>
+              </div>
+            </div>
+          </form>
+          <div class="filter-wrapper filter-wrapper__footer">
+            <a href="#" id="close-btn" class="button button--black" data-target="mobile-sortby" data-drawer="close">
+              <span>Close</span>
+            </a>
+          </div>
+        </aside>
+      </facet-filters-form>
     </menu-drawer>
   {% endif %}
 </div>

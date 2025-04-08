@@ -5740,11 +5740,11 @@ button.button--link span {
 }
 .filters-container .filter h3 {
   font-family: var(--font-family-1);
-  font-size: var(--theme-font-btn-tab-1);
+  font-size: var(--theme-font-btn-mob-2);
   color: var(--clr-smoke-2);
   line-height: 32px;
   letter-spacing: normal;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .filters-container .filter .filter-group ul {
   list-style: none;
@@ -5840,18 +5840,20 @@ button.button--link span {
 }
 .filters-container .filter .filter-group .range__slider {
   position: relative;
-  margin: 40px 0;
+  margin: 25px 0;
   min-height: 2px;
   background-color: rgba(48, 48, 48, 0.2);
 }
 .filters-container .filter .filter-group .range__track {
   position: absolute;
-  height: 100%;
+  background-color: var(--clr-red);
+  height: 2px;
+  z-index: 0;
 }
 .filters-container .filter .filter-group .range__slide-input {
-  background: none;
   position: absolute;
   width: 100%;
+  background: none;
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
@@ -5860,8 +5862,8 @@ button.button--link span {
   appearance: none;
 }
 .filters-container .filter .filter-group .range__slide-input[type=range]::-webkit-slider-thumb {
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   border: 3px solid var(--clr-red);
   background: var(--clr-red);
@@ -5888,7 +5890,7 @@ button.button--link span {
 }
 @media only screen and (max-width: 1439px) {
   .filters-container .filter .filter-group .range__number {
-    flex-direction: column;
+    flex-direction: coluin;
     gap: 5px;
   }
 }
@@ -5925,6 +5927,7 @@ button.button--link span {
   padding-bottom: 5px;
   position: relative;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 @media only screen and (max-width: 1439px) {
   .filters-container .filter .filter-clear button.clear-btn {
@@ -6371,6 +6374,165 @@ button.button--link span {
 .sortby-container .filter-wrapper__footer #close-btn {
   padding: 10px;
   justify-content: center;
+}
+
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.arrow-button {
+  width: 100%;
+  max-width: 200px;
+  min-height: 52px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.arrow-button:hover .arrow-button__text {
+  color: var(--clr-red);
+}
+.arrow-button:hover .arrow-button__arrow {
+  transform: translateX(10px);
+}
+.arrow-button__text {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-btn-tab-1);
+  color: var(--clr-smoke-2);
+  line-height: 32px;
+  margin: 0;
+  transition: all 0.6s ease-in-out;
+}
+.arrow-button__arrow {
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.pill-button {
+  width: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  min-height: 25px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
+  background-color: var(--clr-black);
+  padding: 8px;
+  margin-bottom: 5px;
+}
+.pill-button:hover .pill-button__icon {
+  transform: rotate(270deg);
+}
+.pill-button__text {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-h3-mob-4);
+  color: var(--clr-white);
+  line-height: normal;
+  margin: 0;
+}
+.pill-button__icon {
+  opacity: 1;
+  transition: all 0.25s ease-in-out;
+  z-index: 1;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+}
+.pill-button__icon svg {
+  min-width: 10px;
+  height: 10px;
+}
+.pill-button__icon path {
+  fill: var(--clr-white);
+}
+
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.pagination-wrapper .pagination__list {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: 60px auto 0;
+}
+@media only screen and (max-width: 767px) {
+  .pagination-wrapper .pagination__list {
+    max-width: 300px;
+  }
+}
+.pagination-wrapper .pagination li {
+  display: flex;
+  align-items: center;
+}
+.pagination-wrapper .pagination li svg.no-squish {
+  flex: none;
+}
+.pagination-wrapper .pagination__item {
+  font-family: var(--font-family-2);
+  font-size: var(--theme-font-p-mob-3);
+  color: var(--clr-smoke-2);
+  line-height: 30px;
+  letter-spacing: 0px;
+  padding: 9px 20px;
+}
+@media only screen and (max-width: 767px) {
+  .pagination-wrapper .pagination__item {
+    padding: 5px 10px;
+  }
+}
+.pagination-wrapper .pagination__item--active {
+  color: var(--clr-white);
+  background-color: var(--clr-smoke-2);
+}
+.pagination-wrapper .pagination__item--last {
+  padding: 0;
+}
+@media only screen and (max-width: 767px) {
+  .pagination-wrapper .pagination__item {
+    font-size: var(--theme-font-p-mob-5);
+  }
+}
+.pagination-wrapper .pagination__item:hover {
+  text-decoration: underline;
+}
+.pagination-wrapper .pagination__arrow {
+  padding: 0;
+}
+.pagination-wrapper .pagination__arrow--next {
+  transform: rotate(180deg);
 }
 
 /**
@@ -8311,6 +8473,11 @@ button.button--link span {
   align-items: center;
   gap: 12px;
 }
+@media only screen and (max-width: 991px) {
+  .main-collection-grid .mb-filters-buttons #filters-open-btn {
+    margin-bottom: 0;
+  }
+}
 .main-collection-grid .mb-filters-buttons #filters-open-btn:nth-of-type(1) {
   border-right: none;
 }
@@ -8392,6 +8559,11 @@ button.button--link span {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 15px;
+}
+@media only screen and (max-width: 991px) {
+  .main-collection-grid .title-category-col {
+    margin-bottom: 20px;
+  }
 }
 .main-collection-grid .sort-by {
   display: flex;
@@ -9367,11 +9539,11 @@ button.button--link span {
 }
 .filters-container .filter h3 {
   font-family: var(--font-family-1);
-  font-size: var(--theme-font-btn-tab-1);
+  font-size: var(--theme-font-btn-mob-2);
   color: var(--clr-smoke-2);
   line-height: 32px;
   letter-spacing: normal;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .filters-container .filter .filter-group ul {
   list-style: none;
@@ -9467,18 +9639,20 @@ button.button--link span {
 }
 .filters-container .filter .filter-group .range__slider {
   position: relative;
-  margin: 40px 0;
+  margin: 25px 0;
   min-height: 2px;
   background-color: rgba(48, 48, 48, 0.2);
 }
 .filters-container .filter .filter-group .range__track {
   position: absolute;
-  height: 100%;
+  background-color: var(--clr-red);
+  height: 2px;
+  z-index: 0;
 }
 .filters-container .filter .filter-group .range__slide-input {
-  background: none;
   position: absolute;
   width: 100%;
+  background: none;
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
@@ -9487,8 +9661,8 @@ button.button--link span {
   appearance: none;
 }
 .filters-container .filter .filter-group .range__slide-input[type=range]::-webkit-slider-thumb {
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   border: 3px solid var(--clr-red);
   background: var(--clr-red);
@@ -9515,7 +9689,7 @@ button.button--link span {
 }
 @media only screen and (max-width: 1439px) {
   .filters-container .filter .filter-group .range__number {
-    flex-direction: column;
+    flex-direction: coluin;
     gap: 5px;
   }
 }
@@ -9552,6 +9726,7 @@ button.button--link span {
   padding-bottom: 5px;
   position: relative;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 @media only screen and (max-width: 1439px) {
   .filters-container .filter .filter-clear button.clear-btn {
@@ -10517,6 +10692,120 @@ button.button--link span {
   width: 100%;
   -o-object-position: bottom;
   object-position: bottom;
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.pagination-wrapper .pagination__list {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: 60px auto 0;
+}
+@media only screen and (max-width: 767px) {
+  .pagination-wrapper .pagination__list {
+    max-width: 300px;
+  }
+}
+.pagination-wrapper .pagination li {
+  display: flex;
+  align-items: center;
+}
+.pagination-wrapper .pagination li svg.no-squish {
+  flex: none;
+}
+.pagination-wrapper .pagination__item {
+  font-family: var(--font-family-2);
+  font-size: var(--theme-font-p-mob-3);
+  color: var(--clr-smoke-2);
+  line-height: 30px;
+  letter-spacing: 0px;
+  padding: 9px 20px;
+}
+@media only screen and (max-width: 767px) {
+  .pagination-wrapper .pagination__item {
+    padding: 5px 10px;
+  }
+}
+.pagination-wrapper .pagination__item--active {
+  color: var(--clr-white);
+  background-color: var(--clr-smoke-2);
+}
+.pagination-wrapper .pagination__item--last {
+  padding: 0;
+}
+@media only screen and (max-width: 767px) {
+  .pagination-wrapper .pagination__item {
+    font-size: var(--theme-font-p-mob-5);
+  }
+}
+.pagination-wrapper .pagination__item:hover {
+  text-decoration: underline;
+}
+.pagination-wrapper .pagination__arrow {
+  padding: 0;
+}
+.pagination-wrapper .pagination__arrow--next {
+  transform: rotate(180deg);
+}
+/**
+* Convert PX to EM
+*
+* em-convert is a function of the gulp postcss-em package
+*
+**/
+/**
+* Example
+**/
+/**
+* Media queries
+**/
+.pill-button {
+  width: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  min-height: 25px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
+  background-color: var(--clr-black);
+  padding: 8px;
+  margin-bottom: 5px;
+}
+.pill-button:hover .pill-button__icon {
+  transform: rotate(270deg);
+}
+.pill-button__text {
+  font-family: var(--font-family-1);
+  font-size: var(--theme-font-h3-mob-4);
+  color: var(--clr-white);
+  line-height: normal;
+  margin: 0;
+}
+.pill-button__icon {
+  opacity: 1;
+  transition: all 0.25s ease-in-out;
+  z-index: 1;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+}
+.pill-button__icon svg {
+  min-width: 10px;
+  height: 10px;
+}
+.pill-button__icon path {
+  fill: var(--clr-white);
 }
 /**
 * Convert PX to EM
