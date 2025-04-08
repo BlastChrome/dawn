@@ -1,18 +1,39 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-      "banner": {
-        "type": "main-collection-title",
-      },
-      "product-grid": {
-        "type": "main-collection-grid",
-        "settings": {
-          "image_ad": "shopify://shop_images/kicks4thalow_vertical_ad.jpg"
-        }
-      },
+  "sections": {
+    "banner": {
+      "type": "main-collection-title",
+      "settings": {}
     },
-    "order": [
-      "banner",
-      "product-grid",
-    ]
-  }
-  
+    "product-grid": {
+      "type": "main-collection-grid",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_ad": false,
+        "image_ad": "shopify://shop_images/kicks4thalow_vertical_ad.jpg",
+        "product_collection_one": "",
+        "products_per_page": 15,
+        "view_all": false,
+        "view_all_text": "View All",
+        "view_all_style": "solid",
+        "columns_desktop": 4,
+        "total_products_to_show": 15,
+        "full_width": false,
+        "show_secondary_image": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}
